@@ -1,0 +1,207 @@
+{
+  "mode": "skims",
+  "generated_at": "2026-07-01T04:06:01.228274+00:00",
+  "stats": {
+    "mode": "skims",
+    "forced_all_quick": true,
+    "min_score": 8.0,
+    "deep_divecandidates": 5,
+    "deep_cap": null,
+    "deep_selected": 0,
+    "quick_candidates": 5,
+    "quick_skim_target": null,
+    "quick_selected": 5
+  },
+  "deep_dive": [],
+  "quick_skim": [
+    {
+      "id": "2606.11990v2",
+      "source": "arxiv",
+      "title": "Time-Series Foundation Model Embeddings for Remaining Useful Life Estimation",
+      "abstract": "Remaining Useful Life (RUL) prediction is essential for industrial predictive maintenance, yet many learning-based approaches rely on extensive feature engineering or large labeled datasets to train task-specific sequence models. In this work, we introduce a lightweight learning approach, in which we leverage a frozen pretrained time-series foundation model (TSFM) and combine it with a small regression head for RUL estimation from multivariate sensor streams. More specifically, we use Chronos-2 as a frozen backbone to extract context window features and train a lightweight regression neural network for RUL prediction. Experiments on real-world industrial sensor data from two device types show that Chronos-2 features consistently improve over recurrent, convolutional, Transformer-based, and gradient-boosting baselines under the same preprocessing and evaluation protocol. We further analyze the impact of context length and find that performance improves significantly with longer histories, indicating that TSFM representation offer a practical and data-efficient alternative for RUL estimation in industrial settings.",
+      "authors": [
+        "Amir El-Ghoussani",
+        "Michele De Vita",
+        "Ronald Naumann",
+        "Vasileios Belagiannis"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published": "2026-06-10T12:14:16+00:00",
+      "link": "https://arxiv.org/pdf/2606.11990v2",
+      "tags": [
+        "keyword:heating-pipe",
+        "query:heating-pipe"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "RUL estimation using time-series foundation model embeddings",
+      "llm_evidence_cn": "使用时间序列基础模型嵌入进行剩余寿命预测",
+      "llm_evidence": "使用时间序列基础模型嵌入进行剩余寿命预测",
+      "canonical_evidence": "使用时间序列基础模型嵌入进行剩余寿命预测",
+      "llm_tldr_en": "A lightweight RUL estimation method using a frozen pretrained time-series foundation model (Chronos-2) and a small regression head, achieving strong performance on industrial sensor data.",
+      "llm_tldr_cn": "针对工业预测性维护中剩余寿命预测对大规模标注数据的依赖问题，提出了一种轻量级方法，利用预训练时间序列基础模型Chronos-2作为冻结特征提取器，结合小型回归网络实现剩余寿命估计。在两类实际工业传感器数据上的实验表明，该方法持续优于现有特征工程方法，为匮乏标签场景下的设备寿命预测提供了新思路。",
+      "llm_tldr": "针对工业预测性维护中剩余寿命预测对大规模标注数据的依赖问题，提出了一种轻量级方法，利用预训练时间序列基础模型Chronos-2作为冻结特征提取器，结合小型回归网络实现剩余寿命估计。在两类实际工业传感器数据上的实验表明，该方法持续优于现有特征工程方法，为匮乏标签场景下的设备寿命预测提供了新思路。",
+      "llm_tags": [
+        "query:heating-pipe"
+      ],
+      "matched_query_tag": "query:heating-pipe",
+      "matched_query_text": "estimation of remaining service life of pipes",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.05481v1",
+      "source": "arxiv",
+      "title": "Towards Unified and Data-Efficient Prognostics and Health Management with Tabular Foundation Models",
+      "abstract": "Data-driven Prognostics and Health Management (PHM) uses time-varying condition-monitoring data to diagnose system states and estimate remaining useful life in engineered assets. These tasks are central to maintenance planning, but industrial PHM data are often fragmented, partially observed, and poorly labeled, which hinders supervised learning. Foundation models offer a route toward reusable predictive systems, yet most time-series foundation models are designed for forecasting and assume long, coherent, regularly sampled sequences. To address this gap, we propose a framework for applying Tabular Foundation Models to industrial time series using in-context learning, and we evaluate them on a variety of PHM tasks. By converting raw unit-level signals into tabular rows, we show that these models perform well across multiple tasks - including prognostics, and diagnostics - and are highly data efficient. We compare them directly with sequence models, transformer baselines, and gradient-boosted trees under a common evaluation protocol. The results indicate that tabular foundation models achieve the best average ranks across prognostic and diagnostic tasks. Our findings further show that PFN-based models are competitive in low-data regimes, that temporal context can be preserved in the tabular representation, and that performance depends on representative context construction under subsampling. These results demonstrate that tabular foundation models provide a practical and general interface for heterogeneous PHM problems.",
+      "authors": [
+        "Raffael Theiler",
+        "Lev Telyatnikov",
+        "Leandro Von Krannichfeldt",
+        "Olga Fink"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "eess.SP"
+      ],
+      "published": "2026-06-03T22:00:29+00:00",
+      "link": "https://arxiv.org/pdf/2606.05481v1",
+      "tags": [
+        "keyword:heating-pipe",
+        "query:heating-pipe"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "prognostics and health management with remaining useful life estimation using tabular foundation models",
+      "llm_evidence_cn": "利用表格基础模型进行预测与健康管理，估计剩余使用寿命",
+      "llm_evidence": "利用表格基础模型进行预测与健康管理，估计剩余使用寿命",
+      "canonical_evidence": "利用表格基础模型进行预测与健康管理，估计剩余使用寿命",
+      "llm_tldr_en": "Proposes framework using Tabular Foundation Models for PHM tasks including RUL estimation; directly relevant to remaining service life prediction of pipes.",
+      "llm_tldr_cn": "提出一种利用表格基础模型进行工业时间序列预测与健康管理的框架，通过上下文学习实现剩余使用寿命的估计。该方法解决了工业数据碎片化和标签稀疏的问题，可应用于供热管道的剩余寿命预估，无需大量标注数据。",
+      "llm_tldr": "提出一种利用表格基础模型进行工业时间序列预测与健康管理的框架，通过上下文学习实现剩余使用寿命的估计。该方法解决了工业数据碎片化和标签稀疏的问题，可应用于供热管道的剩余寿命预估，无需大量标注数据。",
+      "llm_tags": [
+        "query:heating-pipe"
+      ],
+      "matched_query_tag": "query:heating-pipe",
+      "matched_query_text": "estimation of remaining service life of pipes",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.11990v1",
+      "source": "arxiv",
+      "title": "Time-Series Foundation Model Embeddings for Remaining Useful Life Estimation",
+      "abstract": "Remaining Useful Life (RUL) prediction is essential for industrial predictive maintenance, yet many learning-based approaches rely on extensive feature engineering or large labeled datasets to train task-specific sequence models. In this work, we introduce a lightweight learning approach, in which we leverage a frozen pretrained time-series foundation model (TSFM) and combine it with a small regression head for RUL estimation from multivariate sensor streams. More specifically, we use Chronos-2 as a frozen backbone to extract context window features and train a lightweight regression neural network for RUL prediction. Experiments on real-world industrial sensor data from two device types show that Chronos-2 features consistently improve over recurrent, convolutional, Transformer-based, and gradient-boosting baselines under the same preprocessing and evaluation protocol. We further analyze the impact of context length and find that performance improves significantly with longer histories, indicating that TSFM representation offer a practical and data-efficient alternative for RUL estimation in industrial settings.",
+      "authors": [
+        "Amir El-Ghoussani",
+        "Michele De Vita",
+        "Ronald Naumann",
+        "Valiseios Belagiannis"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published": "2026-06-10T12:14:16+00:00",
+      "link": "https://arxiv.org/pdf/2606.11990v1",
+      "tags": [
+        "keyword:heating-pipe",
+        "query:heating-pipe"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "remaining useful life estimation using time-series foundation model embeddings",
+      "llm_evidence_cn": "利用时间序列基础模型嵌入进行剩余使用寿命估计",
+      "llm_evidence": "利用时间序列基础模型嵌入进行剩余使用寿命估计",
+      "canonical_evidence": "利用时间序列基础模型嵌入进行剩余使用寿命估计",
+      "llm_tldr_en": "Lightweight RUL estimation using frozen Chronos-2 embeddings with a regression head; directly applicable to predicting remaining service life of heating pipes.",
+      "llm_tldr_cn": "提出一种轻量级剩余使用寿命预测方法，利用冻结的预训练时间序列基础模型（Chronos-2）提取上下文窗口特征，再训练小型回归网络进行RUL预测。在两个工业设备真实数据上验证了该方法的有效性，可迁移至供热管道的剩余寿命预估。",
+      "llm_tldr": "提出一种轻量级剩余使用寿命预测方法，利用冻结的预训练时间序列基础模型（Chronos-2）提取上下文窗口特征，再训练小型回归网络进行RUL预测。在两个工业设备真实数据上验证了该方法的有效性，可迁移至供热管道的剩余寿命预估。",
+      "llm_tags": [
+        "query:heating-pipe"
+      ],
+      "matched_query_tag": "query:heating-pipe",
+      "matched_query_text": "estimation of remaining service life of pipes",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.15709v1",
+      "source": "arxiv",
+      "title": "AI-Driven Framework for Adaptive Water Network Management with Proof-of-Concept Implementation: Addressing Non-Revenue Water in Jordan",
+      "abstract": "Jordan faces severe water scarcity with 50\\% of water produced is lost to leakage, theft and metering issues also known as non-revenue water (NRW). Traditional reactive approaches have proven insufficient for sustained NRW reduction. This paper proposes an intelligent framework integrating EPANET hydraulic modeling, digital twin technology, SCADA systems, and large language model (LLM)-based AI agents for continuous network monitoring and adaptive decision-making. The system combines real-time data streams with physics-based simulation to detect anomalies, employing retrieval-augmented generation (RAG) for policy interpretation and function calling for network control. A proof-of-concept implementation validates technical feasibility using EPYT with offline LLMs (llama3.1:8b via Ollama) on a 1,164-junction Amman district network. The system demonstrates automated hydraulic simulation, flow-based anomaly detection aligned with water distribution zone (DZ) practice, and AI-generated health reports with response times under 2 minutes and zero API costs. Burst detection relies on local flow anomaly analysis: a 30.1~L/s simulated leak produces measurable flow redistribution in 15 pipes, flagging a 15-junction cluster that localises the burst -- confirming alignment with water distribution zone (DZ) monitoring practice. The framework accommodates Jordan's intermittent supply patterns and limited automation through phased implementation, offering a scalable pathway for water-scarce regions to leverage intelligent automation for NRW reduction and operational efficiency.",
+      "authors": [
+        "Mohammed Fasha",
+        "Nahel Al-Maayta",
+        "Bilal Sowan",
+        "Mohammad Athamneh",
+        "Husam Barham"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI",
+        "cs.MA"
+      ],
+      "published": "2026-06-14T09:44:42+00:00",
+      "link": "https://arxiv.org/pdf/2606.15709v1",
+      "tags": [
+        "keyword:heating-pipe",
+        "query:heating-pipe"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "AI-driven leak detection framework for water networks transferable to heating pipes",
+      "llm_evidence_cn": "基于AI的水网泄漏检测框架可迁移至供热管道",
+      "llm_evidence": "基于AI的水网泄漏检测框架可迁移至供热管道",
+      "canonical_evidence": "基于AI的水网泄漏检测框架可迁移至供热管道",
+      "llm_tldr_en": "Proposes an intelligent framework integrating digital twin, SCADA, and LLM agents for continuous water network monitoring and leak detection.",
+      "llm_tldr_cn": "针对非收益水问题提出智能框架，融合EPANET水力建模、数字孪生、SCADA和LLM智能体，实现连续监测和异常检测，在约旦案例中验证有效，方法可迁移至供热管道泄漏检测。",
+      "llm_tldr": "针对非收益水问题提出智能框架，融合EPANET水力建模、数字孪生、SCADA和LLM智能体，实现连续监测和异常检测，在约旦案例中验证有效，方法可迁移至供热管道泄漏检测。",
+      "llm_tags": [
+        "query:heating-pipe"
+      ],
+      "matched_query_tag": "query:heating-pipe",
+      "matched_query_text": "techniques and methods for leak detection in pipelines",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.15840v1",
+      "source": "arxiv",
+      "title": "Multi-Stage Stochastic Optimization and Reinforcement Learning Approaches for Dynamic Inspection of Infrastructure Systems",
+      "abstract": "We study a dynamic inspection problem for infrastructure systems in which multiple vehicles are routed and scheduled to monitor components subject to heterogeneous and stochastic failures. A key challenge is endogenous uncertainty in which failure-time realizations are filtered through prior inspection actions and failure-propagation dynamics. This yields a multi-stage decision problem that integrates routing, scheduling, and decision-dependent reliability dynamics over time. We formulate the problem as a multi-stage stochastic mixed-integer program that jointly optimizes routing and scheduling decisions under endogenous uncertainty. We develop a stochastic dual dynamic integer programming (SDDiP) algorithm that integrates dual approximation, integer state reduction, and sampling-based forward simulation to approximate cost-to-go functions. In parallel, we propose a reinforcement learning framework that learns job clustering structures and routing policies through interaction with simulated system dynamics and failure processes. Numerical experiments on infrastructure networks with diverse topologies and failure patterns show that SDDiP yields high-quality solutions but faces scalability limitations, while the learning-based approach achieves strong scalability with competitive performance, highlighting a trade-off between optimality and tractability. This work advances the modeling of endogenous uncertainty in multi-stage stochastic routing problems and bridges stochastic programming with learning-based approaches. The results provide guidance on when to deploy optimization-based versus learning-based methods, enabling more effective and scalable inspection planning in practice. More broadly, the framework supports risk-aware allocation of inspection resources and improved reliability of critical infrastructure systems.",
+      "authors": [
+        "Juan-Alberto Estrada-Garcia",
+        "Siqian Shen"
+      ],
+      "primary_category": "math.OC",
+      "categories": [
+        "math.OC"
+      ],
+      "published": "2026-06-14T14:42:21+00:00",
+      "link": "https://arxiv.org/pdf/2606.15840v1",
+      "tags": [
+        "keyword:heating-pipe",
+        "query:heating-pipe"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "dynamic inspection optimization for infrastructure systems including pipes",
+      "llm_evidence_cn": "基础设施系统动态巡检优化，包括管道",
+      "llm_evidence": "基础设施系统动态巡检优化，包括管道",
+      "canonical_evidence": "基础设施系统动态巡检优化，包括管道",
+      "llm_tldr_en": "Formulates multi-stage stochastic optimization for routing and scheduling inspection vehicles to monitor infrastructure components subject to stochastic failures.",
+      "llm_tldr_cn": "针对基础设施系统动态巡检问题，建立多阶段随机混合整数规划模型，集成路由调度与决策依赖可靠性，并提出随机对偶动态整数规划算法求解，可应用于供热管道维护与失效检测。",
+      "llm_tldr": "针对基础设施系统动态巡检问题，建立多阶段随机混合整数规划模型，集成路由调度与决策依赖可靠性，并提出随机对偶动态整数规划算法求解，可应用于供热管道维护与失效检测。",
+      "llm_tags": [
+        "query:heating-pipe"
+      ],
+      "matched_query_tag": "query:heating-pipe",
+      "matched_query_text": "district heating pipe maintenance and failure detection",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    }
+  ]
+}

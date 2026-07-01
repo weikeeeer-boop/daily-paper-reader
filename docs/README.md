@@ -6,16 +6,16 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-06-22 ~ 2026-07-01
-- 运行时间：2026-07-01 03:58:59 UTC
+- 最新运行日期：2026-06-02 ~ 2026-07-01
+- 运行时间：2026-07-01 04:08:57 UTC
 - 运行状态：成功
 - 本次总论文数：5
-- 精读区：2
-- 速读区：3
+- 精读区：0
+- 速读区：5
 
 ### 今日简报（AI）
-本期日报精选5篇论文，聚焦电池退化变点检测与导波损伤诊断两大高价值方向。其中贝叶斯变点检测（8.0分）及多保真度卷积自编码器迁移学习（8.0分）最具启发性，分别展示了循环级健康指标的智能获取与有限实验数据下的诊断能力。建议读者深入PyMC实现或轻量化Transformer部署，以适配资源受限场景中的实际应用。
-- 详情：[/20260622-20260701/README](/20260622-20260701/README)
+今日精读5篇关于时间序列与表格基础模型在预测健康管理中的应用论文。最值得关注的是时间序列基础模型嵌入用于剩余寿命估计（9.0分）及统一数据高效PHM的表格基础模型（8.0分）。建议优先精读这两篇高分论文，深入理解基础模型如何提升设备故障预测的效率和准确性。
+- 详情：[/20260602-20260701/README](/20260602-20260701/README)
 
 ### 精读区论文标签
 1. [Bayesian Changepoint Detection for Smart Sensing of Battery Degradation: Cycle-Level Health Indicators and PyMC Implementation](/20260622-20260701/2606.26363v1-bayesian-changepoint-detection-for-smart-sensing-of-battery-degradation-cycle-level-health-indicators-and-pymc-implementation)  
@@ -26,15 +26,21 @@
    evidence：基于导波的多保真迁移学习损伤诊断，直接适用于管道泄漏检测
 
 ### 速读区论文标签
-1. [Lightweight Transformer Models for On-Device Fault Detection: A Benchmark Study on Resource-Constrained Deployment](/20260622-20260701/2606.24173v1-lightweight-transformer-models-for-on-device-fault-detection-a-benchmark-study-on-resource-constrained-deployment)  
-   标签：评分：7.0/10、query:heating-pipe
-   evidence：故障检测方法基准，可应用于管道泄漏检测
-2. [DeCoFlow: Structural Decomposition of Normalizing Flows for Continual Anomaly Detection](/20260622-20260701/2606.26687v1-decoflow-structural-decomposition-of-normalizing-flows-for-continual-anomaly-detection)  
-   标签：评分：7.0/10、query:heating-pipe
-   evidence：持续异常检测方法可应用于管道泄漏检测
-3. [Weighted Score-Oriented Losses for Temporally Localized Event Prediction](/20260622-20260701/2606.23145v1-weighted-score-oriented-losses-for-temporally-localized-event-prediction)  
-   标签：评分：6.0/10、query:heating-pipe
-   evidence：适用于管道漏点检测的时间事件预测方法
+1. [Time-Series Foundation Model Embeddings for Remaining Useful Life Estimation](/20260602-20260701/2606.11990v2-time-series-foundation-model-embeddings-for-remaining-useful-life-estimation)  
+   标签：评分：9.0/10、query:heating-pipe
+   evidence：使用时间序列基础模型嵌入进行剩余寿命预测
+2. [Towards Unified and Data-Efficient Prognostics and Health Management with Tabular Foundation Models](/20260602-20260701/2606.05481v1-towards-unified-and-data-efficient-prognostics-and-health-management-with-tabular-foundation-models)  
+   标签：评分：8.0/10、query:heating-pipe
+   evidence：利用表格基础模型进行预测与健康管理，估计剩余使用寿命
+3. [Time-Series Foundation Model Embeddings for Remaining Useful Life Estimation](/20260602-20260701/2606.11990v1-time-series-foundation-model-embeddings-for-remaining-useful-life-estimation)  
+   标签：评分：8.0/10、query:heating-pipe
+   evidence：利用时间序列基础模型嵌入进行剩余使用寿命估计
+4. [AI-Driven Framework for Adaptive Water Network Management with Proof-of-Concept Implementation: Addressing Non-Revenue Water in Jordan](/20260602-20260701/2606.15709v1-ai-driven-framework-for-adaptive-water-network-management-with-proof-of-concept-implementation-addressing-non-revenue-water-in-jordan)  
+   标签：评分：8.0/10、query:heating-pipe
+   evidence：基于AI的水网泄漏检测框架可迁移至供热管道
+5. [Multi-Stage Stochastic Optimization and Reinforcement Learning Approaches for Dynamic Inspection of Infrastructure Systems](/20260602-20260701/2606.15840v1-multi-stage-stochastic-optimization-and-reinforcement-learning-approaches-for-dynamic-inspection-of-infrastructure-systems)  
+   标签：评分：8.0/10、query:heating-pipe
+   evidence：基础设施系统动态巡检优化，包括管道
 
 
 <div class="dpr-home-promo-card">
