@@ -1,0 +1,135 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-07-01T22:09:02.288241+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 0,
+    "deep_cap": 6,
+    "deep_selected": 0,
+    "quick_candidates": 3,
+    "quick_skim_target": 11,
+    "quick_selected": 3
+  },
+  "deep_dive": [],
+  "quick_skim": [
+    {
+      "id": "2606.26306v1",
+      "source": "arxiv",
+      "title": "Fiber Bragg grating-based acoustic sensing system enabled by ML-trained, sub-picometer-tunable hybrid III-V/SiN lasers",
+      "abstract": "Distributed acoustic emission (AE) sensing is critical for early detection of structural degradation, yet conventional electrical sensors are difficult to scale and fiber-based approaches are limited by interrogation complexity and resolution. Here, we report an intelligent fiber Bragg grating (FBG) sensing system enabled by machine learning (ML)-trained hybrid III-V/SiN tunable lasers that achieve uniform, mode-hop-free, sub-picometer wavelength control. A supervised gradient-descent algorithm is used to learn the nonlinear electro-thermal tuning space of Vernier-based external-cavity lasers, enabling continuous tuning with <0.1 pm resolution and <0.5 dB power variation. This capability allows precise alignment to FBG reflection slopes for high-sensitivity acoustic detection. We demonstrate a four-laser interrogation system monitoring 16 FBG sensors distributed across multiple metallic structures, operating over a 35 nm wavelength span. The system autonomously identifies sensor resonances, dynamically tracks spectral shifts, and reconfigures interrogation wavelengths in response to localized acoustic events. Using pencil-lead break tests as calibrated AE sources, we show simultaneous multi-channel detection and adaptive spatial localization. The combination of narrow linewidth (<10 kHz), wide tunability, and ML-driven calibration enables robust, scalable, and high-resolution sensing. This approach establishes a pathway toward fully autonomous, distributed photonic sensing networks for real-time structural health monitoring.",
+      "authors": [
+        "Prabhav Gaur",
+        "Premanand Chandramani",
+        "Mohammed Alshamari",
+        "Yufei Chu",
+        "Abu Mitul",
+        "John Simons",
+        "Ibrahim G. Yayla",
+        "Ming Han",
+        "Ashok V. Krishnamoorthy"
+      ],
+      "primary_category": "physics.optics",
+      "categories": [
+        "physics.optics",
+        "eess.SY"
+      ],
+      "published": "2026-06-24T18:51:21+00:00",
+      "link": "https://arxiv.org/pdf/2606.26306v1",
+      "tags": [
+        "keyword:heating-pipe",
+        "query:heating-pipe"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "distributed acoustic emission sensing for early detection of structural degradation applicable to pipeline leak detection",
+      "llm_evidence_cn": "分布式声发射传感用于管道泄漏检测的结构退化早期识别",
+      "llm_evidence": "分布式声发射传感用于管道泄漏检测的结构退化早期识别",
+      "canonical_evidence": "分布式声发射传感用于管道泄漏检测的结构退化早期识别",
+      "llm_tldr_en": "Reports an intelligent FBG acoustic sensing system with ML-trained tunable lasers for high-resolution distributed AE sensing, directly applicable to pipeline leak detection.",
+      "llm_tldr_cn": "该论文报道了一种基于机器学习训练的可调谐激光器的智能光纤布拉格光栅声学传感系统，实现了亚皮米级波长的连续调谐，从而在分布式声发射检测中获得高精度。该系统可直接应用于管道泄漏的早期检测，通过监测结构退化特征实现管道健康监测。",
+      "llm_tldr": "该论文报道了一种基于机器学习训练的可调谐激光器的智能光纤布拉格光栅声学传感系统，实现了亚皮米级波长的连续调谐，从而在分布式声发射检测中获得高精度。该系统可直接应用于管道泄漏的早期检测，通过监测结构退化特征实现管道健康监测。",
+      "llm_tags": [
+        "query:heating-pipe"
+      ],
+      "matched_query_tag": "query:heating-pipe",
+      "matched_query_text": "techniques and methods for leak detection in pipelines",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2606.29339v1",
+      "source": "arxiv",
+      "title": "Two kinds of robustness are not the same: disentangling fault tolerance and low-SNR robustness in multi-domain event detection on real data",
+      "abstract": "Reliable event detection underpins induced-seismicity monitoring for Carbon dioxide Capture and Storage (CCS) and geothermal operations, distributed acoustic sensing (DAS), and industrial condition monitoring. In each setting a detector must stay reliable both when sensors fail and when the signal is buried in noise. These two failure modes are routinely conflated, and architectural complexity is often credited with robustness it may not deserve. We assemble a unified binary event-detection benchmark from three physically distinct real sources -- Hi-net seismic waveforms, Utah FORGE 2024 borehole DAS, and MAFAULDA industrial vibration -- each mapped to a common 8-channel, 256-sample representation, and evaluate a fault-tolerant detector (CEPHALON) trained with per-sample sensor-dropout against standard detectors (a 1D convolutional network, a temporal convolutional network, and a compact Transformer) trained with an identical recipe. On clean data every model is near-perfect (AUC ~ 0.99). Under progressive sensor loss, simple models with sensor-dropout are already robust and CEPHALON holds no advantage. Under additive noise, however, CEPHALON degrades far more gracefully: at -2.5 dB its overall AUC is 0.939 versus 0.532-0.572 for the convolutional baselines. Same-architecture ablations isolate the cause: disabling internal redundancy at inference reduces the low-SNR advantage only modestly, whereas removing sensor-dropout training collapses it (0.899 to 0.603 at -5 dB). The training recipe is therefore the dominant cause and parallel redundancy only secondary. We release a complete, numbered, reproducible pipeline so that every figure can be regenerated.",
+      "authors": [
+        "Isao Kurosawa"
+      ],
+      "primary_category": "physics.geo-ph",
+      "categories": [
+        "physics.geo-ph",
+        "cs.LG",
+        "eess.SP"
+      ],
+      "published": "2026-06-28T11:14:20+00:00",
+      "link": "https://arxiv.org/pdf/2606.29339v1",
+      "tags": [
+        "keyword:heating-pipe",
+        "query:heating-pipe"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "event detection for acoustic leak detection in pipes",
+      "llm_evidence_cn": "用于管道声学漏损检测的事件检测",
+      "llm_evidence": "用于管道声学漏损检测的事件检测",
+      "canonical_evidence": "用于管道声学漏损检测的事件检测",
+      "llm_tldr_en": "Analyzes fault tolerance and low-SNR robustness in multi-domain event detection on seismic, DAS, and industrial vibration data, relevant to pipe leak detection.",
+      "llm_tldr_cn": "针对碳封存、地热和工业监测中的事件检测，区分了传感器故障鲁棒性和低信噪比鲁棒性。构建了包含地震波形、分布式声传感和工业振动的统一基准。研究结论有助于设计更鲁棒的管道泄漏检测器，避免将噪声鲁棒性与容错能力混淆。",
+      "llm_tldr": "针对碳封存、地热和工业监测中的事件检测，区分了传感器故障鲁棒性和低信噪比鲁棒性。构建了包含地震波形、分布式声传感和工业振动的统一基准。研究结论有助于设计更鲁棒的管道泄漏检测器，避免将噪声鲁棒性与容错能力混淆。",
+      "llm_tags": [
+        "query:heating-pipe"
+      ],
+      "matched_query_tag": "query:heating-pipe",
+      "matched_query_text": "methods for detecting leaks in heating pipes",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2606.29349v1",
+      "source": "arxiv",
+      "title": "PDE-constrained optimization for virtual sensing in structural dynamics: Full-field displacement and force recovery from sparse sensors",
+      "abstract": "Virtual sensing -- recovering full-field structural response from sparse sensor measurements -- is a fundamental challenge in structural health monitoring. This study formulates virtual sensing as a PDE-constrained optimization (PDE-CO) problem, where the governing elastodynamic equation serves as an equality constraint, the applied force distribution is the optimization variable, and the full-field displacement and force are jointly recovered. Gradients of the Tikhonov-regularized objective are computed via reverse-mode automatic differentiation through the forward PDE solver, and L-BFGS iteratively finds the optimal state. The framework couples an offline FEniCSx stage for finite element assembly with an online GPU-accelerated JAX stage, and is verified on three examples of increasing complexity: a cantilever plate, a $90^\\circ$ elbow pipe, and a reactor pressure vessel (RPV) representative of a 300~MW pressurized nuclear reactor. PDE-CO consistently outperforms modal expansion across all three cases, reducing displacement errors by factors of $2$ to $17\\times$ with sub-percent accuracy on every example. Unlike modal expansion, where force is derived by back-calculation from truncated modal coordinates and is not jointly optimized, PDE-CO recovers displacement and force simultaneously through the PDE constraint; the increased computational cost is offset by GPU acceleration delivering up to $64.8\\times$ speedup over CPU.",
+      "authors": [
+        "Minjae Kim",
+        "Jaehwan Jeong",
+        "Jaemin Kim"
+      ],
+      "primary_category": "math-ph",
+      "categories": [
+        "math-ph"
+      ],
+      "published": "2026-06-28T11:42:53+00:00",
+      "link": "https://arxiv.org/pdf/2606.29349v1",
+      "tags": [
+        "keyword:heating-pipe",
+        "query:heating-pipe"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "PDE-constrained optimization for structural health monitoring of pipes",
+      "llm_evidence_cn": "基于PDE约束优化的管道结构健康监测",
+      "llm_evidence": "基于PDE约束优化的管道结构健康监测",
+      "canonical_evidence": "基于PDE约束优化的管道结构健康监测",
+      "llm_tldr_en": "Formulates virtual sensing as PDE-constrained optimization to recover full-field displacement and force from sparse sensors, applicable to pipe life estimation.",
+      "llm_tldr_cn": "提出将虚拟传感问题建模为PDE约束优化，通过自动微分和L-BFGS求解，从稀疏传感器数据中恢复全场位移和力分布。该方法可用于管道结构健康监测，通过全场响应估计管道损伤状态，进而辅助剩余使用寿命预测。在有限元仿真中验证了有效性。",
+      "llm_tldr": "提出将虚拟传感问题建模为PDE约束优化，通过自动微分和L-BFGS求解，从稀疏传感器数据中恢复全场位移和力分布。该方法可用于管道结构健康监测，通过全场响应估计管道损伤状态，进而辅助剩余使用寿命预测。在有限元仿真中验证了有效性。",
+      "llm_tags": [
+        "query:heating-pipe"
+      ],
+      "matched_query_tag": "query:heating-pipe",
+      "matched_query_text": "estimation of remaining service life of pipes",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    }
+  ]
+}

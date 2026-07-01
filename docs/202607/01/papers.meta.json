@@ -1,0 +1,54 @@
+{
+  "label": "2026-07-01",
+  "date": "2026-07-01",
+  "generated_at": "2026-07-01T22:11:09",
+  "count": 3,
+  "papers": [
+    {
+      "paper_id": "202607/01/2606.26306v1-fiber-bragg-grating-based-acoustic-sensing-system-enabled-by-ml-trained-sub-picometer-tunable-hybrid-iii-vsin-lasers",
+      "section": "quick",
+      "title_en": "Fiber Bragg grating-based acoustic sensing system enabled by ML-trained, sub-picometer-tunable hybrid III-V/SiN lasers",
+      "authors": "Prabhav Gaur, Premanand Chandramani, Mohammed Alshamari, Yufei Chu, Abu Mitul, John Simons, Ibrahim G. Yayla, Ming Han, Ashok V. Krishnamoorthy",
+      "date": "2026-06-24",
+      "pdf": "https://arxiv.org/pdf/2606.26306v1",
+      "score": "6.0",
+      "evidence": "分布式声发射传感用于管道泄漏检测的结构退化早期识别",
+      "tldr": "针对传统分布式声发射传感系统在可扩展性和分辨率上的局限，本文提出一种基于机器学习训练的混合III-V/SiN可调谐激光器的光纤布拉格光栅声学传感系统。利用监督梯度下降算法实现亚皮米级（<0.1 pm）线性波长调谐，精确对准FBG反射斜率。通过四激光器系统监测16个传感器，在35 nm波长范围内实现多通道声发射事件检测与自适应定位。该系统结合窄线宽、宽调谐和ML校准，为全自主分布式结构健康监测网络奠定基础。",
+      "tags": "query:heating-pipe",
+      "abstract_en": "Distributed acoustic emission (AE) sensing is critical for early detection of structural degradation, yet conventional electrical sensors are difficult to scale and fiber-based approaches are limited by interrogation complexity and resolution. Here, we report an intelligent fiber Bragg grating (FBG) sensing system enabled by machine learning (ML)-trained hybrid III-V/SiN tunable lasers that achieve uniform, mode-hop-free, sub-picometer wavelength control. A supervised gradient-descent algorithm is used to learn the nonlinear electro-thermal tuning space of Vernier-based external-cavity lasers, enabling continuous tuning with <0.1 pm resolution and <0.5 dB power variation. This capability allows precise alignment to FBG reflection slopes for high-sensitivity acoustic detection. We demonstrate a four-laser interrogation system monitoring 16 FBG sensors distributed across multiple metallic structures, operating over a 35 nm wavelength span. The system autonomously identifies sensor resonances, dynamically tracks spectral shifts, and reconfigures interrogation wavelengths in response to localized acoustic events. Using pencil-lead break tests as calibrated AE sources, we show simultaneous multi-channel detection and adaptive spatial localization. The combination of narrow linewidth (<10 kHz), wide tunability, and ML-driven calibration enables robust, scalable, and high-resolution sensing. This approach establishes a pathway toward fully autonomous, distributed photonic sensing networks for real-time structural health monitoring.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "paper_id": "202607/01/2606.29339v1-two-kinds-of-robustness-are-not-the-same-disentangling-fault-tolerance-and-low-snr-robustness-in-multi-domain-event-detection-on-real-data",
+      "section": "quick",
+      "title_en": "Two kinds of robustness are not the same: disentangling fault tolerance and low-SNR robustness in multi-domain event detection on real data",
+      "authors": "Isao Kurosawa",
+      "date": "2026-06-28",
+      "pdf": "https://arxiv.org/pdf/2606.29339v1",
+      "score": "6.0",
+      "evidence": "用于管道声学漏损检测的事件检测",
+      "tldr": "事件检测中传感器故障与低信噪比两种鲁棒性常被混淆。为厘清二者，构建了涵盖地震、DAS和工业振动的统一基准，对比带传感器dropout训练的CEPHALON与标准检测器。传感器丢失时简单模型已鲁棒，但加性噪声下CEPHALON显著优越（-2.5dB时AUC 0.939 vs 0.532-0.572），且分析表明训练策略是主导因素，而非架构冗余。该工作揭示了鲁棒性来源，并提供了完全可复现的流水线。",
+      "tags": "query:heating-pipe",
+      "abstract_en": "Reliable event detection underpins induced-seismicity monitoring for Carbon dioxide Capture and Storage (CCS) and geothermal operations, distributed acoustic sensing (DAS), and industrial condition monitoring. In each setting a detector must stay reliable both when sensors fail and when the signal is buried in noise. These two failure modes are routinely conflated, and architectural complexity is often credited with robustness it may not deserve. We assemble a unified binary event-detection benchmark from three physically distinct real sources -- Hi-net seismic waveforms, Utah FORGE 2024 borehole DAS, and MAFAULDA industrial vibration -- each mapped to a common 8-channel, 256-sample representation, and evaluate a fault-tolerant detector (CEPHALON) trained with per-sample sensor-dropout against standard detectors (a 1D convolutional network, a temporal convolutional network, and a compact Transformer) trained with an identical recipe. On clean data every model is near-perfect (AUC ~ 0.99). Under progressive sensor loss, simple models with sensor-dropout are already robust and CEPHALON holds no advantage. Under additive noise, however, CEPHALON degrades far more gracefully: at -2.5 dB its overall AUC is 0.939 versus 0.532-0.572 for the convolutional baselines. Same-architecture ablations isolate the cause: disabling internal redundancy at inference reduces the low-SNR advantage only modestly, whereas removing sensor-dropout training collapses it (0.899 to 0.603 at -5 dB). The training recipe is therefore the dominant cause and parallel redundancy only secondary. We release a complete, numbered, reproducible pipeline so that every figure can be regenerated.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "paper_id": "202607/01/2606.29349v1-pde-constrained-optimization-for-virtual-sensing-in-structural-dynamics-full-field-displacement-and-force-recovery-from-sparse-sensors",
+      "section": "quick",
+      "title_en": "PDE-constrained optimization for virtual sensing in structural dynamics: Full-field displacement and force recovery from sparse sensors",
+      "authors": "Minjae Kim, Jaehwan Jeong, Jaemin Kim",
+      "date": "2026-06-28",
+      "pdf": "https://arxiv.org/pdf/2606.29349v1",
+      "score": "6.0",
+      "evidence": "基于PDE约束优化的管道结构健康监测",
+      "tldr": "结构动力学中虚拟传感需从稀疏测量恢复全场响应。本文将虚拟传感建模为PDE约束优化问题，以弹性动力学方程为约束，力分布为优化变量，联合恢复位移和力。采用反向模式自动微分通过PDE求解器计算梯度，并利用L-BFGS迭代优化。在悬臂板、弯管和反应堆压力容器三个案例中，该方法相比模态扩展位移误差降低2至17倍，精度达亚百分比，GPU加速比CPU快64.8倍。",
+      "tags": "query:heating-pipe",
+      "abstract_en": "Virtual sensing -- recovering full-field structural response from sparse sensor measurements -- is a fundamental challenge in structural health monitoring. This study formulates virtual sensing as a PDE-constrained optimization (PDE-CO) problem, where the governing elastodynamic equation serves as an equality constraint, the applied force distribution is the optimization variable, and the full-field displacement and force are jointly recovered. Gradients of the Tikhonov-regularized objective are computed via reverse-mode automatic differentiation through the forward PDE solver, and L-BFGS iteratively finds the optimal state. The framework couples an offline FEniCSx stage for finite element assembly with an online GPU-accelerated JAX stage, and is verified on three examples of increasing complexity: a cantilever plate, a $90^\\circ$ elbow pipe, and a reactor pressure vessel (RPV) representative of a 300~MW pressurized nuclear reactor. PDE-CO consistently outperforms modal expansion across all three cases, reducing displacement errors by factors of $2$ to $17\\times$ with sub-percent accuracy on every example. Unlike modal expansion, where force is derived by back-calculation from truncated modal coordinates and is not jointly optimized, PDE-CO recovers displacement and force simultaneously through the PDE constraint; the increased computational cost is offset by GPU acceleration delivering up to $64.8\\times$ speedup over CPU.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "errors": []
+}
