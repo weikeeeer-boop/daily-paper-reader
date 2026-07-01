@@ -1,0 +1,819 @@
+Title: A Multi-Fidelity Convolutional Autoencoder-Transfer Learning Framework for Guided-Wave-Based Damage Diagnosis Using Large Simulated and Limited Experimental Datasets
+
+URL Source: https://arxiv.org/pdf/2606.27304v1
+
+Published Time: Fri, 26 Jun 2026 01:26:26 GMT
+
+Number of Pages: 30
+
+Markdown Content:
+# A Multi-Fidelity Convolutional Autoencoder–Transfer Learning Framework for Guided-Wave-Based Damage Diagnosis Using Large Simulated and Limited Experimental Datasets 
+
+## Santosh Kapuria a,∗, Abhishek a
+
+> a
+
+Department of Applied Mechanics, Indian Institute of Technology Delhi, New Delhi, 110016, Delhi, India 
+
+A R T I C L E I N F O 
+
+Keywords :Structural health monitoring Guided waves Limited experimental data Convolutional autoencoder Transfer learning Multifidelty deep learning 
+
+A B S T R A C T 
+
+Guided wave-based structural health monitoring (GWSHM) with onboard transducers offers significant potential for the early diagnosis of damage in engineering structures. However, the practical deployment of deep learning models is often hindered by the limited availability of labelled experimental data and the high computational cost of generating large-scale high-fidelity simulation datasets. This study presents a multifidelity transfer learning framework that integrates lightweight physics-based simulations, convolutional autoencoder (CAE)-based deep feature learning, a feed-forward neural network, and limited experimental measurements for accurate damage localisation and sizing in plate-like structures instrumented with piezoelectric transducers. A computationally efficient one-dimensional time-domain spectral element model is employed to generate a large synthetic dataset for pretraining, while transfer learning adapts the model to experimental domains using only a small amount of labelled data. The CAE-based transfer learning framework significantly outperforms its CNN-based counterpart in damage localisation accuracy. The model achieves excellent predictive performance with 𝑅 2 scores exceeding 0.93 for damage localisation and 0.99 for damage sizing. Its generalisation capability is demonstrated on previously unseen data, showing high prediction accuracy for damage scenarios not represented during pretraining or fine-tuning. The results establish the proposed framework as an accurate, computationally efficient, and practically viable solution for real-world GWSHM applications. 
+
+## 1. Introduction 
+
+Structural health monitoring (SHM) has emerged as a critical research area aimed at enhancing the safety, reliability, and longevity of engineering structures while preventing catastrophic failures, minimising downtime and reducing life-cycle costs through the early detection and characterisation of damage (Farrar and Worden, 2007). Among the various SHM techniques, guided wave-based monitoring has attracted particular attention due to its ability to inspect large structural regions using a relatively small number of sensors and to detect even the smallest and most subtle surface and subsurface defects in thin-walled structures (Su and Ye, 2009; Rose, 2014; Cawley, 2024). It has been widely adopted in a variety of applications, including aircraft fuselages and wings, space structures, ship hulls, pipelines, process vessels, and wind turbine blades (Dalton et al., 2001; Giurgiutiu et al., 2011; Wang et al., 2018; Hu et al., 2020; Huan et al., 2020; Kannusamy et al., 2025; Dadashbaki et al., 2025). This widespread adoption has been further facilitated by the convenient, efficient, and cost-effective generation and sensing of guided waves through surface-bonded or embedded piezoelectric wafer active sensors (PWAS) (Giurgiutiu, 2014). The fundamental principle of guided wave-based SHM (GWSHM) relies on analysing the interaction between propagating waves and structural discontinuities caused by defects. As guided Lamb waves encounter defects, their propagation characteristics, including amplitude, phase, and time of flight (ToF), are altered, and extra wave modes emerge due to scattering, reflection, and mode conversion. These changes provide valuable information regarding the presence, location, and severity of damage. A commonly employed strategy is the baseline approach, which utilises deviations from the baseline signals of the healthy state of structures to identify and locate damage (Michaels and Michaels, 2007; Dawson et al., 2016; Kudela et al., 2018; Hu et al., 2020; Huan et al., 2020). However, owing to the multimodal and dispersive nature of Lamb waves, as well as the complex geometry of real-world structural components, 
+
+> ∗
+
+Corresponding author 
+
+kapuria@am.iitd.ac.in (S. Kapuria); abhisheksainiv2121@gmail.com ( Abhishek) 
+
+> ORCID
+
+(s): 0000-0003-1172-1279 (S. Kapuria) 
+
+> arXiv:2606.27304v1 [cs.LG] 25 Jun 2026
+
+the measured signals are often distorted and contaminated by multiple wave modes and boundary reflections (Zhang et al., 2022; Azad et al., 2025). Consequently, appropriate signal processing algorithms (Jana and Kapuria, 2026; Song et al., 2026) are required to accurately isolate the desired wave packets and extract damage-sensitive features. This task is often challenging and, in some cases, even intractable, thereby limiting the accuracy of these physics-based damage detection techniques. Baseline-dependent methods also suffer from limitations under varying environmental and operational conditions, owing to the sensitivity of baseline signals to such variations, which may result in false alarms (Dodson and Inman, 2013; Rezazadeh et al., 2025). To address these challenges, several baseline-free techniques have been proposed (Zhu et al., 2024), among which the refined time-reversal method (Agrahari and Kapuria, 2016) has shown considerable promise under varying temperature conditions (Kannusamy et al., 2020; Sharma et al., 2021, 2023). However, these methods also require the desired single or multiple Lamb wave modes to be isolated from the forward response so that undesirable overlapping modes do not distort the reconstructed signals obtained after the time-reversal process. This signal-processing step also faces challenges similar to those discussed above for baseline-based methods (Kapuria, 2025). Because of the aforementioned limitations of physics-based GWSHM methods, there has been a growing interest in data-driven approaches, particularly machine learning (ML) and deep learning (DL) techniques, which can automatically extract representative features from raw or minimally processed signals (Yang et al., 2023). Rather than relying on predefined features such as the ToF, these methods utilise the full waveform information to establish nonlinear mappings between wave responses and damage parameters, thereby enabling not only damage detection but also its localisation and characterisation. Among various DL architectures, convolutional neural networks (CNNs) have demonstrated remarkable potential for GWSHM due to their inherent ability to learn hierarchical spatial and temporal features from complex wavefield data. Early applications of CNNs to GWSHM transformed Lamb wave signals into two-dimensional (2D) image representations, for example, through time–frequency analysis (Ewald et al., 2019; Liu and Zhang, 2020). Miorelli et al. (2021) employed a 2D-CNN to detect and localise defects in aluminium plates using damage amplitude spectrograms as input. Similarly, 2D-CNNs have been used to detect internal delaminations in composite structures from time–frequency images of Lamb wave signals obtained using the continuous wavelet transform (Wu et al., 2021). Subsequently, one-dimensional (1D) CNNs gained attention due to their ability to directly process raw signal data. For instance, Rai and Mitra (2021) employed a 1D-CNN to classify healthy and damaged states using raw Lamb wave signals for training and prediction. Likewise, Zhang et al. (2021) utilised 1D-CNNs to predict damage locations based on a time-varying damage index derived from the discrete Fourier transform of Lamb wave signals. More recently, 1D-CNN architectures have been integrated with transfer learning to achieve the dual objectives of damage localisation and severity assessment in composite plates using raw Lamb wave data (Azad et al., 2025). Another emerging research direction involves incorporating explainability techniques into CNN-based damage detection frameworks to improve model interpretability and foster user trust (Pandey et al., 2022; Lomazzi et al., 2023). Collectively, these studies demonstrate the growing capability of deep CNNs to enhance the precision and efficiency of Lamb wave-based damage assessment using raw GW data. Nevertheless, the performance of data-driven methods in field applications is strongly dependent on the quantity and quality of the available training data. Since these models must ultimately make predictions based on measurements acquired from actual structures operating under real-world conditions, the training data should ideally be drawn from the same underlying distributions to ensure good generalizability and transferability (Vapnik, 1999). However, experimental data from real structures are often expensive and difficult to obtain, posing a major challenge to the successful deployment of ML/DL models in SHM applications. In contrast, simulation data can be generated more easily and at a significantly lower cost, motivating many researchers to use synthetic datasets for model training and validation (Sbarufatti et al., 2014; De Fenza et al., 2015). Nevertheless, simulated data may not adequately capture the variability present in experimental measurements due to systematic modelling errors and the presence of measurement noise and other uncertainties. As a result, models trained primarily on simulation data may yield inaccurate predictions when applied to experimental data, particularly for damage localisation and characterisation. The aforementioned limitations highlight the need for practical approaches that leverage large simulation datasets alongside limited experimental data to train ML models. Model updating techniques iteratively adjust model parameters to improve the agreement between simulated and measured responses (Agathos et al., 2021). However, they require all significant sources of variability in the experimental data to be adequately represented in the model. To address this challenge, Olleak and Xi (2020) proposed a Gaussian process regression-based framework for calibrating simulation 2data using limited experimental observations in the context of selective laser melting. Similarly, Zhang et al. (2022) employed the metric learning for kernel regression (MLKR) approach to perform supervised learning on combined simulation and experimental datasets through bias correction and noise filtering. More recently, Nerlikar et al. (2024) developed a convolutional autoencoder (CAE)-based framework to obtain data closely resembling experimental measurements from simulated GW signals. However, their framework requires comparable amounts of simulation and measurement data and, therefore, does not address the practical challenge of the limited availability of experimental data for training. During the past decade, transfer learning (TL) has emerged as a powerful strategy for adapting an ML model originally trained on a source domain with abundant data to solve a different but related problem in a target domain where only limited data are available, by leveraging the knowledge acquired from the source domain (Weiss et al., 2016; Zhuang et al., 2020). This approach enables the model to learn domain-specific features of the target domain rather than merely reducing the discrepancy between the source and target data distributions. Despite its growing popularity, the application of TL for transferring knowledge from physics-based simulations to real-world domains remains relatively unexplored. Lin et al. (2022) presented a simulation-to-experiment TL framework based on two parallel 1D-CNNs for vibration-based damage detection in a simple structure, namely a simply supported beam. Similarly, Bao et al. (2023) implemented a TL framework comprising a 1D-CNN followed by fully connected layers for damage scenario classification in bolted steel connections using abundant simulation data and limited experimental measurements of acceleration responses. These studies highlight the potential of combining physics-based simulations with data-driven learning to improve model generalisation while substantially reducing the requirement for experimental data. However, to the best of the authors’ knowledge, a simulation-to-real-world TL framework for GWSHM capable of both damage localisation and severity estimation has not yet been reported. Another aspect that warrants attention is the computational effort involved in generating simulation data, not only from the perspective of reducing computation cost and runtime but also in terms of energy efficiency and sustainability (Oishi and Yagawa, 2022). Unlike low-frequency vibration analysis, high-frequency wave propagation analysis requires fine spatial and temporal discretisation, leading to a substantial increase in computational cost and runtime. Furthermore, to realistically model PWAS transducers and various damage scenarios (e.g., notches and corrosion), continuum-based multiphysics finite element (FE) models are commonly employed (Zhang et al., 2021), further increasing the computational burden. To alleviate this challenge, it is important to adopt lightweight yet accurate simulation models for Lamb wave generation, propagation, and sensing. Significant advances have been made in developing structural theory-based multiphysics FE formulations for beam-, plate-, and shell-type structures, achieving several-fold reductions in problem size compared with continuum-based FE models (Kapuria and Hagedorn, 2007; Kapuria and Ahmed, 2021; Velásquez and Trindade, 2022; Najd et al., 2025). To further improve computational efficiency, nonconventional FE techniques such as the time-domain spectral element (TDSE) method (Rekatsinas and Saravanos, 2017; Jain and Kapuria, 2024, 2025) and the local-domain wave packet-enriched finite element method (Kapuria and Kumar, 2020) have been developed, yielding up to an order-of-magnitude reduction in computational time relative to conventional FE method. Despite these advances in computationally efficient and accurate simulation tools, their effectiveness within a deep transfer learning framework for knowledge transfer from the simulation domain to the measurement domain has not yet been investigated. This work presents a multifidelity convolutional autoencoder-based transfer learning framework for GWSHM of plate-like structures instrumented with PWAS transducers, combining a large low-fidelity simulation dataset with a limited amount of high-fidelity experimental data to address the inverse problem of damage localisation and severity assessment in real-world applications. The framework directly processes normalised raw Lamb wave signals without requiring complex signal preprocessing or feature engineering. As a further novelty, the proposed framework leverages the computational efficiency of a recently developed one-dimensional TDSE (1D-TDSE) model based on the zigzag theory (Jain and Kapuria, 2024) for smart laminated panels, which is capable of physically modelling patch-type PWAS actuators and sensors as well as asymmetric notch damage in plates, to generate the large synthetic dataset required for network pretraining. First, the CAE is pretrained using the same 1D-TDSE-generated Lamb wave signals as both inputs and outputs. This process enables the network to learn a low-dimensional latent representation that captures the essential characteristics of the Lamb wave signals, while accurately reconstructing the original responses. The resulting latent-space features are subsequently used to pretrain a feed-forward neural network (FFNN) for predicting damage location and severity. During transfer learning, the encoder of the pretrained CAE is kept frozen, whereas the decoder and FFNN are fine-tuned using a limited set of labelled experimental data collected from an aluminium plate instrumented with lead zirconate titanate (PZT) transducers and subjected 3to block-mass damage under Hann-windowed tone-burst excitation. The performance of the proposed framework is first assessed using a large 1D-TDSE dataset and a relatively small set of high-fidelity 2D FE simulation results corresponding to a single excitation frequency, both representing notch-type damage. Subsequently, the framework is validated using experimental measurements obtained with block-mass damage at multiple excitation frequencies, thereby demonstrating knowledge transfer across different damage scenarios. Finally, the generalisation capability of the proposed framework is established through testing on previously unseen data, which shows high predictive accuracy for both damage localisation and size estimation. 
+
+## 2. Overview of Methodology 
+
+This section presents the multi-fidelity physics-embedded data-driven formulation framework developed to address the inverse problem of damage localisation and sizing in Lamb wave-based SHM. The overall objective of the proposed ML framework is to predict the location and size of defects in a thin-walled structure from real-time measurements of guided wave signals, using a large set of physics-based model data and a limited set of experimental/real-world data for training. The proposed model adopts a convolutional autoencoder-driven feed-forward neural network with transfer learning for autonomous assessment of structural health, and is herein named the CAE-FFNN-TL model. The flow chart of the CAE-FFNN-TL model framework is shown in Fig. 1. Before discussing the details of the data generation, network architecture and training strategies, an overview of the proposed methodology is presented first, which comprises the following three components: (i) The first step is to generate guided wave propagation response data using an efficient physics-based model. Guided-wave-based SHM techniques typically employ high-frequency excitation signals (50 kHz-1 MHz) to detect small defects. The high frequency makes the simulation of wave-propagation response using the conventional FE models available in commercial software very time-consuming. To overcome this challenge, a computationally efficient 1D-TDSE model based on the third-order zigzag theory developed by Jain and Kapuria (2024, 2025) is used here to simulate the generation, propagation, and sensing of Lamb waves in the host structure with and without damage, through integrated PWAS transducers. (ii) In the second step, a CAE network is pretrained with a large dataset of normalised raw Lamb wave signals obtained from 1D TDSE simulations (after being augmented with noise) as both input and output. Its encoder-decoder structure with a latent space enables highly low-dimensional, robust feature extraction from the high-dimensional Lamb wave time-series data. Upon completion of CAE pretraining, latent representations are extracted for each input signal and concatenated with their corresponding excitation frequency values. These combined features are used as inputs to an FFNN, which is trained to predict damage size and location from the time-history signal. (iii) In the third step, the pretrained CAE-FFNN model is fine-tuned on a limited dataset of experimentally acquired sensor output (or high-fidelity simulation data) through transfer learning to make the model amenable to the target real-world domain. Brief descriptions of the model’s components are provided below. 
+
+## 3. 1D TDSE Model for Simulating Lamb Wave Actuation and Sensing 
+
+Kapuria and coworkers (Jain and Kapuria, 2024, 2025) have devised a computationally efficient 1D TDSE model based on the efficient layerwise third-order zigzag theory (ZIGT), demonstrating fast and accurate predictions of guided wave propagation in structures such as beams and panels (made of isotropic or laminated composite materials) integrated with PWAS patches. The formulation physically models the piezoelectric transducers of finite thickness and incorporates two-way electromechanical coupling, thereby enabling accurate prediction of the induced sensor potential due to wave propagation in the host structure. Figure 2 shows a typical actuator-host plate-sensor configuration with a notch-like damage. Although the present study deals with the SHM of single-layer metallic plates, the introduction of piezoelectric patch transducers makes these sections a layered structure. Using commercially available FE analysis packages, such a configuration would typically be modelled using continuum-based two-dimensional (2D) elements. However, this would be highly time-consuming for simulating high-frequency wave propagation, making it unsuitable for generating a large dataset. The present zigzag theory-based 1D TDSE model achieves a significant reduction in the computation time by reducing the number of degrees of freedom (DoFs) (i) in the thickness direction due to the 4kinematic approximation and (ii) in the longitudinal direction due to the use of spectral interpolation functions. The asymmetric notch can also be conventionally modelled using the zigzag model by treating the portion below the notch as a separate layer. The model is briefly described below for clarity and completeness. An interested reader may refer to (Jain and Kapuria, 2024) for further details. 
+
+3.1. Electric Potential and Displacement Field Approximations 
+
+Piezoelectric extension-mode actuation yields a nearly quadratic through-thickness electric potential in piezo layers. The laminate thickness is partitioned into 𝑛 𝜙 piezo interfaces and electrode surfaces that are equipotential. The through-thickness variation of electric potential 𝜙 is considered to comprise a piecewise-linear part (capturing surface/interface potentials) plus a quadratic part: 
+
+𝜙 (𝑥, 𝑧, 𝑡 ) = 
+
+> 𝑛 𝜙
+
+∑
+
+> 𝑗 =1
+
+Ψ 𝑗 𝜙 (𝑧 ) 𝜙 𝑗 (𝑡 ) + 
+
+> 𝑛 𝜙 −1
+
+∑
+
+> 𝑙 =1
+
+Ψ 𝑙 𝑐 (𝑧 ) 𝜙 𝑙 𝑐 (𝑥, 𝑡 ), (1) where Ψ 𝑗 𝜙 (𝑧 ) are piecewise-linear functions in 𝑧 , while Ψ 𝑙 𝑐 (𝑧 ) are quadratic functions spanned over each sublayer. This separation of 𝜙 𝑗 and 𝜙 𝑙 enables accurate satisfaction of equipotential conditions at electrode surfaces, while resulting in a significant reduction in the number of electrical DoFs. Thickness-polarized piezoelectric layers induce 𝜀 𝑧 ≈̄ 𝑑 (𝑘 )33 𝐸 𝑧 . Integrating this relation through the thickness yields the transverse displacement 𝑤 as 
+
+𝑤 (𝑥, 𝑧, 𝑡 ) = 𝑤 0(𝑥, 𝑡 ) − 
+
+> 𝑛 𝜙
+
+∑
+
+> 𝑗 =1
+
+𝜙 𝑗 (𝑡 )̄ Ψ 𝑗 𝜙 (𝑧 ) − 
+
+> 𝑛 𝜙 −1
+
+∑
+
+> 𝑙 =1
+
+𝜙 𝑙 𝑐 (𝑥, 𝑡 )̄ Ψ 𝑙 𝑐 (𝑧 ), (2) where 𝑤 0 denotes the reference-plane deflection and ̄ Ψ 𝑗 𝜙 and ̄ Ψ 𝑙 𝑐 are thickness integrals of Ψ 𝑗 𝜙 and Ψ 𝑙 𝑐 weighted by ̄ 𝑑 (𝑘 )33 
+
+over the corresponding sublayers. A layerwise third-order zigzag kinematics is adopted for the axial displacement 𝑢 ,which is given by 
+
+𝑢 (𝑥, 𝑧, 𝑡 ) = 𝑢 0(𝑥, 𝑡 ) − 𝑧 𝑤 0,𝑥 (𝑥, 𝑡 ) + 𝑅 𝑘 (𝑧 ) 𝜓 0(𝑥, 𝑡 ), (3) where 𝑅 𝑘 (𝑧 ) is a layerwise cubic function determined by the layer thicknesses, positions, and material properties. The advantage of using this kinematic model is that it allows for the slope discontinuities at the layer interfaces of the laminate, yet is ultimately expressed in terms of only three global displacement variables, independent of the number of laminae, making it computationally very efficient. Additionally, unlike other laminate theories with a comparable number of DoFs, it satisfies the continuity of transverse shear stresses at layer interfaces and the zero transverse shear traction conditions on the plate surfaces, thereby achieving superior accuracy. 
+
+3.2. Time-Domain Spectral Element (TDSE) 
+
+The equations of motion of the system are solved in weak form using the extended Hamilton’s principle. Based on the zigzag theory, the volume integral for the domain reduces to an integral over the 𝑥 -direction only. The 1D domain is discretised by employing a multi-physics spectral strip element of length 𝑙 𝑒 with 𝑛 physical nodes and one virtual electric node p (no physical coordinate). The mechanical DoFs {𝑢 0, 𝑤 0, 𝜃 (= 𝑤 0,𝑥 ), 𝜓 0} and the internal electric DoFs 
+
+𝜙 𝑙 𝑐 vary along 𝑥 and are interpolated using physical nodes, whereas the surface electric potentials 𝜙 𝑗 are constant within an element and are assigned to the electric node. If a patch spans multiple elements, the same 𝜙 𝑗 can be shared via node 𝑝 to reduce electrical DoFs (Kapuria and Hagedorn, 2007). Using the natural coordinate 𝜉 ∈ [−1 , 1] , 𝑢 0, 𝜓 0, and 𝜙 𝑙 𝑐 are interpolated with 𝐶 0-continuous Lagrange functions 
+
+𝑁 𝑖 (𝜉 ), while 𝑤 0 and 𝜃 use 𝐶 1-continuous generalized Hermite functions ̄ 𝑁 𝑖 (𝜉 ) (Pozrikidis, 2005; Kapuria and Jain, 2021). Unlike the conventional FE method, the nodes in the spectral element are not equidistant, but located at the roots of the completed Gauss-Lobatto-Legendre (GLL) polynomials of 𝑛 th order. This process makes the interpolation functions mutually orthogonal, resulting in spectral convergence [ ∝ (1∕ 𝑛 )𝑛 ]. The interpolation can be expressed in terms of the DoFs of element 𝑒 as 
+
+𝑢 0 = 𝐍 𝐮 𝑒 
+
+> 0
+
+, 𝜓 0 = 𝐍 𝝍 𝑒  
+
+> 0
+
+, 𝑤 0 =̄ 𝐍 𝐰 𝑒 
+
+> 0
+
+, 𝜙 𝑙 𝑐 = 𝐍 𝝓 𝑙,𝑒 𝑐 , (4) 5where 
+
+𝐍 =
+
+[
+
+𝑁 1 ⋯ 𝑁 𝑛 
+
+]
+
+,̄ 𝐍 =
+
+[̄𝑁 1 ⋯̄ 𝑁 2𝑛 
+
+]
+
+, 𝐰 𝑒  
+
+> 0
+
+=
+
+[
+
+𝑤 01 𝜃 1 ⋯ 𝑤 0𝑛 𝜃 𝑛 
+
+]T
+
+, (5) with 𝐮 𝑒  
+
+> 0
+
+= [ 𝑢 01 ⋯ 𝑢 0𝑛 ]T, 𝝍 𝑒  
+
+> 0
+
+= [ 𝜓 01 ⋯ 𝜓 0𝑛 ]T and 𝝓 𝑙,𝑒 𝑐 = [ 𝜙 𝑙, 1 
+
+> 𝑐
+
+⋯ 𝜙 𝑙,𝑛 𝑐 ]T. The element DoFs are arranged to form the elemental generalised displacement vector 𝐔 𝑒 as 
+
+𝐔 𝑒 =
+
+[
+
+𝑢 01 𝑤 01 𝜃 1 𝜓 01 𝜙 𝑙, 1 
+
+> 𝑐
+
+⋯ 𝑢 0𝑛 𝑤 0𝑛 𝜃 𝑛 𝜓 0𝑛 𝜙 𝑙,𝑛 𝑐 𝜙 𝑗 
+
+]T
+
+. (6) Using the interpolation given by Eq. (4), the strain-displacement and electric field-potential relations, and the linear constitutive relations for an orthorhombic piezoelectric material, the variational integral in the extended Hamilton’s principle is computed by summing up the contributions from all the 𝑛 𝑒 elements as 
+
+𝑇 =
+
+> 𝑛 𝑒
+
+∑
+
+> 𝑒 =1
+
+𝛿 𝐔 𝑒 T (̄ 𝐌 𝑒 ̈ 𝐔 𝑒 +̄ 𝐊 𝑒 𝐔 𝑒 −̄ 𝐏 𝑒 ) , (7) where integrals in the element mass metrics ̄ 𝐌 𝑒 , stiffness matrix ̄ 𝐊 𝑒 , and load vector ̄ 𝐏 𝑒 are evaluated using the Lobatto quadrature (Pozrikidis, 2005) with ( 2𝑛 − 1 ), ( 2𝑛 + 1 ), and ( 𝑛 + 1 ) integration points, respectively. 
+
+3.3. Semi-Discrete Equations of Motion for Actuation-Sensing Mode 
+
+The summation in Eq. (7) results in the formation of the global DoF vector 𝐔 , load vector 𝐏 , and matrices 𝐌 and 
+
+𝐊 by an assembly process and yields the semi-discrete equations of motion for the electromechanical system as 
+
+𝐌 ̈ 𝐔 + 𝐊 𝐔 = 𝐏 . (8) With actuator potentials 𝚽 𝑎 prescribed and sensor potentials eliminated through static condensation using zero charge condition and introducing the proportional damping matrix 𝐂 𝑢𝑢 , the reduced mechanical system can be obtained as 
+
+𝐌 𝑢𝑢 ̈̄ 𝐔 + 𝐂 𝑢𝑢 ̇̄ 𝐔 +̄ 𝐊 𝑢𝑢 ̄ 𝐔 =̄ 𝐏 − 𝐊 𝑢𝑎 𝚽 𝑎 , (9) with the effective coupled stiffness ̄ 𝐊 𝑢𝑢 = 𝐊 𝑢𝑢 − 𝐊 𝑢𝑠 (𝐊 𝑠𝑠 )−1 𝐊 𝑠𝑢 , and the unknown sensor potentials determined as 
+
+𝚽 𝐬 = −[ 𝐊 𝑠𝑠 ]−1 𝐊 𝑠𝑢 ̄ 𝐔 . (10) Equation (10) is solved using the Newmark-𝛽 direct time-integration technique with 𝛽 = 0 .25 and 𝛾 = 0 .5.Because of its accurate and innovative capture of the through-thickness variations in the displacement and electric potential fields, and its high computational efficiency, the above 1D TDSE model is a good candidate for generating a large dataset of wave-propagation-induced sensor outputs to train the proposed CAE-FFNN-TL framework for SHM applications. 
+
+## 4. CAE-FFNN-TL Multi-Fidelity Model for SHM 
+
+This section describes the proposed convolutional autoencoder-driven transfer learning model shown in Fig. 1. Brief descriptions of the key elements of the deep learning network are provided below. These include the basic structures of FFNNs, the commonly used regression loss functions, the Adam optimisation algorithm, 1D CNNs, and autoencoders. 
+
+4.1. 1D Convolutional Neural Network 
+
+CNNs are a powerful class of deep learning models specifically tailored for analysing data with a grid-like structure, such as 1D time series, 2D images, and 3D videos (Goodfellow et al., 2016). The 1D CNN, therefore, provides a natural choice for handling time-domain Lamb wave signals as inputs for guided-wave-based SHM. CNNs efficiently reduce the number of network parameters compared to fully connected models, making them highly effective for learning from data with complex features. It can be used for efficient, automated feature extraction. The other significant advantages 6of using CNNs include the ability to use raw time-series data without preprocessing or feature handcrafting, time-shift invariance, and noise robustness. CNNs learn data patterns through backpropagation using multiple building blocks, such as convolution, pooling, and fully connected layers, as discussed below. 
+
+4.1.1. Convolutional layer 
+
+A convolution layer transforms an input signal into feature maps by applying learnable filters (or kernels), much smaller than the input. During forward propagation, each kernel 𝐾 of size 𝑘 is slid across the input 𝐼 of size 𝑙 step by step, with each step referred to as a stride 𝑆 . The feature map output at position 𝑖 is obtained by applying a nonlinear activation function 𝑓 (⋅) on the convolution of 𝐾 with 𝐼 as 
+
+𝑂 𝑖 = ( 𝐼 ∗ 𝐾 )𝑖 = 𝑓 
+
+(𝑘 −1 ∑
+
+> 𝑚 =0
+
+𝐼 (𝑖 − 𝑚 ) 𝐾 (𝑚 ) + 𝑏 
+
+)
+
+, (11) where 𝑏 is the bias. The 1D convolution operation is shown in Fig. 4(a). In a convolutional layer, multiple kernels can be used, generating multiple feature maps, each detecting a different local temporal pattern in the input sequence. The kernel size and number, and the stride, are hyperparameters that should be determined based on the input data. Before applying a kernel to the input data, it is padded by adding extra points at its borders to control the spatial dimensions of the output feature map. If padding 𝑃 is applied, then the output size is given by 
+
+𝑂 = 𝑙 − 𝑘 + 2 𝑃 𝑆 + 1 . (12) 
+
+4.1.2. Pooling layer 
+
+A pooling layer in neural networks decreases the dimensionality of data while preserving its essential features. This reduction is achieved by applying mathematical operations, such as max pooling or average pooling, to groups of input data, yielding a condensed representation of the original data. Pooling layers are frequently utilised to mitigate overfitting and enhance computational efficiency. A typical max-pooling operation with stride = 2 and pooling size = 4 
+
+is shown in Fig. 4(b). 
+
+4.1.3. Fully-connected layer 
+
+A fully connected layer, also known as a dense layer, is one where every neuron in the previous layer is connected to every neuron in the output layer. Dense layers are used to achieve global integration of learned features. Typically, the output of these layers is passed through an activation function 𝑓 (⋅). The connection between neurons in adjacent dense layers is depicted in Fig. 5. It performs a linear transformation followed by a nonlinear activation: 
+
+𝑉 𝑖 𝑗 = 𝑓 
+
+(𝑛 𝑖 −1 ∑
+
+> 𝑘 =0
+
+𝑊 𝑖 𝑗𝑘 𝑉 𝑖 −1  
+
+> 𝑘
+
++ 𝑏 𝑖 𝑗 
+
+)
+
+, (13) where 𝑉 𝑖 𝑗 denotes the activation of the 𝑗 th neuron in the 𝑖 th layer, 𝑊 𝑖 𝑗𝑘 is the weight in the 𝑖 th layer, applied from source neuron 𝑘 to destination neuron 𝑗 and 𝑛 𝑖 represents the number of neurons in the 𝑖 th layer. Hyperparameters, such as the number of neurons and the type of activation function, need to be defined to effectively extract relevant information from the input data. 
+
+4.2. Autoencoders 
+
+An autoencoder is a neural network that learns a low-dimensional representation 𝐳 ∈ ℝ𝑟 , termed the latent space, of a high-dimensional input 𝐱 ∈ ℝ𝑛 by aiming to reconstruct the input. It consists of an encoder that maps 𝐱 to 𝐳 
+
+(𝐳 = 𝜙 (𝐱 )) and a decoder that maps 𝐳 back to the high-dimensional space, ̃ 𝐱 = 𝜓 (𝐳 ). The network is trained by minimising the reconstruction loss  = ‖𝐱 −̃ 𝐱 ‖2. In the current convolutional autoencoder (CAE) model, the encoder uses a 1D CNN to compress the Lamb-wave signal data into a latent space, and the decoder uses a transposed CNN (i.e., mirroring the encoder architecture) to reconstruct the input signal. 74.3. Adam Optimization Algorithm 
+
+The Adam optimisation algorithm (Kingma and Ba, 2014), short for Adaptive Moment Estimation , is a popular choice for optimising deep neural networks. It combines the benefits of two widely used optimisation methods: AdaGrad and RMSProp. Adam computes adaptive learning rates for each parameter by maintaining an exponentially decaying average of the gradients’ first moment (mean) and the second moment (uncentered variance). At each time step 𝑡 , the Adam optimizer updates the parameters 𝜃 𝑡 based on the following equations: 
+
+𝑔 𝑡 = ∇ 𝜃 𝐽 (𝜃 𝑡 ). (14) The biased first- and second-moment estimates are updated according to 
+
+𝑚 𝑡 = 𝛽 1𝑚 𝑡 −1 + (1 − 𝛽 1)𝑔 𝑡 , 𝑣 𝑡 = 𝛽 2𝑣 𝑡 −1 + (1 − 𝛽 2)𝑔 2 
+
+> 𝑡
+
+, (15) where 𝛽 1 and 𝛽 2 denote the exponential decay rates for the first and second moments, typically set to 𝛽 1 = 0 .9 and 
+
+𝛽 2 = 0 .999 , respectively. To eliminate initialization bias, the bias-corrected moment estimates are given by ̂𝑚 𝑡 = 𝑚 𝑡 
+
+1 − 𝛽 𝑡 
+
+> 1
+
+,̂ 𝑣 𝑡 = 𝑣 𝑡 
+
+1 − 𝛽 𝑡 
+
+> 2
+
+. (16) Finally, the network parameters are updated as 
+
+𝜃 𝑡 +1 = 𝜃 𝑡 − 𝛼̂𝑚 𝑡 
+
+√̂𝑣 𝑡 + 𝜖 , (17) where 𝛼 is the learning rate and 𝜖 is a small constant (typically 𝜖 = 10 −8 ) introduced to ensure numerical stability. 
+
+4.4. Feed Forward Neural Network 
+
+As illustrated in Fig. 1, the latent representations of the Lamb wave signals are fed into an FFNN to predict the damage size and location. An FFNN consists of an input layer, one or more hidden layers, and an output layer, as shown in Fig. 6. The information flows in one direction from the input to the output through these layers. For each hidden layer 𝑙 , the pre-activation output 𝐳 𝑙 is computed as 
+
+𝐳 𝑙 = 𝐖 𝑙 𝑓 (𝐱 𝑙 −1 ) + 𝐛 𝑙 , (18) where 𝐖 𝑙 ∈ ℝ𝑛 𝑙 ×𝑛 𝑙 −1 is the weight matrix, 𝑓 (𝐱 𝑙 −1 ) is the activation output of the previous layer (or the input 𝐱 if it is the first hidden layer), 𝐛 𝑙 ∈ ℝ𝑛 𝑙 is the bias vector. The Leaky ReLU activation function (Fig. 7) is applied to obtain the activation output 𝐚 𝑙 = 𝑓 (𝑥 𝑙 ):
+
+𝐚 𝑙 = 𝜎 LeakyReLU (𝐱 𝑙 ), (19) where 
+
+𝜎 LeakyReLU (𝑥 ) = 
+
+{
+
+𝑥, if 𝑥 > 0,𝛼𝑥, if 𝑥 ≤ 0, , (20) with 𝛼 = 0 .2. The output layer employs the linear activation (Fig. 7). Having introduced the key components of the proposed CAE-driven transfer learning model, its architectural details for the current problem is presented next. 
+
+4.5. CAE-driven transfer learning-based multi-fidelity model 
+
+To enable accurate damage localisation under variable excitation frequencies within an SHM framework, a CAE-based transfer learning model is proposed. The model is initially trained on lightweight 1D-TDSE simulation data to learn robust, frequency-invariant feature representations and is subsequently fine-tuned using a limited set of high-fidelity experimental data via transfer learning. 8Table 1                                                            
+
+> Layer-wise architectural details of the convolutional autoencoder for variable-frequency dataset
+> Encoder Decoder Layer Output shape Params Layer Output shape Params
+> Input Layer (1000 ,1) 0Input Layer (60) 0Conv1D (1000 ,64) 256 Dense (32) 1,952 MaxPooling1D (500 ,64) 0Dense (8000) 264,000 Conv1D (500 ,32) 6,176 Reshape (250 ,32) 0MaxPooling1D (250 ,32) 0UpSampling1D (500 ,32) 0Flatten (8000) 0Conv1D (500 ,64) 6,208 Dense (32) 256,032 UpSampling1D (1000 ,64) 0Latent Layer (60) 1,980 Output Conv1D (1000 ,1) 193
+> Total parameters 264,444 Total parameters 272,353
+
+4.5.1. Base Model Training Using 1D TDSE-Simulated Lamb Wave Responses 
+
+The CAE model is initially pretrained on a large dataset of Lamb wave forward-response signals generated from 1D-TDSE simulations, enabling robust feature learning from low-fidelity data. It is designed to learn a compact yet informative representation of the input signals while preserving their underlying physical characteristics. The architecture of the CAE is shown in Fig. 8. The encoder consists of two 1D convolutional layers, each followed by a max pooling operation, to progressively reduce dimensionality and extract dominant patterns from the Lamb wave responses. The encoded features are flattened and passed through a dense layer to form a latent space, which captures the most relevant information for damage characterisation. The latent-space dimension, 𝑛 𝐿 , is chosen according to the variability of the input domain. For datasets corresponding to a single excitation frequency, 𝑛 𝐿 is taken as 20, whereas for datasets containing multiple excitation frequencies, it is increased to 60 to capture the additional frequency-dependent characteristics of the signals. The layer-wise architectural details of the CAE framework for the variable-frequency dataset are provided in Table 1. For the single-frequency dataset, the number of trainable parameters is 660 in the encoder latent layer and 672 in the first dense layer of the decoder. All other layer dimensions and trainable parameters remain unchanged. The decoder mirrors the encoder architecture and reconstructs the input signal using two Conv1D layers combined with upsampling operations, ensuring that the latent representation retains the essential structural and propagation characteristics of the original Lamb wave signals. The CAE is trained using the Adam optimiser with a learning rate of 0.001 and a batch size of 8 for 450 epochs, balancing convergence and overfitting. Mean squared error is used as the loss function to minimise the reconstruction error between the input and reconstructed signals. For downstream prediction, the encoder’s latent representation is used as input to an FFNN that estimates the notch’s location and depth. When the input signals are acquired for multiple central frequencies, the latent representation for each input signal is extracted from the latent space and concatenated with the corresponding excitation frequency. The combined data is used as input to the FFNN. The FFNN comprises an input layer of dimension 𝑛 𝐿 and 𝑛 𝐿 + 1 
+
+for the single- and variable-frequency cases, respectively, followed by fully connected dense layers, dropout layers, and a final output layer with two neurons representing the damage depth and location. The number of neurons and trainable parameters in each layer for the variable-frequency case are presented in Table 2. This architecture enables effective modelling of the nonlinear relationship between the learned latent features and the corresponding damage characteristics. The FFNN is trained with the same optimisation settings to ensure consistent, stable learning. During the testing phase, only the encoder component of the trained CAE is employed to extract latent representations from previously unseen 1D TDSE-generated signals. These latent features, together with the excitation frequency in the variable-frequency case, are then passed through the trained FFNN to estimate the corresponding damage characteristics. 9Table 2                               
+
+> Layer-wise architecture of FFNN used for damage size and damage location prediction from the encoded latent representation
+> Layer Output shape Parameters
+> Input Layer (61) 0Dense (ReLU) (128) 7,936 Dense (ReLU) (128) 16,512 Dropout (128) 0Dense (ReLU) (32) 4,128 Output Layer (2) 66
+> Total trainable parameters 28,642
+
+4.5.2. Transfer Learning with Experimentally Acquired Signals 
+
+To adapt the pretrained model to experimental Lamb wave signals, the encoder of the previously trained CAE is kept frozen, while the decoder is fine-tuned using a limited experimental dataset, as illustrated in Fig. 1. This strategy enables the model to capture domain-specific variations present in experimental measurements while preserving the fundamental features learned from simulation data. In another setting, the experimental dataset may be replaced with high-fidelity simulation data obtained using the continuum-based 2D/3D FE model. In this work, we first test the transfer learning model on a limited dataset of 2D FE simulations from the ABAQUS software, before applying it to the experimental dataset. The decoder is retrained using the Adam optimiser with a reduced learning rate of 0.0001 to ensure stable convergence under limited data. Training is conducted for 500 epochs using the mean squared error loss function to minimise reconstruction errors between the experimental inputs and the decoded outputs. After decoder fine-tuning, the frozen encoder is employed to extract latent representations from the experimental signals. These latent features, combined with the corresponding excitation frequencies, are provided as inputs to the pretrained FFNN, which is fine-tuned using the experimental dataset to predict notch depth and location. During the testing phase, unseen experimental signals are processed through the frozen encoder to obtain latent features, which, together with the excitation frequency, are subsequently passed to the fine-tuned FFNN for accurate estimation of the damage parameters. 
+
+## 5. Results and Discussion 
+
+In this section, the proposed CAE-FFNN-TL model is evaluated for predicting the size and location of notch-type damage in an aluminium plate from experimental measurements. Before training and testing the framework on experimental data, the performance of the TL framework is first assessed using a large dataset of lightweight 1D-TDSE simulations and a relatively smaller dataset of high-fidelity continuum-based 2D FE simulations in ABAQUS .
+
+5.1. Assessment with large 1D TDSE dataset and small 2D FE dataset 
+
+5.1.1. Data generation 
+
+To facilitate the development and training of the proposed multi-fidelity CAE-FFNN-TL model, two datasets were created: one derived from 1D-TDSE simulations and the other from 2D FE simulations conducted in ABAQUS for transfer learning-based fine-tuning. The datasets comprise time-history signals from piezoelectric sensors generated by Lamb wave propagation for different notch locations and depths. For generating the 1D-TDSE dataset, an aluminium plate of length 1800 mm was considered, with a PZT-5A actuator located 600 mm from the left boundary. The actuator–sensor distance was varied between 300 mm, 400 mm, and 500 mm to represent different Lamb wave propagation paths. To capture a range of damage scenarios, notch locations were specified at 200 mm, 300 mm, and 400 mm, while notch depths spanned nine discrete values ranging from 0 mm to 2.7 mm (Table 3). This dataset served as the primary source for model pretraining, enabling the network to learn the fundamental characteristics of Lamb wave propagation under varying damage configurations. 10 Table 3                  
+
+> Parameters with varying notch position and depth for simulation dataset generation
+> Parameter Unit Value
+> Plate length ( 𝑎 )mm 1800 Actuator distance from left boundary ( 𝑑 𝐿𝐴 )mm 600 Actuator-sensor distance ( 𝑑 𝐴𝑆 )mm 300, 400, 500 Notch position ( 𝑁 𝑝 )mm 200, 300, 400 Notch depth ( 𝑁 𝑑 ) for 1D TDSE mm 0, 0.3, 0.6, 0.9, 1.5, 1.8, 2.1, 2.5, 2.7 Notch depth ( 𝑁 𝑑 ) for 2D FE mm 0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8
+
+A high-fidelity dataset was generated via 2D FE simulations in ABAQUS to improve model generalisation. The essential parameters, such as the plate length and actuator-sensor position, were maintained the same as those in the 1D TDSE dataset to ensure consistency. Nonetheless, the depths recorded in this dataset were confined to six specific values, spanning from 0 mm to 1.8 mm (Table 3). This dataset was utilised for fine-tuning pretrained models, ensuring that insights gained from the 1D TDSE simulations could be successfully transferred and adapted to a high-fidelity setting. The utilisation of transfer learning effectively connected low-fidelity and high-fidelity simulations, enhancing the precision of notch localisation and minimising dependence on costly 2D FE simulations. 
+
+5.1.2. Lamb wave response from 1D TDSE simulation 
+
+The time history of the electric potential induced at the sensor’s top surface is used to generate the dataset. The TDSE simulation is performed using the computer program developed in-house by Jain and Kapuria (2024), as discussed in Sec. 3. The actuator is excited with a 5-cycle Hann window-modulated tone-burst signal of central frequency 𝑓 , defined as 
+
+𝑉 𝐴 (𝑡 ) = 𝑉 0∕2(1 − cos 2 𝜋𝑡 ∕𝑇 𝐻 ) sin 2 𝜋𝑓 𝑡, (21) where 𝑉 0 denotes peak voltage, 𝑇 𝐻 (𝑇 𝐻 = 𝑁 𝐵 ∕𝑓 ) represents Hann window length, and 𝑁 𝐵 is the number of cycles in the tone burst. This input signal is commonly used in Lamb wave-based SHM applications to achieve a narrowband, well-localised wave packet that undergoes reduced dispersion during propagation, thereby facilitating easier identification of damage features. In this example, the central excitation frequency is taken to be 𝑓 = 100 
+
+kHz. The corresponding signal is shown in Fig. 9. The structure is discretised using 100 eight-noded ZIGT-based TDSE elements to obtain a converged solution for the sensor potential. The panel edges are subjected to free boundary conditions. The material properties considered for the model are presented in Table 4. A time step of 0.1 𝜇 s is used for excitations with central frequencies up to 200 kHz, whereas a smaller time step of 0.05 𝜇 s is adopted for higher-frequency excitations (used later). This choice ensures at least 20 time steps per time period, providing sufficient temporal resolution to accurately capture Lamb wave propagation. 
+
+5.1.3. Lamb wave response from 2D FE simulation 
+
+For the high-fidelity continuum-based FE simulations, the plate is modelled in ABAQUS using eight-node biquadratic plane strain quadrilateral elements with reduced integration (CPE8R), while the piezoelectric transducers are modelled using eight-node biquadratic plane strain piezoelectric quadrilateral elements with reduced integration (CPE8RE). The mesh size for both the aluminium plate and the piezoelectric transducers is selected based on the commonly adopted criterion of at least 20 elements per shortest wavelength to ensure accurate numerical simulation of guided wave propagation (Kapuria et al., 2022). In the thickness direction, the piezoelectric transducers and the plate are discretised using 2 and 8 elements, respectively. The element length in the longitudinal direction is 1 mm. The bottom nodes of the piezoelectric elements are connected to the top nodes of the elements in the host plate using the TIE constraint (Fig. 10). Electrically, the bottom surfaces of the piezoelectric transducers are grounded. An electric potential 𝑉 𝐴 (𝑡 ) is prescribed at the top surface of the actuator, while the voltage response is measured at the top electrode of the sensor by enforcing an equipotential 11 Table 4                                                            
+
+> Material properties used for simulations (Kapuria et al., 2022; Sparkler, 2018)
+> 𝑌 1𝑌 2𝑌 3𝐺 23 𝐺 13 𝐺 12 𝜈 12 𝜈 13 𝜈 23 𝜌
+> Material (GPa) (kg/m 3)Al 70.3 70.3 70.3 26.42 26.42 26.42 0.33 0.33 0.33 2700 SP-5H 66.67 66.67 47.62 23.0 23.0 23.5 0.29 0.51 0.51 7500
+> 𝑑 31 𝑑 32 𝑑 33 𝑑 15 𝑑 24 𝜂 11 𝜂 22 𝜂 33
+> (× 10 −12 𝑚𝑉 −1 )(× 10 −9 𝐹 ∕𝑚 )SP-5H -265 -265 550 741 741 10.08 10.08 14.04
+> Table 5
+> Dataset split between training and testing phases for 1D TDSE and 2D FE simulation data No. of data samples Phase Pretraining (1D TDSE) Fine-tuning (2D FE-ABAQUS )Training 307 152 Testing 35 82 Total 342 234
+
+constraint. Transient simulations are performed using the dynamic implicit integration scheme available in ABAQUS 
+
+using the same time step as considered for the TDSE simulation. 
+
+5.1.4. Comparison of Lamb wave signals from 1D TDSE and 2D FE simulations 
+
+Figure 11 illustrates the comparison between the time-history responses obtained from the two fidelity models for the aluminium plate-transducer configuration, where the centre-to-centre space between the actuator and the sensor (𝑑 𝐴𝑆 ) is 280 mm, and the distance between notch and actuator ( 𝑑 𝐴𝑁 ) is 70 mm. The sensor responses are shown for two notch depths, 𝑑 𝑁 = 0 .5 mm and 2 mm. A noticeable difference in the peak amplitudes of the fundamental symmetric mode 𝑆 0 and antisymmetric mode 𝐴 0 can be observed between the low-fidelity 1D TDSE and high-fidelity 2D FE results. The difference is higher for the larger notch depth. These results delineate the impact of model fidelity on the accuracy of wave mode responses and highlight the need for fine-tuning through transfer learning. The effect of notch depth on the Lamb wave signal is more clearly illustrated in Fig. 12 by plotting the sensor potentials obtained for two notch depths using 2D FE simulations. The comparison is made for two values of transducer spacings, 𝑑 𝐴𝑆 = 280 mm and 330 mm. The increase in the notch depth results in a reduction in the amplitudes of the 
+
+𝑆 0 and 𝐴 0 modes. The presence of the notch leads to the creation of an extra wave packet between them due to mode conversion resulting from interaction with the notch. 
+
+5.1.5. Evaluation of the proposed CAE-based transfer learning model 
+
+The performance evaluation of the CAE-FFNN-TL model is conducted in two stages: initial training on 1D TDSE simulations and subsequent fine-tuning using 2D FE ABAQUS simulations. Table 5 presents the dataset split used for pretraining and fine-tuning phases of the CAE-driven TL model for notch detection. This structured dataset split ensures that the model undergoes extensive training on 1D TDSE data before being fine-tuned with 2D FE ABAQUS data, enhancing their performance in damage localisation. The predictive performance of the DL models for notch localisation and depth is evaluated using the test samples by comparing the 𝑅 2 score, defined as 
+
+𝑅 2 = 1 − 
+
+∑𝑛 𝑖 =1 (𝑦 𝑖 −̂𝑦 𝑖 )2
+
+∑𝑛 𝑖 =1 (𝑦 𝑖 −̄𝑦 )2 , (22) 12 Table 6                  
+
+> Comparison of performances of present CAE-based TL model with CNN-based TL model Model Pretraining 𝑅 2score Fine-tuning 𝑅 2score Notch depth Notch location Notch depth Notch location CAE-based 0.9972 0.8880 0.9941 0.9305 CNN-based 0.9758 0.3369 0.9871 0.8955
+
+where 𝑦 𝑖 represents the actual values, ̂𝑦 𝑖 represents the predicted values, ̄𝑦 is the mean of actual values, 𝑛 is the total number of samples. An 𝑅 2 value close to 1 indicates a strong correlation between predicted and actual values, signifying high model accuracy, while an 𝑅 2 value close to 0 suggests poor predictive performance. The 𝑅 2 score of the CAE-FFNN model for predicting notch depth was 0.9972, indicating excellent accuracy, while the 𝑅 2 score for notch location prediction was 0.8880 (see Table 6). These results confirm that the autoencoder effectively extracts relevant features, enabling the subsequent FFNN to achieve a higher accuracy in predicting notch characteristics. Transfer learning was employed to adapt the pretrained model to a high-fidelity data representation by fine-tuning it on a smaller dataset of 2D FE ABAQUS simulations, comprising 152 training and 82 test samples. Figure 13 shows the variations of the loss over epochs for training and validation stages, confirming the adequacy of the selected number of epochs. The fine-tuned model achieved an 𝑅 2 score of 0.9941 for notch depth prediction, maintaining its high accuracy. More importantly, the 𝑅 2 score for notch location prediction improved to 0.9305, demonstrating that the model successfully adapted to high-fidelity simulation data. This significant increase in performance confirms the effectiveness of transfer learning in bridging the gap between low-fidelity synthetic data and high-fidelity numerical simulations, ensuring better localisation accuracy. The scatter plot in Fig. 14 compares actual and predicted notch depths, evaluating the model’s performance at estimating localised damage depth. The scatter points represent the model’s predicted notch depths, closely aligning with the actual line. The evaluation results demonstrate the efficacy of the CAE-FFNN-TL model, revealing that combining deep feature extraction through autoencoding with predictive learning from FFNNs facilitates accurate notch localisation and depth estimation. Transfer learning enables the model to efficiently learn from a large synthetic dataset while effectively adapting to a high-fidelity dataset that represents practical damage characterisation scenarios. 
+
+5.1.6. Comparison with CNN-based transfer learning model 
+
+To illustrate the role of the latent space representation in the CAE framework, the proposed CAE-FFNN-TL model is compared with a deep learning model in which the CAE-based transfer learning architecture is replaced by a CNN-based transfer learning model, CNNnet-TL, proposed by Bao et al. (Bao et al., 2023) for vibration-based condition monitoring. The CNNnet-TL architecture comprises four convolutional layers, each followed by a max pooling layer, to extract spatial features while progressively reducing dimensionality. These layers are followed by fully connected dense layers that refine the extracted features and facilitate damage characterisation. The final output layer predicts the notch depth and location based on the learned feature representations. The model is implemented using the Keras library, optimised with the Adam optimiser, and trained with a learning rate of 0.001 for 600 epochs to ensure effective learning and convergence. Transfer learning is performed by freezing the convolution layers and fine-tuning the fully connected layers. The learning rate is set to 0.001, the batch size is 16, and the model is retrained for 600 epochs. The CNNnet-TL model is pretrained and fine-tuned using the same 1D TDSE-generated large dataset and the small 2D FE simulation dataset as the CAE-based TL model. Table 6 shows a comparison of the performances of the present CAE-based TL model with the CNNnet-TL model through the 𝑅 2-score of predictions of notch depth and location. Although both models excelled at notch depth estimation, the CAE-based model showed markedly greater precision in notch localisation. The CNNnet-TL model produced an 𝑅 2-score of 0.3369 for notch localisation in the TDSE dataset, while the CAE-based model attained a significantly superior 𝑅 2-score of 0.8880. The performance disparity persisted after fine-tuning on the 2D FE data, with the CAE-based TL model achieving an enhanced localisation accuracy ( 𝑅 2-score) of 0.9305, thereby affirming its capacity to extract and represent distinctive characteristics within the latent space. 13 Table 7                          
+
+> Parameters with varying frequency, notch position, and notch depth for 1D TDSE for dataset generation
+> Parameter Unit Value
+> Plate length ( 𝑎 )mm 1800 Actuator distance from left boundary ( 𝑑 𝐿𝐴 )mm 600 Actuator-sensor distance ( 𝑑 𝐴𝑆 )mm 300, 400, 500 Excitation frequency ( 𝑓 )kHz 100, 150, 200 Notch position ( 𝑁 𝑝 )mm 100, 200, 250, 400 Notch depth ( 𝑁 𝑑 )mm 0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.5, 2.7
+> Table 8
+> Dataset split between training and testing phases for 1D TDSE simulation and experimental data No. of data samples Phase Pretraining (1D TDSE data) Fine-tuning (Experimental data) Training 1069 168 Testing 119 24 Total 1188 192
+
+5.2. Assessment with large 1D TDSE dataset and small experimental dataset 
+
+In practical SHM applications, the damage prediction must necessarily be performed on experimentally measured data from the actual structure. To illustrate this capability of the proposed model, the CAE-FFNN model pretrained on the large 1D TDSE dataset is now fine-tuned on a limited experimentally acquired Lamb wave response dataset. 
+
+5.2.1. 1D TSDE data generation 
+
+Unlike the previous example that considers only a single excitation frequency, this study considers three different excitation frequencies, 100 kHz, 150 kHz, and 200 kHz, for generating the dataset (Table 7). All the geometrical details and boundary conditions are kept the same as described in Sec. 5.1.1 for the 100 kHz excitation case. But the mesh was made finer at higher frequencies, satisfying the spatial resolution requirement for converged results. To illustrate the frequency dependence of response, a comparison of the time history of sensor potential for 100 kHz and 200 kHz excitation frequencies is presented in Fig. 15. It is evident that a higher frequency (200 kHz) has resulted in greater sensitivity to damage than a lower frequency (100 kHz). These results also clearly demonstrate how excitation frequency influences the amplitudes and arrival times of the direct Lamb wave modes ( 𝑆 0 and 𝐴 0), as well as the damage-induced extra mode, highlighting the importance of incorporating multi-frequency data in ML model development. For each excitation frequency, 66 Lamb wave forward responses were simulated using the 1D TDSE model, resulting in 66 × 3 = 198 base signals. To enhance the variability of the training data and improve the model’s robustness to noise, each base signal was augmented with six levels of additive Gaussian noise, with signal-to-noise ratios (SNRs) ranging from 20 dB to 30 dB. This augmentation expanded the dataset by a factor of six, yielding a total of 198 × 6 = 1188 samples. Out of the complete TDSE dataset, 1069 samples were allocated for pretraining the CAE-FFNN model, while 119 samples were reserved for testing, as summarised in Table 8. 
+
+5.2.2. Experimental data generation 
+
+The experiments were conducted on an aluminium plate with dimensions of 2438 mm × 1220 mm × 3 mm. The setup is shown in Fig. 16. Three wafer-type SP-5H PZT transducers, each of size 10 mm × 10 mm × 0 .25 mm, were bonded to the surface of the plate using Araldite, a two-part epoxy adhesive. These PZTs were sourced from Sparkler Ceramics India. A combined function generator and data acquisition system (Model: QDAM772E1B) from Quazer 14 Table 9             
+
+> Performance of CAE-FFNN model trained on 1D TDSE variable-frequency dataset with test and unseen data Evaluation case No. of samples 𝑅 2score Notch depth Notch location Test dataset 119 0.9932 0.9353 Unseen dataset (unseen notch depth) 198 0.9852 0.9860 Unseen dataset (unseen notch location and depth) 83 0.9520 0.8935
+
+Tech Pvt. Ltd., India, was used for both signal excitation and measurement. The system includes high-speed analogue-to-digital (A–D) and digital-to-analogue (D–A) conversion channels with 14-bit resolution, selectable gain settings, and programmable sampling frequencies. This configuration enables accurate generation, amplification, and recording of high-frequency Lamb wave signals in both pristine and damaged conditions. As shown in Fig. 17, the PZT transducers were bonded to the plate surface in a triangular configuration, with inter-sensor distances of 350 mm (PZT-1–PZT-2), 280 mm (PZT-2–PZT-3), and 448 mm (PZT-1–PZT-3). Damage scenarios were introduced in the form of aluminium strip block masses positioned along the wave propagation paths to evaluate the sensitivity of Lamb wave responses to defects. The strip heights were varied as 1, 2, and 3 mm to simulate different damage severities. A mid-path damage was introduced between PZT-1 and PZT-3 for all three damage sizes. Additionally, along the PZT-1–PZT-2 path, block masses with heights of 1 mm and 2 mm were placed at distances of 130 mm and 200 mm from the actuator, respectively. Similarly, along the PZT-1–PZT-3 path, block masses with heights of 2 mm and 3 mm were located at distances of 100 mm and 300 mm from the actuator, respectively. This configuration enabled the acquisition of a relatively limited dataset capturing the effects of damage size and location on Lamb wave response signals. Lamb wave responses were generated by exciting one of the surface-bonded transducers using a Hann-window modulated tone-burst signal comprising five cycles with a peak voltage of 15 V. Signal acquisition was performed using an integrated data acquisition system configured with a gain of 20 dB and a sampling rate of 72 MS/s. To enhance the signal-to-noise ratio (SNR), each measurement was repeated 50 times and ensemble-averaged. The measured signals for the 445 mm-long sensing path, with and without damage, are shown in Fig. 18, illustrating the dependence of the wave response and damage-induced features on the excitation frequency. The experimentally acquired Lamb wave responses were used to fine-tune the pretrained model through transfer learning. As indicated in Table 8, a total of 192 experimental signals were collected under varying conditions of excitation frequency, notch depth, and notch location. From this dataset, 168 signals were used for fine-tuning, and the remaining 24 were used to test and evaluate the model’s generalisation capability on real-world data. 
+
+5.2.3. Evaluation of the CAE-FFNN model trained on large simulated data 
+
+The performance of the proposed CAE-based model is now evaluated using both the standard test set and additional unseen datasets derived from 1D TDSE Lamb wave simulations. As outlined in Table 8, the model was initially trained on 1069 samples and tested on 119 samples from the TDSE dataset. The convergence behaviour of the network during the training and validation stages is illustrated in Fig. 19(a) through the variation of loss with epochs, demonstrating the adequacy of the selected number of training epochs for the simulated 1D TDSE dataset. Model performance on the primary test set is quantified using the coefficient of determination ( 𝑅 2), evaluating the accuracy of both notch depth and notch location predictions (Fig. 20). The model achieved 𝑅 2 scores of 0.9932 for notch depth and 0.9353 for notch location (Table 9), indicating excellent predictive capability on test data drawn from the same distribution as the training set. 
+
+5.2.4. Evaluation with unseen 1D TDSE data 
+
+To assess the applicability of the model to variations not seen during training, two separate unseen test datasets were used. The first dataset included unseen notch depths while maintaining consistent notch locations and consisted of 198 test samples. The model maintained strong performance, achieving 𝑅 2 scores of 0.9852 and 0.9860 for depth and location prediction, respectively (Fig. 21). 15 Table 10          
+
+> Performance of the proposed CAE-FFNN-TL model after fine-tuning with small experimental dataset Evaluation case No. of samples 𝑅 2score Damage size Damage location Experimental test dataset 24 0.9931 0.9629 Unseen dataset (unseen damage size and location) 26 0.9851 0.8887
+
+The second unseen dataset introduced simultaneous variation in both notch depth and location, representing a more challenging evaluation scenario. Despite the increased complexity, the model retained robust performance with 
+
+𝑅 2 scores of 0.9520 for notch depth prediction and 0.8935 for notch location prediction (Table 9). These results demonstrate that the proposed CAE-FFNN model, when trained on a large, noise-augmented TDSE dataset, can accurately predict damage characteristics even for damage cases that do not belong to the training dataset. 
+
+5.2.5. Evaluation with experimental data after transfer learning 
+
+After pretraining and evaluating the model on the large-scale simulated dataset generated with the 1D TDSE, the next step was to fine-tune the pretrained model on a limited set of experimentally acquired Lamb wave signals. Figure 19(b) demonstrates the adequacy of the selected number of epochs at the fine-tuning stage. Table 10 summarises the performance of the fine-tuned model on the test dataset, demonstrating excellent predictive capability with 𝑅 2
+
+scores of 0.9931 for damage size and 0.9629 for damage location (Fig. 22). 
+
+5.2.6. Evaluation with unseen experimental data 
+
+To further evaluate the robustness and generalisation of the fine-tuned model, it was tested on an unseen experimental dataset comprising 26 samples with variations in both notch location and depth that were not present in the original dataset. The scatter plots of their actual and predicted values presented in Fig. 23 show that the model maintains strong performance, achieving 𝑅 2 scores of 0.9851 for notch depth prediction and 0.8887 (Table 10) for notch location prediction. These results confirm that the transfer learning approach successfully adapts the model to experimental conditions while maintaining high predictive accuracy despite the limited size of the real-world dataset. Furthermore, it is noteworthy that the block-mass damage considered in the experimental setup is different in nature from the notch-type damage used to generate the simulated dataset for pretraining. Therefore, the results provide strong evidence that the proposed deep TL framework can generalise across distinct damage scenarios through fine-tuning with only a limited amount of corresponding data. 
+
+5.3. Comparison of the proposed CAE-FFNN-TL model and CAE-FFNN model trained on only experimental data 
+
+Finally, to assess the effectiveness of the proposed strategy of using a large low-cost simulated dataset, a comparative analysis was performed in which the CAE-FFNN model was trained solely on the limited experimental dataset, without leveraging any prior knowledge from the simulated data. The dataset configuration was kept identical, consisting of 168 training signals and 24 testing signals. The scatter plot presented in Fig. 24 for this model show a substantial degradation in predictive performance, yielding 𝑅 2 values of 0.8087 for notch depth estimation and 0.5154 for notch location prediction. These values are markedly lower than those obtained with the transfer learning-based framework (see Table 10), which achieved 𝑅 2
+
+scores of 0.9931 and 0.9629 for notch depth and location, respectively. This performance disparity underscores the inherent limitations of training deep learning models solely on small experimental datasets, which typically lack sufficient variability and representativeness to ensure robust generalisation. In contrast, the transfer learning model, pretrained on a large and diverse 1D TDSE dataset and subsequently fine-tuned with experimental measurements, effectively leveraged the learned feature representations of Lamb wave signals to achieve superior accuracy on both seen and unseen experimental data. These findings clearly demonstrate that the proposed transfer learning strategy not only improves prediction accuracy but also enhances generalisation under realistic experimental conditions. Consequently, pretraining on simulated data followed by fine-tuning on limited 16 experimental datasets constitutes an effective and practical approach for Lamb wave-based SHM when extensive experimental data is unavailable. 
+
+## 6. Conclusions 
+
+A comprehensive transfer learning framework for Lamb wave-based SHM has been developed by integrating lightweight numerical simulations, deep learning architectures, and limited experimental measurements to achieve accurate damage localisation and quantification in real-world applications. The proposed framework operates directly on raw Lamb-wave signals, thereby avoiding the need for complex signal preprocessing. A computationally efficient strategy for generating large training datasets has been established using the recently developed 1D-TDSE model based on the zigzag theory. The model accurately captures Lamb wave generation, propagation, sensing, and damage interaction while significantly reducing the computational cost compared with conventional continuum-based FE models. The proposed CAE architecture successfully learns compact latent-space representations of raw Lamb wave signals, which provide an effective basis for subsequent damage localisation and severity estimation using an FFNN. The major conclusions of this study are as follows: 
+
+• Transfer learning from a large 1D-TDSE dataset to a limited high-fidelity 2D FE dataset of raw Lamb wave signals yielded excellent damage localisation and size prediction accuracies, with 𝑅 2 scores of 0.9305 and 0.9941, respectively. These results demonstrate the ability of the proposed framework to bridge the fidelity gap between lightweight simulations and high-fidelity numerical models. 
+
+• Compared with the proposed CAE-based framework, the CNN-based transfer learning architecture exhibited substantially inferior localisation performance, achieving an 𝑅 2 score of only 0.3369. This result highlights the superior capability of the CAE-derived latent-space representation in extracting damage-sensitive features from Lamb wave signals. 
+
+• The framework was successfully transferred from the simulation domain to the experimental domain using only 168 experimentally measured signals, representing less than 15% of the total dataset, for fine-tuning. The resulting model achieved excellent predictive accuracy on the experimental test dataset, with 𝑅 2 scores of 0.9931 and 0.9629 for damage size and location, respectively. 
+
+• The model demonstrated strong generalisation capability when evaluated on previously unseen numerical and experimental datasets. High prediction accuracies were maintained even when neither the damage size nor the location was represented in the pretraining and fine-tuning datasets, achieving 𝑅 2 scores of 0.9851 and 0.8887 for damage size and location, respectively. 
+
+• Training solely on the limited experimental dataset resulted in a substantial degradation in performance (𝑅 2 = 0 .8087 for damage size and 𝑅 2 = 0 .5154 for damage location), whereas the proposed transfer learning framework achieved corresponding 𝑅 2 scores of 0.9931 and 0.9629. This clearly demonstrates the effectiveness of leveraging large simulation datasets for pretraining when extensive experimental data is unavailable. Overall, the proposed multifidelity transfer learning framework provides a practical, accurate, and computationally efficient pathway for deploying DL-based Lamb wave SHM systems in real-world applications, where acquiring large volumes of labelled experimental data is often prohibitively expensive or infeasible. Future work will focus on extending the proposed framework to multiple damage scenarios, more complex geometries, varying environmental conditions, and experimental studies involving composite materials and full-scale structural components. 
+
+## Acknowledgements 
+
+Santosh Kapuria is thankful to Anusandhan National Research Foundation, INDIA, for support through the J.C. Bose National Fellowship (Grant No. JBR/2023/000025) and to Ministry of Ports, Shipping and Waterways for Grant No. 2022-MT-356529. The authors sincerely acknowledge the assistance of Mayank Jain in simulation data generation and Souvik Jana in experimental data generation. 17 Conflict of Interest 
+
+The authors have no conflicts of interest to declare. 
+
+## CRediT authorship contribution statement 
+
+Santosh Kapuria: Conceptualization, Investigation, Methodology, Software, Validation, Funding acquisition, Resources, Supervision, Writing - review and editing. Abhishek: Conceptualization, Formal analysis, Investigation, Methodology, Software, Validation, Writing - original draft. 
+
+## References 
+
+Agathos, K., Tatsis, K., Nicoli, S., Bordas, S.P., Chatzi, E., 2021. Crack detection in mindlin-reissner plates under dynamic loads based on fusion of data and models. Computers & Structures 246, 106475. Agrahari, J.K., Kapuria, S., 2016. A refined Lamb wave time-reversal method with enhanced sensitivity for damage detection in isotropic plates. Journal of Intelligent Material Systems and Structures 27, 1283–1305. Azad, M.M., Jung, J., Kim, H.S., Munyaneza, O., Sohn, J.W., Huang, B., 2025. An integrated multi-task transfer learning for damage detection, localization, and severity assessment of laminated composite plate. Composite Structures 371, 119478. Bao, N., Zhang, T., Huang, R., Biswal, S., Su, J., Wang, Y., 2023. A deep transfer learning network for structural condition identification with limited real-world training data. Structural Control and Health Monitoring 2023, 8899806. Cawley, P., 2024. Guided waves in long range nondestructive testing and structural health monitoring: Principles, history of applications and prospects. NDT & E International 142, 103026. Dadashbaki, F., Pillai, A.J., Sikdar, S., Liu, D., Walton, K., Mishra, R., 2025. Autonomous structural health monitoring of composite wind turbine blades using guided waves and machine learning. Composite Structures , 119955. Dalton, R.P., Cawley, P., Lowe, M.J.S., 2001. The potential of guided waves for monitoring large areas of metallic aircraft fuselage structures. Journal of Nondestructive Evaluation 20, 29–46. Dawson, A.J., Michaels, J.E., Michaels, T.E., 2016. Isolation of ultrasonic scattering by wavefield baseline subtraction. Mechanical Systems and Signal Processing 70, 891–903. De Fenza, A., Sorrentino, A., Vitiello, P., 2015. Application of artificial neural networks and probability ellipse methods for damage detection using Lamb waves. Composite Structures 133, 390–403. Dodson, J., Inman, D., 2013. Thermal sensitivity of Lamb waves for structural health monitoring applications. Ultrasonics 53, 677–685. Ewald, V., Groves, R.M., Benedictus, R., 2019. Deepshm: A deep learning approach for structural health monitoring based on guided Lamb wave technique, in: Sensors and smart structures technologies for civil, mechanical, and aerospace systems 2019, SPIE. pp. 84–99. Farrar, C.R., Worden, K., 2007. An introduction to structural health monitoring. Philosophical Transactions of the Royal Society A 365, 303–315. Giurgiutiu, V., 2014. Structural health monitoring with piezoelectric wafer active sensors. Academic press. Giurgiutiu, V., Lin, B., Santoni-Bottai, G., Cuc, A., 2011. Space application of piezoelectric wafer active sensors for structural health monitoring. Journal of Intelligent Material Systems and Structures 22(12), 1359–1370. Goodfellow, I., Bengio, Y., Courville, A., 2016. Deep Learning. MIT Press. http://www.deeplearningbook.org .Hu, C., Yang, B., Xuan, F.Z., Yan, J., Xiang, Y., 2020. Damage orientation and depth effect on the guided wave propagation behavior in 30CrMo steel curved plates. Sensors 20, 849. Huan, Q., Chen, M., Li, F., 2020. Long-distance structural health monitoring of buried pipes using pitch-catch t (0, 1) wave piezoelectric ring array transducers. Ultrasonics 106, 106162. Jain, M., Kapuria, S., 2024. Efficient electromechanical spectral element model using zigzag kinematics for Lamb wave simulation in composite strips with piezo patches. Journal of Sound and Vibration 577, 118314. Jain, M., Kapuria, S., 2025. Efficient layerwise multiphysics spectral element model for delaminated composite strips with PWAS transducers. European Journal of Mechanics-A/Solids 109, 105479. Jana, S., Kapuria, S., 2026. Fast and accurate decomposition of overlapping Lamb wave modes in metallic and composite structures. Mechanical Systems and Signal Processing 250, 114105. Kannusamy, M., Kapuria, S., Sasmal, S., 2020. Accurate baseline-free damage localization in plates using refined Lamb wave time-reversal method. Smart Materials and Structures 29, 055044. Kannusamy, M., Kapuria, S., Sasmal, S., 2025. Lamb wave-based baseline-free damage localization in pipes with surface-mounted piezo patches. Smart Materials and Structures 34, 095021. Kapuria, S., 2025. Best reconstruction frequency for time-reversal process of Lamb waves and its determination from a single measurement. Mechanical Systems and Signal Processing 223, 111887. Kapuria, S., Ahmed, A., 2021. A coupled efficient layerwise finite element model for free vibration analysis of smart piezo-bonded laminated shells featuring delaminations and transducer debonding. International Journal of Mechanical Sciences 194, 106195. Kapuria, S., Hagedorn, P., 2007. Unified efficient layerwise theory for smart beams with segmented extension/shear mode, piezoelectric actuators and sensors. Journal of Mechanics of Materials and Structures 2, 1267–1298. Kapuria, S., Jain, M., 2021. A C 1-continuous time domain spectral finite element for wave propagation analysis of euler–bernoulli beams. International Journal for Numerical Methods in Engineering 122, 2631–2652. Kapuria, S., Kumar, A., 2020. A wave packet enriched finite element for electroelastic wave propagation problems. International Journal of Mechanical Sciences 170, 105081. 
+
+18 Kapuria, S., Sharma, B.N., Arockiarajan, A., 2022. Role of transducer inertia in generation, sensing, and time-reversal process of Lamb waves in thin plates with surface-bonded piezoelectric transducers. Journal of Intelligent Material Systems and Structures 33, 779–798. Kingma, D.P., Ba, J., 2014. Adam: A method for stochastic optimization. arXiv:1412.6980 .Kudela, P., Radzienski, M., Ostachowicz, W., Yang, Z., 2018. Structural health monitoring system based on a concept of Lamb wave focusing by the piezoelectric array. Mechanical Systems and Signal Processing 108, 21–32. Lin, Y.z., Nie, Z.h., Ma, H.w., 2022. Dynamics-based cross-domain structural damage detection through deep transfer learning. Computer-aided civil and Infrastructure Engineering 37, 24–54. Liu, H., Zhang, Y., 2020. Deep learning based crack damage detection technique for thin plate structures using guided Lamb wave signals. Smart Materials and Structures 29, 015032. Lomazzi, L., Fabiano, S., Parziale, M., Giglio, M., Cadini, F., 2023. On the explainability of convolutional neural networks processing ultrasonic guided waves for damage diagnosis. Mechanical Systems and Signal Processing 183, 109642. Michaels, J.E., Michaels, T.E., 2007. Guided wave signal processing and image fusion for in situ damage localization in plates. Wave motion 44, 482–492. Miorelli, R., Fisher, C., Kulakovskyi, A., Chapuis, B., Mesnil, O., D’almeida, O., 2021. Defect sizing in guided wave imaging structural health monitoring using convolutional neural networks. NDT & E International 122, 102480. Najd, J., Zappino, E., Carrera, E., Harizi, W., Aboura, Z., 2025. A variable kinematic multi-field model for Lamb wave propagation analysis in smart composite panels. Mechanics of Advanced Materials and Structures 32, 2856–2870. Nerlikar, V., Miorelli, R., Recoquillay, A., d’Almeida, O., 2024. A physics-embedded deep-learning framework for efficient multi-fidelity modeling applied to guided wave based structural health monitoring. Ultrasonics 141, 107325. Oishi, A., Yagawa, G., 2022. Sustainable computational mechanics assisted by deep learning. Computer Methods in Applied Mechanics and Engineering 402, 115025. Olleak, A., Xi, Z., 2020. Calibration and validation framework for selective laser melting process based on multi-fidelity models and limited experiment data. Journal of Mechanical Design 142, 081701. Pandey, P., Rai, A., Mitra, M., 2022. Explainable 1-D convolutional neural network for damage detection using Lamb wave. Mechanical Systems and Signal Processing 164, 108220. Pozrikidis, C., 2005. Introduction to Finite and Spectral Element Methods using MATLAB. volume FL: CRC Press. Rai, A., Mitra, M., 2021. Lamb wave based damage detection in metallic plates using multi-headed 1-dimensional convolutional neural network. Smart Materials and Structures 30, 035010. Rekatsinas, C.S., Saravanos, D.A., 2017. A time domain spectral layerwise finite element for wave structural health monitoring in composite strips with physically modeled active piezoelectric actuators and sensors. Journal of Intelligent Material Systems and Structures 28, 488–506. Rezazadeh, N., De Luca, A., Perfetto, D., Salami, M.R., Lamanna, G., 2025. Systematic critical review of structural health monitoring under environmental and operational variability: approaches for baseline compensation, adaptation, and reference-free techniques. Smart Materials and Structures 34, 073001. Rose, J.L., 2014. Ultrasonic Guided Waves in Solid Media. Cambridge University Press. Sbarufatti, C., Manson, G., Worden, K., 2014. A numerically-enhanced machine learning approach to damage diagnosis using a Lamb wave sensing network. Journal of Sound and Vibration 333, 4499–4525. Sharma, B.N., Kapuria, S., Arockiarajan, A., 2021. Time reversibility of Lamb waves in thin plates with surface-bonded piezoelectric transducers is temperature invariant at the best reconstruction frequency. Structural Health Monitoring 20, 2626–2640. Sharma, B.N., Kapuria, S., Arockiarajan, A., Kannusamy, M., 2023. Baseline-free damage detection and sizing under varying temperatures using Lamb waves without temperature compensation. Structural Health Monitoring 22, 3534–3557. Song, Y., Shan, S., Zhang, Y., Cheng, L., 2026. Physics-guided neural network for structural health monitoring with Lamb waves through boundary reflection elimination. Structural Health Monitoring 25, 1219–1236. Sparkler, 2018. Sparkler piezoceramics. Available at: https://www.sparklerceramics.com/piezoelectricproperties.html . Su, Z., Ye, L., 2009. Identification of Damage using Lamb Waves. Springer-Verlag, Berlin Heidelberg. Vapnik, V.N., 1999. An overview of statistical learning theory. IEEE transactions on neural networks 10, 988–999. Velásquez, J.Q., Trindade, M.A., 2022. Finite element modeling and analysis of adhesive layer effects in surface-bonded piezoelectric sensors and actuators including non-uniform thickness. Mechanics of Advanced Materials and Structures 29, 3658–3673. Wang, P., Zhou, W., Bao, Y., Li, H., 2018. Ice monitoring of a full-scale wind turbine blade using ultrasonic guided waves under varying temperature conditions. Structural Control and Health Monitoring 25, e2138. Weiss, K., Khoshgoftaar, T.M., Wang, D., 2016. A survey of transfer learning. Journal of Big data 3, 9. Wu, J., Xu, X., Liu, C., Deng, C., Shao, X., 2021. Lamb wave-based damage detection of composite structures using deep convolutional neural network and continuous wavelet transform. Composite Structures 276, 114590. Yang, Z., Yang, H., Tian, T., Deng, D., Hu, M., Ma, J., Gao, D., Zhang, J., Ma, S., Yang, L., et al., 2023. A review on guided-ultrasonic-wave-based structural health monitoring: From fundamental theory to machine learning techniques. Ultrasonics 133, 107014. Zhang, S., Li, C.M., Yang, J., Ye, W., 2022. Effective combination of modeling and experimental data with deep metric learning for guided wave-based damage localization in plates. Mechanical Systems and Signal Processing 172, 108979. Zhang, S., Li, C.M., Ye, W., 2021. Damage localization in plate-like structures using time-varying feature and one-dimensional convolutional neural network. Mechanical Systems and Signal Processing 147, 107107. Zhu, H., Khodaei, Z.S., Aliabadi, F.M., 2024. Appraisal of linear baseline-free techniques for guided wave based structural health monitoring. Ultrasonics 144, 107445. Zhuang, F., Qi, Z., Duan, K., Xi, D., Zhu, Y., Zhu, H., Xiong, H., He, Q., 2020. A comprehensive survey on transfer learning. Proceedings of the IEEE 109, 43–76. 
+
+19 CNN Encoder 
+
+CNN Decoder 
+
+Damage 
+
+Size 
+
+Damage 
+
+location 
+
+FFNN 
+
+Frequency 
+
+Latent 
+
+space 
+
+Latent space 
+
+Pre Training Phase Testing Phase 
+
+Latent space 
+
+CNN Encoder 
+
+Latent 
+
+space 
+
+Frequency 
+
+Latent space 
+
+Damage 
+
+Size 
+
+Damage 
+
+location 
+
+> 1D TDSE
+> 1D TDSE output
+> (Reconstruction)
+> 1D TDSE
+> Input
+
+FFNN (a) Pretraining and testing framework with large low-fidelity simulation data CNN Decoder 
+
+FFNN 
+
+Frequency 
+
+> Latent
+
+space 
+
+Latent space 
+
+Training in Transfer Learning Phase Testing Phase 
+
+> Latent space
+> Latent
+> space
+
+CNN Encoder CNN Encoder 
+
+Frozen 
+
+Trainable 
+
+FFNN 
+
+Frequency 
+
+> Latent space
+
+Damage 
+
+Size 
+
+Damage 
+
+location Damage 
+
+Size 
+
+Damage 
+
+location 
+
+> Input
+> High fidelity signal
+> (Reconstruction)
+> Exp./ High fidelity signal
+> Exp./ High fidelity signal
+
+(b) Transfer learning with limited high-fidelity experimental/real world data 
+
+Figure 1: High-level flow chart for training and testing phases of the proposed CAE-FFNN-TL model for guided wave-based SHM 
+
+20 Notch 
+
+## a
+
+> h
+
+Actuator Sensor 
+
+a -Length of plate 
+
+h -Thickness of plate 
+
+dLA -Distance between actuator and the left boundary of plate 
+
+dAS -Distance between actuator and sensor 
+
+wn -Width of Notch 
+
+hn -Depth of notch 
+
+dAN -Distance between actuator and notch 
+
+dLA 
+
+dAS 
+
+wn
+
+hn
+
+dAN Host plate Figure 2: Schematic diagram of the geometry of host plate integrated with surface-bonded PWAS transducers and featuring a notch-type damage 
+
+Figure 3: Spectral strip element based on the ZIGT, showing 𝑛 physical nodes with four mechanical DoFs and 𝑛 𝜙 − 1) 
+
+internal electric potential DoFs per node and an electric node (p) with 𝑛 𝜙 surface electric potential DoFs  
+
+> (a) (b)
+
+Figure 4: (a) 1D convolution operation. (b) Max-pooling operation 
+
+21 ith layer (i-1) th layer 
+
+> ni-1
+
+wi11 v1i-1 
+
+v2i-1 
+
+v3i-1 
+
+v4i-1 
+
+vi-1 
+
+> ni
+
+v1i
+
+v2i
+
+v3i
+
+vi
+
+bi1
+
+bi2
+
+bi3
+
+bi
+
+> ni
+
+neuron Figure 5: Connection between neurons of adjacent layers in a fully-connected layer Hidden layers 
+
+Input layers Output layers 
+
+Figure 6: Architecture of FFNN 
+
+22 (a) (b) 
+
+Figure 7: Activation functions: (a) Linear activation, (b) LeakyRelu activation. Conv1D 
+
+F=64, K=3,S=1 
+
+zero padding 
+
+MaxPooling1D 
+
+Pool size =2 
+
+MaxPooling1D 
+
+Pool size =2 
+
+Conv1D 
+
+F=32, K=3,S=1 
+
+zero padding 
+
+Flatten layer 
+
+Dense 
+
+Units= 32 
+
+Reshape 
+
+Upsampling 
+
+size=2 
+
+Conv1D 
+
+F= 64, K=3, S=1 
+
+zero padding 
+
+Conv1D 
+
+F= 1, K=3, S=1 
+
+zero padding 
+
+Upsampling 
+
+size=2 
+
+Dense 
+
+Units= 32 
+
+Dense 
+
+Units= Input_shape//4*32 
+
+Input Reconstructed 
+
+output 
+
+Figure 8: Architecture of convolutional autoencoder 
+
+23 Figure 9: Hann window-modulated five-cycle tone burst signal of 100 kHz central frequency 
+
+Figure 10: Mesh configuration in 2D plane strain FE model 
+
+(a) (b) 
+
+Figure 11: Comparison of 1D TDSE and 2D FE ( ABAQUS ) solutions for sensory potential for two values of notch depth: (a) 0.5 mm and (b) 2.0 mm. 
+
+24 (a) (b) 
+
+Figure 12: Effect of notch depth on Lamb wave-induced sensor potential (from 1D TDSE ) for notch positions of (a) 
+
+𝑑 𝐴𝑁 = 70 mm and (b) 𝑑 𝐴𝑁 = 85 mm. Epochs 
+
+> Loss
+
+Figure 13: Training performance graph for CAE-based TL model 
+
+25 Actual damage size 
+
+> Predicted damage size
+
+Figure 14: Scatter plots of predicted and actual values of notch depth at the fine-tuning stage on 2D FE test data 
+
+(a) (b) 
+
+Figure 15: 1D TDSE solution for sensor potential under (a) 100 kHz excitation and (b) 200 kHz excitation 
+
+26 Figure 16: Experimental setup illustrating the arrangement of PZT transducers and acquisition system for Lamb wave generation and sensing. damage damage  
+
+> (1 mm) damage
+> (3 mm)
+> damage
+> (2 mm)
+> damage
+> (3 mm)
+
+Figure 17: Configuration of the PZT transducers and block-mass damage positions for generating experimental data 
+
+27 (a) (b) 
+
+Figure 18: Experimental sensor signals for path PZT-1–PZT-3 and damage height of 2 mm under (a) 120 kHz and (b) 150 kHz excitations. Epochs 
+
+> Loss
+
+(a) Epochs  
+
+> Loss
+
+(b) 
+
+Figure 19: Training performance of CAE-FFNN-TL model for damage localisation and sizing at (a) pretraining stage with a large 1D TDSE simulation dataset and (b) fine-tuning stage with few experimental data Actual damage size 
+
+> Predicted damage size
+
+(a) Actual damage location  
+
+> Predicted damage location
+
+(b) 
+
+Figure 20: Scatter plots of actual and predicted (a) damage size and (b) location from 1D TDSE test data 
+
+28 Actual damage size 
+
+> Predicted damage size
+
+(a) Actual damage location  
+
+> Predicted damage location
+
+(b) 
+
+Figure 21: Scatter plots of actual and predicted (a) damage size and (b) location from unseen simulated data Actual damage size 
+
+> Predicted damage size
+
+(a) Actual damage location  
+
+> Predicted damage location
+
+(b) 
+
+Figure 22: Scatter plots of actual and predicted (a) damage size and (b) location from limited experimental dataset after transfer learning 
+
+29 Actual damage size 
+
+> Predicted damage size
+
+(a) Actual damage location  
+
+> Predicted damage location
+
+(b) 
+
+Figure 23: Scatter plots of actual and predicted (a) damage size and (b) location from unseen experimental data after transfer learning Actual damage size 
+
+> Predicted damage size
+
+(a) Actual damage location  
+
+> Predicted damage location
+
+(b) 
+
+Figure 24: Scatter plots of actual and predicted (a) damage size and (b) location from CAE-FFNN model trained on only limited experimental data 
+
+30

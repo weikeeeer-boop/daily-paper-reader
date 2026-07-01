@@ -1,0 +1,200 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-07-01T03:55:48.774258+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 2,
+    "deep_cap": 6,
+    "deep_selected": 2,
+    "quick_candidates": 3,
+    "quick_skim_target": 11,
+    "quick_selected": 3
+  },
+  "deep_dive": [
+    {
+      "id": "2606.26363v1",
+      "source": "arxiv",
+      "title": "Bayesian Changepoint Detection for Smart Sensing of Battery Degradation: Cycle-Level Health Indicators and PyMC Implementation",
+      "abstract": "Reliable detection of the onset of accelerated degradation is central to safe and cost-efficient operation of lithium-ion batteries. This paper presents a Bayesian single-changepoint model applied to a simple but physically meaningful cycle-level health indicator (HI), defined as the ratio of charge time to discharge time. The indicator is computed directly from voltage-current telemetry typically available in battery management systems (BMS), without access to raw waveforms. The changepoint model is implemented in PyMC using Hamiltonian Monte Carlo and produces posterior distributions for onset time and pre/post-degradation slopes, together with posterior predictive checks. Experiments on an open 18650-cell remaining useful life (RUL) dataset show consistent midlife changepoints with narrow highest-density intervals. The formulation is lightweight, interpretable, and amenable to smart-sensing deployment on embedded BMS platforms.",
+      "authors": [
+        "Waldemar Bauer",
+        "Anna Jarosz-Kozyro",
+        "Jerzy Baranowski"
+      ],
+      "primary_category": "eess.SY",
+      "categories": [
+        "eess.SY"
+      ],
+      "published": "2026-06-24T20:19:30+00:00",
+      "link": "https://arxiv.org/pdf/2606.26363v1",
+      "tags": [
+        "keyword:heating-pipe",
+        "query:heating-pipe"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "changepoint detection method applicable to remaining service life estimation of pipes",
+      "llm_evidence_cn": "变点检测方法可应用于管道剩余使用寿命预估",
+      "llm_evidence": "变点检测方法可应用于管道剩余使用寿命预估",
+      "canonical_evidence": "变点检测方法可应用于管道剩余使用寿命预估",
+      "llm_tldr_en": "Proposes a Bayesian changepoint model for detecting degradation onset in batteries using cycle-level health indicators; method is directly transferable to estimating remaining service life of heating pipes.",
+      "llm_tldr_cn": "该论文针对锂离子电池退化检测问题，提出了一种贝叶斯单变点模型，利用充放电时间比作为循环级健康指标。模型通过PyMC实现哈密顿蒙特卡洛采样，输出退化起始时间和退化前后斜率的后验分布。该方法可迁移应用于供热管道剩余使用寿命预估，通过监测管道状态指标的变化点来预测寿命。",
+      "llm_tldr": "该论文针对锂离子电池退化检测问题，提出了一种贝叶斯单变点模型，利用充放电时间比作为循环级健康指标。模型通过PyMC实现哈密顿蒙特卡洛采样，输出退化起始时间和退化前后斜率的后验分布。该方法可迁移应用于供热管道剩余使用寿命预估，通过监测管道状态指标的变化点来预测寿命。",
+      "llm_tags": [
+        "query:heating-pipe"
+      ],
+      "matched_query_tag": "query:heating-pipe",
+      "matched_query_text": "Studies on predicting remaining service life of heating pipes",
+      "matched_requirement_id": "req-9",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.27304v1",
+      "source": "arxiv",
+      "title": "A Multi-Fidelity Convolutional Autoencoder-Transfer Learning Framework for Guided-Wave-Based Damage Diagnosis Using Large Simulated and Limited Experimental Datasets",
+      "abstract": "Guided wave-based structural health monitoring (GWSHM) with onboard transducers offers significant potential for the early diagnosis of damage in engineering structures. However, the practical deployment of deep learning models is often hindered by the limited availability of labelled experimental data and the high computational cost of generating large-scale high-fidelity simulation datasets. This study presents a multifidelity transfer learning framework that integrates lightweight physics-based simulations, convolutional autoencoder (CAE)-based deep feature learning, a feed-forward neural network, and limited experimental measurements for accurate damage localisation and sizing in plate-like structures instrumented with piezoelectric transducers. A computationally efficient one-dimensional time-domain spectral element model is employed to generate a large synthetic dataset for pretraining, while transfer learning adapts the model to experimental domains using only a small amount of labelled data. The CAE-based transfer learning framework significantly outperforms its CNN-based counterpart in damage localisation accuracy. The model achieves excellent predictive performance with $R^2$ scores exceeding 0.93 for damage localisation and 0.99 for damage sizing. Its generalisation capability is demonstrated on previously unseen data, showing high prediction accuracy for damage scenarios not represented during pretraining or fine-tuning. The results establish the proposed framework as an accurate, computationally efficient, and practically viable solution for real-world GWSHM applications.",
+      "authors": [
+        "Santosh Kapuria",
+        "Abhishek"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG"
+      ],
+      "published": "2026-06-25T17:25:13+00:00",
+      "link": "https://arxiv.org/pdf/2606.27304v1",
+      "tags": [
+        "keyword:heating-pipe",
+        "query:heating-pipe"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "guided wave-based damage diagnosis with multi-fidelity transfer learning, directly applicable to pipe leak detection",
+      "llm_evidence_cn": "基于导波的多保真迁移学习损伤诊断，直接适用于管道泄漏检测",
+      "llm_evidence": "基于导波的多保真迁移学习损伤诊断，直接适用于管道泄漏检测",
+      "canonical_evidence": "基于导波的多保真迁移学习损伤诊断，直接适用于管道泄漏检测",
+      "llm_tldr_en": "Proposes a multi-fidelity convolutional autoencoder-transfer learning framework for guided-wave-based damage diagnosis, using large simulated and limited experimental data, enabling accurate leak detection in pipes.",
+      "llm_tldr_cn": "针对导波结构健康监测中实验数据稀缺和高保真仿真计算成本高的问题，提出一种多保真迁移学习框架，融合轻量物理仿真、卷积自编码器特征学习和少量实测数据，实现管道等结构的精确损伤诊断，为供热管道泄漏检测提供了高效方法。",
+      "llm_tldr": "针对导波结构健康监测中实验数据稀缺和高保真仿真计算成本高的问题，提出一种多保真迁移学习框架，融合轻量物理仿真、卷积自编码器特征学习和少量实测数据，实现管道等结构的精确损伤诊断，为供热管道泄漏检测提供了高效方法。",
+      "llm_tags": [
+        "query:heating-pipe"
+      ],
+      "matched_query_tag": "query:heating-pipe",
+      "matched_query_text": "methods for detecting leaks in heating pipes",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2606.24173v1",
+      "source": "arxiv",
+      "title": "Lightweight Transformer Models for On-Device Fault Detection: A Benchmark Study on Resource-Constrained Deployment",
+      "abstract": "On-device fault detection enables real-time diagnostics without cloud dependency, but deploying machine learning models on resource-constrained hardware demands careful tradeoffs between accuracy, latency, and model size. We present a benchmark comparing traditional ML methods (Random Forest, XGBoost, SVM, Logistic Regression) against lightweight transformer architectures (DistilBERT, TinyBERT-6L, TinyBERT-4L, MobileBERT) for binary fault detection across three public datasets: NASA C-MAPSS turbofan degradation, SECOM semiconductor manufacturing, and UCI AI4I 2020 predictive maintenance. We evaluate classification performance (F1-score, AUC), model size, and CPU inference latency, and further assess INT8 dynamic quantization and a two-stage adaptive inference pipeline. Our results reveal that on well-separated sensor data (C-MAPSS), lightweight transformers match traditional ML at 87.8% F1 but at 100x the model size and 9000x the latency. TinyBERT-4L emerges as the most deployment-friendly transformer at 55 MB and 18 ms CPU latency. INT8 quantization reduces size by 25% while preserving 86.9% F1. Our adaptive pipeline, routing 97.9% of predictions through a quantized triage model and only 2.1% to a larger expert, achieves 87.6% F1 at 19.5 ms average latency. On severely imbalanced datasets (SECOM, UCI-PM), both traditional and transformer methods struggle significantly, highlighting fundamental limitations of current approaches for extreme class imbalance in fault detection. All code is publicly available.",
+      "authors": [
+        "Disha Patel"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published": "2026-06-23T05:54:33+00:00",
+      "link": "https://arxiv.org/pdf/2606.24173v1",
+      "tags": [
+        "keyword:heating-pipe",
+        "query:heating-pipe"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "benchmark of fault detection methods for predictive maintenance, applicable to pipe leak detection",
+      "llm_evidence_cn": "故障检测方法基准，可应用于管道泄漏检测",
+      "llm_evidence": "故障检测方法基准，可应用于管道泄漏检测",
+      "canonical_evidence": "故障检测方法基准，可应用于管道泄漏检测",
+      "llm_tldr_en": "Benchmark comparing traditional ML and lightweight transformers for fault detection on industrial datasets, directly relevant to leak detection in heating pipes.",
+      "llm_tldr_cn": "论文在多个工业数据集上对比了传统机器学习（随机森林、XGBoost等）与轻量级Transformer（DistilBERT、TinyBERT等）在故障检测中的性能，评估了F1分数、模型大小和推理延迟。实验涵盖了C-MAPSS涡轮风扇退化、半导体制造和预测维护数据集。该基准为供热管道泄漏检测的模型选择提供了直接参考，特别是对于资源受限的嵌入式设备场景，轻量级Transformer在精度和效率间取得了良好的平衡。",
+      "llm_tldr": "论文在多个工业数据集上对比了传统机器学习（随机森林、XGBoost等）与轻量级Transformer（DistilBERT、TinyBERT等）在故障检测中的性能，评估了F1分数、模型大小和推理延迟。实验涵盖了C-MAPSS涡轮风扇退化、半导体制造和预测维护数据集。该基准为供热管道泄漏检测的模型选择提供了直接参考，特别是对于资源受限的嵌入式设备场景，轻量级Transformer在精度和效率间取得了良好的平衡。",
+      "llm_tags": [
+        "query:heating-pipe"
+      ],
+      "matched_query_tag": "query:heating-pipe",
+      "matched_query_text": "methods for detecting leaks in heating pipes",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.23145v1",
+      "source": "arxiv",
+      "title": "Weighted Score-Oriented Losses for Temporally Localized Event Prediction",
+      "abstract": "Operational event-detection systems are rarely assessed by pointwise accuracy alone. In anomaly detection, changepoint detection, and warning systems, the utility of an alarm depends on its temporal position relative to an event. This produces a score-loss mismatch. Neural networks are commonly trained with classical loss functions, such as cross-entropy, whereas deployment decisions are obtained by thresholding network predictions, merging alarms through post-processing rules, and evaluating them with event-based metrics defined by detection windows and false-alarm costs. This paper studies a temporally localized specialization of weighted score-oriented loss (wSOL) for event prediction. Starting from score-oriented losses based on expected confusion matrices and from the weighted SOL framework of Marchetti et al., we consider temporal weights that discount near-event false positives and reduce false-negative penalties when an event is preceded by an admissible alarm. The resulting objective is differentiable with respect to the network predictions, and therefore can be optimized by back-propagation. It can be instantiated with balanced accuracy, true skill statistic, F1, critical success index, and related confusion-matrix scores. We evaluate the proposed approach by comparing cross-entropy, unweighted score-oriented loss, and wSOL on three benchmark datasets for time-series event prediction and detection. The results show that wSOL can improve performance when the evaluation utility is localized in time and is not already encoded by the pointwise labels.",
+      "authors": [
+        "Edoardo Legnaro",
+        "Sabrina Guastavino",
+        "Francesco Marchetti"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG"
+      ],
+      "published": "2026-06-22T10:45:29+00:00",
+      "link": "https://arxiv.org/pdf/2606.23145v1",
+      "tags": [
+        "keyword:heating-pipe",
+        "query:heating-pipe"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "temporal event prediction method applicable to leak detection",
+      "llm_evidence_cn": "适用于管道漏点检测的时间事件预测方法",
+      "llm_evidence": "适用于管道漏点检测的时间事件预测方法",
+      "canonical_evidence": "适用于管道漏点检测的时间事件预测方法",
+      "llm_tldr_en": "Proposes weighted score-oriented losses for temporally localized event prediction, improving detection in anomaly and changepoint tasks, applicable to leak detection in pipelines.",
+      "llm_tldr_cn": "针对现有事件检测系统训练与评估不匹配的问题，提出了一种加权的面向分数的损失函数用于时间局部化事件预测，在异常检测和变点检测任务上有效提升了检测性能，可推广至管道泄漏检测等应用。",
+      "llm_tldr": "针对现有事件检测系统训练与评估不匹配的问题，提出了一种加权的面向分数的损失函数用于时间局部化事件预测，在异常检测和变点检测任务上有效提升了检测性能，可推广至管道泄漏检测等应用。",
+      "llm_tags": [
+        "query:heating-pipe"
+      ],
+      "matched_query_tag": "query:heating-pipe",
+      "matched_query_text": "methods for detecting leaks in heating pipes",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2606.26687v1",
+      "source": "arxiv",
+      "title": "DeCoFlow: Structural Decomposition of Normalizing Flows for Continual Anomaly Detection",
+      "abstract": "In industrial environments, new product categories arrive sequentially, requiring continual anomaly detection without access to past data. Normalizing Flows (NFs) provide exact density estimation but suffer from catastrophic forgetting as parameter updates across tasks distort the density manifold. While parameter isolation can prevent interference, it must preserve the strict invertibility and Jacobian validity of NFs. To satisfy these requirements, we exploit the inherent property that affine coupling layers maintain transformation validity regardless of subnet parameterization. Based on this, we propose DeCoFlow, which decomposes subnets into a frozen universal base and task-specific low-rank adapters to isolate updates. We further introduce Task-Specific Alignment, Auxiliary Coupling Layers, and Tail-Aware Loss to compensate for frozen-base rigidity. DeCoFlow achieves state-of-the-art image-level AUROCs of 98.40% on MVTec-AD and 93.00% on VisA, while maintaining parameter-level zero forgetting (0.00% FM under correct routing) with only 2.27M parameters per task.",
+      "authors": [
+        "Hun Im",
+        "Jungi Lee",
+        "Subeen Cha",
+        "Pilsung Kang"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-06-25T07:18:13+00:00",
+      "link": "https://arxiv.org/pdf/2606.26687v1",
+      "tags": [
+        "keyword:heating-pipe",
+        "query:heating-pipe"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "continual anomaly detection method applicable to pipe leak detection",
+      "llm_evidence_cn": "持续异常检测方法可应用于管道泄漏检测",
+      "llm_evidence": "持续异常检测方法可应用于管道泄漏检测",
+      "canonical_evidence": "持续异常检测方法可应用于管道泄漏检测",
+      "llm_tldr_en": "Proposes DeCoFlow using normalizing flows with low-rank adapters for continual anomaly detection without forgetting, transferable to heating pipe fault detection.",
+      "llm_tldr_cn": "论文针对工业环境中新产品类别持续出现导致灾难性遗忘的问题，提出DeCoFlow框架。该框架利用归一化流仿射耦合层的特性，将子网分解为冻结的通用基和任务特定低秩适配器来隔离更新，在保持模型可逆性的同时实现持续异常检测。实验表明DeCoFlow能有效适应新任务而不遗忘旧知识，性能优于基线。该框架可迁移至供热管道漏点检测，通过学习历史故障模式并适应新泄漏类型，无需重放旧数据。",
+      "llm_tldr": "论文针对工业环境中新产品类别持续出现导致灾难性遗忘的问题，提出DeCoFlow框架。该框架利用归一化流仿射耦合层的特性，将子网分解为冻结的通用基和任务特定低秩适配器来隔离更新，在保持模型可逆性的同时实现持续异常检测。实验表明DeCoFlow能有效适应新任务而不遗忘旧知识，性能优于基线。该框架可迁移至供热管道漏点检测，通过学习历史故障模式并适应新泄漏类型，无需重放旧数据。",
+      "llm_tags": [
+        "query:heating-pipe"
+      ],
+      "matched_query_tag": "query:heating-pipe",
+      "matched_query_text": "methods for detecting leaks in heating pipes",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    }
+  ]
+}
