@@ -1,6 +1,9 @@
 * <a class="dpr-sidebar-root-link" href="#/">首页</a>
 * <a class="dpr-sidebar-root-link dpr-sidebar-noactive-link" href="javascript:void(0)" data-dpr-hash="#/tutorial/README">使用教程</a>
 * Daily Papers
+  * 2026-07-03 <!--dpr-date:20260703-->
+    * 速读区
+      * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202607/03/2607.01986v1-liquid-latent-state-dynamics-for-interpretable-turbofan-degradation-modeling" data-sidebar-item="{&quot;title&quot;: &quot;Liquid Latent State Dynamics for Interpretable Turbofan Degradation Modeling&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2607.01986v1-liquid-latent-state-dynamics-for-interpretable-turbofan-degradation-modeling&quot;, &quot;score&quot;: &quot;7.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;heating-pipe&quot;}], &quot;evidence&quot;: &quot;通过潜在状态动力学进行剩余使用寿命估计&quot;}">Liquid Latent State Dynamics for Interpretable Turbofan Degradation Modeling</a>
   * 2026-07-01 <!--dpr-date:20260701-->
     * 速读区
       * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202607/01/2606.26306v1-fiber-bragg-grating-based-acoustic-sensing-system-enabled-by-ml-trained-sub-picometer-tunable-hybrid-iii-vsin-lasers" data-sidebar-item="{&quot;title&quot;: &quot;Fiber Bragg grating-based acoustic sensing system enabled by ML-trained, sub-picometer-tunable hybrid III-V/SiN lasers&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2606.26306v1-fiber-bragg-grating-based-acoustic-sensing-system-enabled-by-ml-trained-sub-picometer-tunable-hybrid-iii-vsin-lasers&quot;, &quot;score&quot;: &quot;6.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;heating-pipe&quot;}], &quot;evidence&quot;: &quot;分布式声发射传感用于管道泄漏检测的结构退化早期识别&quot;}">Fiber Bragg grating-based acoustic sensing system enabled by ML-trained, sub-picometer-tunable hybrid III-V/SiN lasers</a>

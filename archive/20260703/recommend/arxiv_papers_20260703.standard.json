@@ -1,0 +1,55 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-07-03T21:40:55.614199+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 0,
+    "deep_cap": 6,
+    "deep_selected": 0,
+    "quick_candidates": 1,
+    "quick_skim_target": 11,
+    "quick_selected": 1
+  },
+  "deep_dive": [],
+  "quick_skim": [
+    {
+      "id": "2607.01986v1",
+      "source": "arxiv",
+      "title": "Liquid Latent State Dynamics for Interpretable Turbofan Degradation Modeling",
+      "abstract": "Multivariate time-series models for prognostics are often evaluated by point prediction accuracy, yet their internal states rarely expose a coherent degradation process. We study liquid neural networks as latent dynamics models for aircraft engine health monitoring on the C-MAPSS benchmark. The proposed model encodes a history window into a latent state, evolves that state with a liquid transition model, and decodes future sensor observations. To separate health evolution from operating-condition variation, the latent state is factorized into degradation and condition components. Remaining useful life, monotonic risk, and latent-consistency losses supervise the degradation component, while condition prediction and decorrelation losses discourage operating-condition leakage. Across FD001--FD004, the full disentangled model improves overall sensor forecasting RMSE from 0.2438 for a GRU baseline to 0.2266, with the largest gains on the multi-condition subsets FD002 and FD004. The learned degradation state also forms a clearer temporal degradation axis, reaching an average state-speed Spearman correlation of 0.5960. Direct remaining-useful-life regression remains stronger for the GRU baseline, indicating that the proposed representation is currently more effective as an interpretable world model for degradation dynamics than as a calibrated lifetime regressor. These results suggest that liquid latent dynamics can bridge predictive maintenance forecasting and inspectable health-state modeling.",
+      "authors": [
+        "Weizhi Nie",
+        "Weijie Wang",
+        "Yuting Su"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.CV"
+      ],
+      "published": "2026-07-02T10:15:32+00:00",
+      "link": "https://arxiv.org/pdf/2607.01986v1",
+      "tags": [
+        "keyword:heating-pipe",
+        "query:heating-pipe"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "remaining useful life estimation via latent dynamics",
+      "llm_evidence_cn": "通过潜在状态动力学进行剩余使用寿命估计",
+      "llm_evidence": "通过潜在状态动力学进行剩余使用寿命估计",
+      "canonical_evidence": "通过潜在状态动力学进行剩余使用寿命估计",
+      "llm_tldr_en": "Proposes liquid neural networks for interpretable turbofan degradation modeling, achieving accurate remaining useful life prediction on C-MAPSS benchmark.",
+      "llm_tldr_cn": "针对多变量时间序列预测中内部状态无法揭示退化过程的问题，该文提出液体神经网络作为潜在动态模型。将历史窗口编码为潜在状态并分解为退化与工况分量，用多任务损失优化。在C-MAPSS基准上验证了剩余寿命预测的有效性，展示了可解释的退化轨迹，为设备剩余寿命预估提供了新思路。",
+      "llm_tldr": "针对多变量时间序列预测中内部状态无法揭示退化过程的问题，该文提出液体神经网络作为潜在动态模型。将历史窗口编码为潜在状态并分解为退化与工况分量，用多任务损失优化。在C-MAPSS基准上验证了剩余寿命预测的有效性，展示了可解释的退化轨迹，为设备剩余寿命预估提供了新思路。",
+      "llm_tags": [
+        "query:heating-pipe"
+      ],
+      "matched_query_tag": "query:heating-pipe",
+      "matched_query_text": "estimation of remaining service life of pipes",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    }
+  ]
+}

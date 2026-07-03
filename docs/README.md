@@ -6,22 +6,26 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-07-02
-- 运行时间：2026-07-02 21:39:26 UTC
+- 最新运行日期：2026-07-03
+- 运行时间：2026-07-03 21:41:42 UTC
 - 运行状态：成功
-- 本次总论文数：0
+- 本次总论文数：1
 - 精读区：0
-- 速读区：0
+- 速读区：1
 
 ### 今日简报（AI）
-> 今日无新推荐，系统未产出可展示论文。
-- 详情：[/202607/02/README](/202607/02/README)
+今日速读1篇涡扇发动机退化建模论文，聚焦可解释性方向。  
+液态隐态动力学模型是亮点，值得关注其解释性建模思路。  
+若对工业退化预测感兴趣，建议进一步精读把握方法细节。
+- 详情：[/202607/03/README](/202607/03/README)
 
 ### 精读区论文标签
 - 本次无精读推荐。
 
 ### 速读区论文标签
-- 本次无速读推荐。
+1. [Liquid Latent State Dynamics for Interpretable Turbofan Degradation Modeling](/202607/03/2607.01986v1-liquid-latent-state-dynamics-for-interpretable-turbofan-degradation-modeling)  
+   标签：评分：7.0/10、query:heating-pipe
+   evidence：通过潜在状态动力学进行剩余使用寿命估计
 
 
 <div class="dpr-home-promo-card">
