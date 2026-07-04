@@ -6,26 +6,27 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-07-03
-- 运行时间：2026-07-03 21:41:42 UTC
+- 最新运行日期：2026-07-04
+- 运行时间：2026-07-04 21:12:24 UTC
 - 运行状态：成功
-- 本次总论文数：1
+- 本次总论文数：2
 - 精读区：0
-- 速读区：1
+- 速读区：2
 
 ### 今日简报（AI）
-今日速读1篇涡扇发动机退化建模论文，聚焦可解释性方向。  
-液态隐态动力学模型是亮点，值得关注其解释性建模思路。  
-若对工业退化预测感兴趣，建议进一步精读把握方法细节。
-- 详情：[/202607/03/README](/202607/03/README)
+今天速读2篇论文，聚焦海底电缆物理接触的无监督检测和冷启动异常检测的校准方法。最值得看的是全无监督的海底电缆接触检测（7.0分）与异常修正校准的冷启动异常检测（6.0分）。建议后续关注无监督工业监控应用及数据稀疏场景下的校准技术。
+- 详情：[/202607/04/README](/202607/04/README)
 
 ### 精读区论文标签
 - 本次无精读推荐。
 
 ### 速读区论文标签
-1. [Liquid Latent State Dynamics for Interpretable Turbofan Degradation Modeling](/202607/03/2607.01986v1-liquid-latent-state-dynamics-for-interpretable-turbofan-degradation-modeling)  
+1. [Fully Unsupervised Detection of Physical Contacts on Subsea Cables via State-of-Polarization Monitoring](/202607/04/2607.01484v1-fully-unsupervised-detection-of-physical-contacts-on-subsea-cables-via-state-of-polarization-monitoring)  
    标签：评分：7.0/10、query:heating-pipe
-   evidence：通过潜在状态动力学进行剩余使用寿命估计
+   evidence：通过偏振态监控完全无监督检测电缆接触
+2. [ArcAD: Anomaly-Rectified Calibration for Cold-Start Supervised Anomaly Detection](/202607/04/2607.02252v1-arcad-anomaly-rectified-calibration-for-cold-start-supervised-anomaly-detection)  
+   标签：评分：6.0/10、query:heating-pipe
+   evidence：工业冷启动监督异常检测方法，可应用于管道泄漏检测
 
 
 <div class="dpr-home-promo-card">

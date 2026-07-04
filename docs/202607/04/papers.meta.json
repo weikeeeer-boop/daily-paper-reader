@@ -1,0 +1,39 @@
+{
+  "label": "2026-07-04",
+  "date": "2026-07-04",
+  "generated_at": "2026-07-04T21:12:31",
+  "count": 2,
+  "papers": [
+    {
+      "paper_id": "202607/04/2607.01484v1-fully-unsupervised-detection-of-physical-contacts-on-subsea-cables-via-state-of-polarization-monitoring",
+      "section": "quick",
+      "title_en": "Fully Unsupervised Detection of Physical Contacts on Subsea Cables via State-of-Polarization Monitoring",
+      "authors": "Agastya Raj, Alvaro Doval, Tian Tian, Steinar Bjørnstad, Marco Ruffini",
+      "date": "2026-07-01",
+      "pdf": "https://arxiv.org/pdf/2607.01484v1",
+      "score": "7.0",
+      "evidence": "通过偏振态监控完全无监督检测电缆接触",
+      "tldr": "海底电缆常受拖网渔船等外力接触威胁，现有检测依赖事件标签，难以部署。本文提出Fast-Slow DSVDD无监督检测器，利用偏振态信号快速与慢速特征训练，无需任何标签。在12万余条记录中，所有5个确认拖网接触均排入前13，并额外发现多个可验证的接触事件，首个实现完全无监督的实时监测。",
+      "tags": "query:heating-pipe",
+      "abstract_en": "We present a fully unsupervised Fast-Slow DSVDD detector for continuous State-of-Polarization monitoring on a deployed subsea cable. Trained without event labels, it ranks all five confirmed trawler contacts within the top 13 of 122,174 recordings and surfaces additional corroborated cable-contact events.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "paper_id": "202607/04/2607.02252v1-arcad-anomaly-rectified-calibration-for-cold-start-supervised-anomaly-detection",
+      "section": "quick",
+      "title_en": "ArcAD: Anomaly-Rectified Calibration for Cold-Start Supervised Anomaly Detection",
+      "authors": "Ningning Han, Lei Fan, Jia Guo, Yunkang Cao, Xiu Su, Feng Cao, Donglin Di, Tonghua Su",
+      "date": "2026-07-02",
+      "pdf": "https://arxiv.org/pdf/2607.02252v1",
+      "score": "6.0",
+      "evidence": "工业冷启动监督异常检测方法，可应用于管道泄漏检测",
+      "tldr": "工业异常检测面临冷启动瓶颈：有限的正常样本无法覆盖完整分布，且仅有少量异常可用。现有方法难以形成紧凑的正常边界，也无法有效利用监督信号。本文提出ArcAD，一种即插即用的校准框架，通过推送-拉动范式：将正常样本投影到超球面并聚成紧凑簇，同时合成伪异常并利用真实异常向内推近边界。在MVTec-AD等数据集上，ArcAD在单类和多项类冷启动场景下显著优于现有方法。",
+      "tags": "query:heating-pipe",
+      "abstract_en": "The deployment of Industrial Anomaly Detection (IAD) in real-world manufacturing frequently encounters a challenging cold-start bottleneck, in which limited normal samples fail to represent the full normal distribution and only a few anomalies are available. Under such a regime, existing methods struggle to form compact normal boundaries and fail to effectively exploit supervised signals from rare defects. To address this challenge, we propose Anomaly-Rectified Cold-start AD (ArcAD), a plug-and-play calibration framework for reconstruction-based IAD baselines. ArcAD follows a push-pull learning paradigm to construct a compact and discriminative normal boundary under data scarcity. On the one hand, ArcAD projects limited normal samples onto a hypersphere and pulls them into multiple compact clusters to maximize coverage of the normal manifold. On the other hand, it synthesizes pseudo-anomalies on the hypersphere and leverages real anomalies to push the boundary inward and sharpen anomaly discrimination. Extensive experiments on MVTec-AD, VisA, Real-IAD, and MANTA demonstrate that ArcAD significantly outperforms state-of-the-art supervised and unsupervised methods in both single-class and multi-class settings under cold-start conditions. Code is available at: https://github.com/LGC-AD/ArcAD.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "errors": []
+}

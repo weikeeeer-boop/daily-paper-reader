@@ -1,0 +1,99 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-07-04T21:11:31.694119+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 0,
+    "deep_cap": 6,
+    "deep_selected": 0,
+    "quick_candidates": 2,
+    "quick_skim_target": 11,
+    "quick_selected": 2
+  },
+  "deep_dive": [],
+  "quick_skim": [
+    {
+      "id": "2607.01484v1",
+      "source": "arxiv",
+      "title": "Fully Unsupervised Detection of Physical Contacts on Subsea Cables via State-of-Polarization Monitoring",
+      "abstract": "We present a fully unsupervised Fast-Slow DSVDD detector for continuous State-of-Polarization monitoring on a deployed subsea cable. Trained without event labels, it ranks all five confirmed trawler contacts within the top 13 of 122,174 recordings and surfaces additional corroborated cable-contact events.",
+      "authors": [
+        "Agastya Raj",
+        "Alvaro Doval",
+        "Tian Tian",
+        "Steinar Bjørnstad",
+        "Marco Ruffini"
+      ],
+      "primary_category": "cs.NI",
+      "categories": [
+        "cs.NI",
+        "cs.AI"
+      ],
+      "published": "2026-07-01T21:25:46+00:00",
+      "link": "https://arxiv.org/pdf/2607.01484v1",
+      "tags": [
+        "keyword:heating-pipe",
+        "query:heating-pipe"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "fully unsupervised detection of physical contacts on cables via polarization monitoring",
+      "llm_evidence_cn": "通过偏振态监控完全无监督检测电缆接触",
+      "llm_evidence": "通过偏振态监控完全无监督检测电缆接触",
+      "canonical_evidence": "通过偏振态监控完全无监督检测电缆接触",
+      "llm_tldr_en": "Presents a fully unsupervised Fast-Slow DSVDD detector for continuous State-of-Polarization monitoring on subsea cables, ranking all five confirmed trawler contacts within top 13 out of 122,174 recordings, demonstrating excellent detection performance without labeled data.",
+      "llm_tldr_cn": "针对海底电缆接触事件的无监督检测难题，该文提出Fast-Slow DSVDD检测器，利用偏振态连续监控实现完全无监督异常检测。在真实部署电缆上，该方法将全部5个已确认拖网接触事件排在前13位，并发现额外可验证事件，展示了无需标签即可高效检测物理接触的能力，为管道泄漏检测提供了可迁移的方法论。",
+      "llm_tldr": "针对海底电缆接触事件的无监督检测难题，该文提出Fast-Slow DSVDD检测器，利用偏振态连续监控实现完全无监督异常检测。在真实部署电缆上，该方法将全部5个已确认拖网接触事件排在前13位，并发现额外可验证事件，展示了无需标签即可高效检测物理接触的能力，为管道泄漏检测提供了可迁移的方法论。",
+      "llm_tags": [
+        "query:heating-pipe"
+      ],
+      "matched_query_tag": "query:heating-pipe",
+      "matched_query_text": "methods for detecting leaks in heating pipes",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.02252v1",
+      "source": "arxiv",
+      "title": "ArcAD: Anomaly-Rectified Calibration for Cold-Start Supervised Anomaly Detection",
+      "abstract": "The deployment of Industrial Anomaly Detection (IAD) in real-world manufacturing frequently encounters a challenging cold-start bottleneck, in which limited normal samples fail to represent the full normal distribution and only a few anomalies are available. Under such a regime, existing methods struggle to form compact normal boundaries and fail to effectively exploit supervised signals from rare defects. To address this challenge, we propose Anomaly-Rectified Cold-start AD (ArcAD), a plug-and-play calibration framework for reconstruction-based IAD baselines. ArcAD follows a push-pull learning paradigm to construct a compact and discriminative normal boundary under data scarcity. On the one hand, ArcAD projects limited normal samples onto a hypersphere and pulls them into multiple compact clusters to maximize coverage of the normal manifold. On the other hand, it synthesizes pseudo-anomalies on the hypersphere and leverages real anomalies to push the boundary inward and sharpen anomaly discrimination. Extensive experiments on MVTec-AD, VisA, Real-IAD, and MANTA demonstrate that ArcAD significantly outperforms state-of-the-art supervised and unsupervised methods in both single-class and multi-class settings under cold-start conditions. Code is available at: https://github.com/LGC-AD/ArcAD.",
+      "authors": [
+        "Ningning Han",
+        "Lei Fan",
+        "Jia Guo",
+        "Yunkang Cao",
+        "Xiu Su",
+        "Feng Cao",
+        "Donglin Di",
+        "Tonghua Su"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-07-02T14:43:21+00:00",
+      "link": "https://arxiv.org/pdf/2607.02252v1",
+      "tags": [
+        "keyword:heating-pipe",
+        "query:heating-pipe"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "cold-start supervised anomaly detection for industrial settings, applicable to pipeline leak detection",
+      "llm_evidence_cn": "工业冷启动监督异常检测方法，可应用于管道泄漏检测",
+      "llm_evidence": "工业冷启动监督异常检测方法，可应用于管道泄漏检测",
+      "canonical_evidence": "工业冷启动监督异常检测方法，可应用于管道泄漏检测",
+      "llm_tldr_en": "Proposes ArcAD, a plug-and-play calibration framework for reconstruction-based anomaly detection, addressing cold-start with limited normal samples and few anomalies via push-pull learning to form compact normal boundaries.",
+      "llm_tldr_cn": "针对工业异常检测冷启动难题（正常样本有限、异常极少），提出无插件校准框架ArcAD，采用推-拉学习范式构建紧凑且可区分的正常边界。实验表明该方法在稀缺数据下显著提升重建型异常检测基线的性能，可推广至管道泄漏等工业场景。",
+      "llm_tldr": "针对工业异常检测冷启动难题（正常样本有限、异常极少），提出无插件校准框架ArcAD，采用推-拉学习范式构建紧凑且可区分的正常边界。实验表明该方法在稀缺数据下显著提升重建型异常检测基线的性能，可推广至管道泄漏等工业场景。",
+      "llm_tags": [
+        "query:heating-pipe"
+      ],
+      "matched_query_tag": "query:heating-pipe",
+      "matched_query_text": "techniques and methods for leak detection in pipelines",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    }
+  ]
+}
