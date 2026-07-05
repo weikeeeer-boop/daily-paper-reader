@@ -1,0 +1,54 @@
+{
+  "label": "2026-07-05",
+  "date": "2026-07-05",
+  "generated_at": "2026-07-05T21:23:02",
+  "count": 3,
+  "papers": [
+    {
+      "paper_id": "202607/05/2607.01049v1-genau-language-grounded-industrial-anomaly-understanding-with-vision-language-models",
+      "section": "quick",
+      "title_en": "GenAU: Language-Grounded Industrial Anomaly Understanding with Vision-Language Models",
+      "authors": "Hongkuan Zhou, Tristan Rehm, Nadeem Nazer, Lavdim Halilaj, Jingcheng Wu, Steffen Staab",
+      "date": "2026-07-01",
+      "pdf": "https://arxiv.org/pdf/2607.01049v1",
+      "score": "7.0",
+      "evidence": "工业异常检测框架可用于管道表面泄漏检测",
+      "tldr": "工业异常检测需要从二分类升级到包含定位、分类和解释的全面理解。现有CLIP方法检测分割良好但缺乏语言级缺陷理解，指令微调VLM能描述缺陷但无法产生像素掩码。GenAU是一个统一架构的通用视觉语言模型，通过两个特殊分割标记和联合训练实现在单一模型中完成图像级检测、像素级分割、多类型异常检测和缺陷分析。在跨数据集基准上，GenAU在图像级零样本检测上超越所有CLIP方法，分割接近专用CLIP基线。",
+      "tags": "query:heating-pipe",
+      "abstract_en": "Industrial inspection requires more than binary anomaly detection: a practical system should determine whether an anomaly exists, localize the defective region, identify the defect type, and provide interpretable visual evidence. Existing CLIP-based methods detect and localize anomalies well but offer limited language-level defect understanding, while instruction-tuned vision-language models can describe defects but do not natively produce pixel-level masks. We introduce GenAU, a Generalist vision-language framework for industrial Anomaly Understanding that unifies image-level detection, pixel-level segmentation, multi-type anomaly detection, and defect analysis in a single instruction-following model. GenAU augments a vision-language model with two segmentation tokens, [SEG_defect] and [SEG_normal], whose hidden states act as language-grounded queries over multi-scale visual features for pixel-level localization; the image-level score fuses this map with the decoder's textual normal/defect decision, while the language decoder produces structured defect-aware responses. Trained with a joint language-modeling and segmentation objective, GenAU covers all four tasks within one architecture and recipe, adding zero-shot multi-type detection and language-grounded defect analysis at a quantified cost to detection and segmentation. Across cross-dataset benchmarks, GenAU attains the strongest image-level detection among CLIP-based zero-shot methods on VisA and Real-IAD, with segmentation approaching but not surpassing specialized CLIP baselines.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "paper_id": "202607/05/2606.28970v1-rgld-randomized-global-local-density-estimation-for-tabular-anomaly-detection",
+      "section": "quick",
+      "title_en": "RGLD: Randomized Global-Local Density Estimation for Tabular Anomaly Detection",
+      "authors": "Quanling Zhao, Jiaying Yang, Ye Tian, Josh Victoria, Zhijun Wang, Pietro Mercati, Onat Gungor, Tajana Rosing",
+      "date": "2026-06-27",
+      "pdf": "https://arxiv.org/pdf/2606.28970v1",
+      "score": "6.0",
+      "evidence": "无监督异常检测方法可迁移至管道泄漏检测",
+      "tldr": "表格异常检测面临准确性与效率的平衡挑战。现有统计方法依赖固定视图和单一异常概念，深度方法虽灵活但速度慢且难以调优。本文提出RGLD，结合全局随机特征密度分支和局部邻居分支，在随机视图上联合检测异常。在47个数据集上，RGLD的AUROC排名第一，AUPRC排名第二，速度比所有深度检测器快50-580倍，实现了精度与效率的优越平衡。",
+      "tags": "query:heating-pipe",
+      "abstract_en": "Unsupervised tabular anomaly detection requires methods that are accurate, robust across heterogeneous datasets, and computationally efficient. Classical statistical detectors are often efficient, but they usually rely on a fixed data view and a single notion of abnormality. Deep anomaly detectors can learn more flexible scoring functions, but they are substantially slower and difficult to tune in unsupervised settings due to the lack of a reliable supervisory signal. We propose RGLD, a randomized global-local density estimator for efficient unsupervised tabular anomaly detection. RGLD combines a global random-feature density branch, which identifies samples in broadly low-density regions, with a local neighbor branch, which detects samples that are weakly supported by nearby observations. Both branches operate over feature-bagged randomized views, allowing RGLD to expose anomaly evidence that may be hidden in any single representation. We conduct experiments on 47 tabular datasets against 23 statistical and deep anomaly detection baselines under fully unsupervised setting. RGLD achieves the strongest dataset-level AUROC performance, ranking 1st in dataset wins, and ranks 2nd in AUPRC wins. RGLD is also faster than all evaluated deep detectors, achieving 50x-580x speedups, and remains competitive with statistical methods in runtime, yielding a favorable accuracy-efficiency tradeoff.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "paper_id": "202607/05/2606.31210v1-due-to-heatwaves-faults-in-urban-distribution-system-an-identification-approach",
+      "section": "quick",
+      "title_en": "Due-to-Heatwaves Faults in Urban Distribution System: An Identification Approach",
+      "authors": "Andrea Mazza, Haoke Wu",
+      "date": "2026-06-30",
+      "pdf": "https://arxiv.org/pdf/2606.31210v1",
+      "score": "6.0",
+      "evidence": "识别热浪引起的配电系统故障；可应用于供热管道热应力引发的故障检测",
+      "tldr": "热浪期间配电系统故障并非全部由热浪直接导致，传统归因高估了系统脆弱性。本文提出基于协方差归因准则和时间延迟模型，利用超额热因子指数表征热浪，区分Due-to-HW故障与其他故障。基于六年实际中压网络数据，发现Due-to-HW故障占夏季故障显著比例，且故障间隔分布偏离指数分布。该框架有助于准确评估热浪对配电网可靠性的影响，为资产管理提供依据。",
+      "tags": "query:heating-pipe",
+      "abstract_en": "Distribution system faults occurring during heatwaves (HWs) are not all caused by the HW itself: concurrent factors such as asset ageing, mechanical defects, soil contamination, and operational constraints contribute independently. Hence, indiscriminately attributing all HW-period faults to thermal stress overestimates system vulnerability and misleads asset-management decisions. This paper proposes a systematic framework to identify and quantify the subset of summer faults directly attributable to HW occurrences (denoted Due-to-HW faults), by distinguishing them from Due-to-Others faults. HW events are first characterised through the Excess Heat Factor index. A covariance-based attribution criterion is then developed to distinguish faults whose occurrence is statistically consistent with HW-driven thermal mechanisms from those attributable to independent causes. Complementing the attribution framework, a time-delay model is introduced to estimate the lag between the beginning of a HW and fault occurrence by maximising the normalised covariance between hourly temperature series and shifted fault-duration series. Applied to six years of operational data from a real MV distribution network, the simulation results show that Due-to-HW faults constitute a significant yet variable proportion of total summer faults, underscoring the non-negligible impact of HW occurrences on summer fault statistics. Beyond documenting the deterioration of fault rate and Mean Time Between Failures across all seasons, the analysis confirms that Time-Between-Failures distributions depart significantly from the exponential assumption, with direct implications for the applicability of Poisson-based reliability models to distribution systems subject to recurrent HW stress.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "errors": []
+}

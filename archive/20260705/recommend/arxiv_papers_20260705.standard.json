@@ -1,0 +1,136 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-07-05T21:20:36.579122+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 0,
+    "deep_cap": 6,
+    "deep_selected": 0,
+    "quick_candidates": 3,
+    "quick_skim_target": 11,
+    "quick_selected": 3
+  },
+  "deep_dive": [],
+  "quick_skim": [
+    {
+      "id": "2607.01049v1",
+      "source": "arxiv",
+      "title": "GenAU: Language-Grounded Industrial Anomaly Understanding with Vision-Language Models",
+      "abstract": "Industrial inspection requires more than binary anomaly detection: a practical system should determine whether an anomaly exists, localize the defective region, identify the defect type, and provide interpretable visual evidence. Existing CLIP-based methods detect and localize anomalies well but offer limited language-level defect understanding, while instruction-tuned vision-language models can describe defects but do not natively produce pixel-level masks. We introduce GenAU, a Generalist vision-language framework for industrial Anomaly Understanding that unifies image-level detection, pixel-level segmentation, multi-type anomaly detection, and defect analysis in a single instruction-following model. GenAU augments a vision-language model with two segmentation tokens, [SEG_defect] and [SEG_normal], whose hidden states act as language-grounded queries over multi-scale visual features for pixel-level localization; the image-level score fuses this map with the decoder's textual normal/defect decision, while the language decoder produces structured defect-aware responses. Trained with a joint language-modeling and segmentation objective, GenAU covers all four tasks within one architecture and recipe, adding zero-shot multi-type detection and language-grounded defect analysis at a quantified cost to detection and segmentation. Across cross-dataset benchmarks, GenAU attains the strongest image-level detection among CLIP-based zero-shot methods on VisA and Real-IAD, with segmentation approaching but not surpassing specialized CLIP baselines.",
+      "authors": [
+        "Hongkuan Zhou",
+        "Tristan Rehm",
+        "Nadeem Nazer",
+        "Lavdim Halilaj",
+        "Jingcheng Wu",
+        "Steffen Staab"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-07-01T15:11:29+00:00",
+      "link": "https://arxiv.org/pdf/2607.01049v1",
+      "tags": [
+        "keyword:heating-pipe",
+        "query:heating-pipe"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "industrial anomaly detection framework applicable to pipe surface leak inspection",
+      "llm_evidence_cn": "工业异常检测框架可用于管道表面泄漏检测",
+      "llm_evidence": "工业异常检测框架可用于管道表面泄漏检测",
+      "canonical_evidence": "工业异常检测框架可用于管道表面泄漏检测",
+      "llm_tldr_en": "GenAU is a vision-language framework unifying detection, segmentation, and defect analysis for industrial anomaly understanding, directly applicable to visual inspection of pipe leaks.",
+      "llm_tldr_cn": "现有工业异常检测方法缺乏语言级缺陷理解和像素级定位的统一能力，GenAU提出一个通用视觉语言框架，将图像级检测、像素级分割、多类型异常检测和缺陷分析集成于单一模型。在基准测试上表现优异。该框架可直接应用于供热管道泄漏的视觉检测，提升自动化水平。",
+      "llm_tldr": "现有工业异常检测方法缺乏语言级缺陷理解和像素级定位的统一能力，GenAU提出一个通用视觉语言框架，将图像级检测、像素级分割、多类型异常检测和缺陷分析集成于单一模型。在基准测试上表现优异。该框架可直接应用于供热管道泄漏的视觉检测，提升自动化水平。",
+      "llm_tags": [
+        "query:heating-pipe"
+      ],
+      "matched_query_tag": "query:heating-pipe",
+      "matched_query_text": "methods for detecting leaks in heating pipes",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.28970v1",
+      "source": "arxiv",
+      "title": "RGLD: Randomized Global-Local Density Estimation for Tabular Anomaly Detection",
+      "abstract": "Unsupervised tabular anomaly detection requires methods that are accurate, robust across heterogeneous datasets, and computationally efficient. Classical statistical detectors are often efficient, but they usually rely on a fixed data view and a single notion of abnormality. Deep anomaly detectors can learn more flexible scoring functions, but they are substantially slower and difficult to tune in unsupervised settings due to the lack of a reliable supervisory signal. We propose RGLD, a randomized global-local density estimator for efficient unsupervised tabular anomaly detection. RGLD combines a global random-feature density branch, which identifies samples in broadly low-density regions, with a local neighbor branch, which detects samples that are weakly supported by nearby observations. Both branches operate over feature-bagged randomized views, allowing RGLD to expose anomaly evidence that may be hidden in any single representation. We conduct experiments on 47 tabular datasets against 23 statistical and deep anomaly detection baselines under fully unsupervised setting. RGLD achieves the strongest dataset-level AUROC performance, ranking 1st in dataset wins, and ranks 2nd in AUPRC wins. RGLD is also faster than all evaluated deep detectors, achieving 50x-580x speedups, and remains competitive with statistical methods in runtime, yielding a favorable accuracy-efficiency tradeoff.",
+      "authors": [
+        "Quanling Zhao",
+        "Jiaying Yang",
+        "Ye Tian",
+        "Josh Victoria",
+        "Zhijun Wang",
+        "Pietro Mercati",
+        "Onat Gungor",
+        "Tajana Rosing"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published": "2026-06-27T15:20:09+00:00",
+      "link": "https://arxiv.org/pdf/2606.28970v1",
+      "tags": [
+        "keyword:heating-pipe",
+        "query:heating-pipe"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "unsupervised anomaly detection method transferable to pipeline leak detection",
+      "llm_evidence_cn": "无监督异常检测方法可迁移至管道泄漏检测",
+      "llm_evidence": "无监督异常检测方法可迁移至管道泄漏检测",
+      "canonical_evidence": "无监督异常检测方法可迁移至管道泄漏检测",
+      "llm_tldr_en": "RGLD is a randomized global-local density estimator for efficient unsupervised tabular anomaly detection, combining global random-feature and local neighbor branches. Its transferable anomaly detection approach could be adapted for pipeline leak detection.",
+      "llm_tldr_cn": "现有无监督表格异常检测方法在效率和鲁棒性上存在不足，RGLD提出一种随机全局-局部密度估计器，通过全局随机特征分支和局部邻居分支结合，实现高效准确的异常检测。实验在多个数据集上验证了其优越性。该方法可作为管道泄漏检测的通用技术基础。",
+      "llm_tldr": "现有无监督表格异常检测方法在效率和鲁棒性上存在不足，RGLD提出一种随机全局-局部密度估计器，通过全局随机特征分支和局部邻居分支结合，实现高效准确的异常检测。实验在多个数据集上验证了其优越性。该方法可作为管道泄漏检测的通用技术基础。",
+      "llm_tags": [
+        "query:heating-pipe"
+      ],
+      "matched_query_tag": "query:heating-pipe",
+      "matched_query_text": "techniques and methods for leak detection in pipelines",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2606.31210v1",
+      "source": "arxiv",
+      "title": "Due-to-Heatwaves Faults in Urban Distribution System: An Identification Approach",
+      "abstract": "Distribution system faults occurring during heatwaves (HWs) are not all caused by the HW itself: concurrent factors such as asset ageing, mechanical defects, soil contamination, and operational constraints contribute independently. Hence, indiscriminately attributing all HW-period faults to thermal stress overestimates system vulnerability and misleads asset-management decisions. This paper proposes a systematic framework to identify and quantify the subset of summer faults directly attributable to HW occurrences (denoted Due-to-HW faults), by distinguishing them from Due-to-Others faults. HW events are first characterised through the Excess Heat Factor index. A covariance-based attribution criterion is then developed to distinguish faults whose occurrence is statistically consistent with HW-driven thermal mechanisms from those attributable to independent causes. Complementing the attribution framework, a time-delay model is introduced to estimate the lag between the beginning of a HW and fault occurrence by maximising the normalised covariance between hourly temperature series and shifted fault-duration series. Applied to six years of operational data from a real MV distribution network, the simulation results show that Due-to-HW faults constitute a significant yet variable proportion of total summer faults, underscoring the non-negligible impact of HW occurrences on summer fault statistics. Beyond documenting the deterioration of fault rate and Mean Time Between Failures across all seasons, the analysis confirms that Time-Between-Failures distributions depart significantly from the exponential assumption, with direct implications for the applicability of Poisson-based reliability models to distribution systems subject to recurrent HW stress.",
+      "authors": [
+        "Andrea Mazza",
+        "Haoke Wu"
+      ],
+      "primary_category": "eess.SY",
+      "categories": [
+        "eess.SY"
+      ],
+      "published": "2026-06-30T06:42:32+00:00",
+      "link": "https://arxiv.org/pdf/2606.31210v1",
+      "tags": [
+        "keyword:heating-pipe",
+        "query:heating-pipe"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "identification of faults due to heatwaves in distribution systems; applicable to heat-stress-induced pipe failure detection",
+      "llm_evidence_cn": "识别热浪引起的配电系统故障；可应用于供热管道热应力引发的故障检测",
+      "llm_evidence": "识别热浪引起的配电系统故障；可应用于供热管道热应力引发的故障检测",
+      "canonical_evidence": "识别热浪引起的配电系统故障；可应用于供热管道热应力引发的故障检测",
+      "llm_tldr_en": "Proposes a covariance-based framework to identify faults directly attributable to heatwaves in urban distribution systems, offering a transferable method for heat-related failure detection in district heating pipes.",
+      "llm_tldr_cn": "该论文针对城市配电系统在热浪期间发生的故障，提出了一种系统性框架来识别和量化直接由热浪引起的故障。通过过量热因子指数表征热浪事件，并基于协方差建立归因准则，区分热浪所致故障与其他因素导致的故障。该方法可用于供热管道系统中与热应力相关的故障检测和归因分析，帮助运维决策。",
+      "llm_tldr": "该论文针对城市配电系统在热浪期间发生的故障，提出了一种系统性框架来识别和量化直接由热浪引起的故障。通过过量热因子指数表征热浪事件，并基于协方差建立归因准则，区分热浪所致故障与其他因素导致的故障。该方法可用于供热管道系统中与热应力相关的故障检测和归因分析，帮助运维决策。",
+      "llm_tags": [
+        "query:heating-pipe"
+      ],
+      "matched_query_tag": "query:heating-pipe",
+      "matched_query_text": "district heating pipe maintenance and failure detection",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    }
+  ]
+}
