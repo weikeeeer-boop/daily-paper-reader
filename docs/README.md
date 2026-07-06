@@ -6,30 +6,22 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-07-05
-- 运行时间：2026-07-05 21:22:55 UTC
+- 最新运行日期：2026-07-06
+- 运行时间：2026-07-06 20:37:10 UTC
 - 运行状态：成功
-- 本次总论文数：3
+- 本次总论文数：0
 - 精读区：0
-- 速读区：3
+- 速读区：0
 
 ### 今日简报（AI）
-今日速读3篇异常检测论文，涵盖工业图像、表格数据和城市电网故障。最值得关注的是7.0分的《GenAU》，它将语言模型与视觉模型结合用于工业异常理解，是当前热点方向。下一步可优先精读该文，学习多模态异常检测的实用方法。
-- 详情：[/202607/05/README](/202607/05/README)
+> 今日无新推荐，系统未产出可展示论文。
+- 详情：[/202607/06/README](/202607/06/README)
 
 ### 精读区论文标签
 - 本次无精读推荐。
 
 ### 速读区论文标签
-1. [GenAU: Language-Grounded Industrial Anomaly Understanding with Vision-Language Models](/202607/05/2607.01049v1-genau-language-grounded-industrial-anomaly-understanding-with-vision-language-models)  
-   标签：评分：7.0/10、query:heating-pipe
-   evidence：工业异常检测框架可用于管道表面泄漏检测
-2. [RGLD: Randomized Global-Local Density Estimation for Tabular Anomaly Detection](/202607/05/2606.28970v1-rgld-randomized-global-local-density-estimation-for-tabular-anomaly-detection)  
-   标签：评分：6.0/10、query:heating-pipe
-   evidence：无监督异常检测方法可迁移至管道泄漏检测
-3. [Due-to-Heatwaves Faults in Urban Distribution System: An Identification Approach](/202607/05/2606.31210v1-due-to-heatwaves-faults-in-urban-distribution-system-an-identification-approach)  
-   标签：评分：6.0/10、query:heating-pipe
-   evidence：识别热浪引起的配电系统故障；可应用于供热管道热应力引发的故障检测
+- 本次无速读推荐。
 
 
 <div class="dpr-home-promo-card">
