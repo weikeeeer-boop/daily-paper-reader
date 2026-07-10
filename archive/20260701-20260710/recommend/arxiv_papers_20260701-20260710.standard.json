@@ -1,15 +1,15 @@
 {
   "mode": "standard",
-  "generated_at": "2026-07-10T05:23:06.586794+00:00",
+  "generated_at": "2026-07-10T05:49:21.250269+00:00",
   "stats": {
     "mode": "standard",
     "tag_count": 1,
     "deep_divecandidates": 1,
     "deep_cap": 6,
     "deep_selected": 1,
-    "quick_candidates": 3,
+    "quick_candidates": 1,
     "quick_skim_target": 11,
-    "quick_selected": 3
+    "quick_selected": 1
   },
   "deep_dive": [
     {
@@ -33,13 +33,13 @@
         "query:tr"
       ],
       "llm_score": 8.0,
-      "llm_evidence_en": "Wireless gas leak detection system for pipelines",
-      "llm_evidence_cn": "针对管道的气体泄漏无线检测系统",
-      "llm_evidence": "针对管道的气体泄漏无线检测系统",
-      "canonical_evidence": "针对管道的气体泄漏无线检测系统",
-      "llm_tldr_en": "Proposes a wireless gas leak detection and localization system using 20 sensor nodes, achieving 91% detection rate and 5m localization accuracy in propane release experiments.",
-      "llm_tldr_cn": "当前工业气体泄漏检测方法效果有限。本文提出一种基于20个无线传感器节点的气体泄漏检测与定位系统，在200平方米区域进行60次丙烷释放实验。系统实现91%检测率、108秒平均延迟和5米定位精度。该研究为爆炸性气体传感器设计提供了实用参考。",
-      "llm_tldr": "当前工业气体泄漏检测方法效果有限。本文提出一种基于20个无线传感器节点的气体泄漏检测与定位系统，在200平方米区域进行60次丙烷释放实验。系统实现91%检测率、108秒平均延迟和5米定位精度。该研究为爆炸性气体传感器设计提供了实用参考。",
+      "llm_evidence_en": "wireless gas leak detection system for pipelines",
+      "llm_evidence_cn": "用于管道的气体泄漏无线检测系统",
+      "llm_evidence": "用于管道的气体泄漏无线检测系统",
+      "canonical_evidence": "用于管道的气体泄漏无线检测系统",
+      "llm_tldr_en": "Presents a wireless gas leak detection and localization solution achieving 91% detection rate and 5m localization accuracy, with implications for pipeline monitoring and repair.",
+      "llm_tldr_cn": "本文针对工业气体泄漏频繁导致安全事故的问题，提出了一种无线气体泄漏检测与定位方案。通过部署20个无线设备覆盖200平方米区域，进行60次丙烷释放实验，检测率达91%，平均检测延迟108秒，定位精度达5米。该方法可用于燃气管道泄漏监测，为后续非开挖修复提供前提。",
+      "llm_tldr": "本文针对工业气体泄漏频繁导致安全事故的问题，提出了一种无线气体泄漏检测与定位方案。通过部署20个无线设备覆盖200平方米区域，进行60次丙烷释放实验，检测率达91%，平均检测延迟108秒，定位精度达5米。该方法可用于燃气管道泄漏监测，为后续非开挖修复提供前提。",
       "llm_tags": [
         "query:heating-pipe:composite"
       ],
@@ -51,71 +51,35 @@
   ],
   "quick_skim": [
     {
-      "id": "2607.03021v1",
+      "id": "2607.04882v1",
       "source": "arxiv",
-      "title": "MEMS Fiber-Tip Photoacoustic Spectrometer for In Situ Microscale Trace Gas Sensing",
-      "abstract": "To meet the stringent requirements for miniaturized and highly sensitive trace gas sensing in space-constrained scenarios, including power equipment monitoring, minimally invasive biomedical diagnostics, and in situ lithium-battery analysis, we report a MEMS-integrated fiber-tip photoacoustic spectrometer (MFPAS). The device incorporates a Fabry-Perot (F-P) photoacoustic sensor formed by directly butt-coupling a single-mode fiber (SMF) to a 3 mm x 3 mm MEMS chip with a 100-nm-thick low-pressure chemical vapor deposition (LPCVD) Si$_3$N$_4$ diaphragm. The resulting approximately 200-$μ$m deep silicon microcavity functions simultaneously as a photoacoustic gas cell and an acoustic confinement cavity. A micro-aperture fabricated at the diaphragm periphery by focused ion beam (FIB) milling serves as both a gas diffusion channel and an acoustic high-pass filter, suppressing ambient low-frequency pressure fluctuations and stabilizing the F-P quadrature point without active servo control. In gas-phase measurements, the sensor achieves a noise-equivalent concentration (NEC) of 58.5 ppb@1s, with a rapid response time of 6 s. Benefiting from its ultra-small cavity volume of approximately 1.5 nL, the device is further adapted through structural packaging for in situ dissolved gas analysis in transformer oil, where it achieves an NEC of 230 ppb@1s and a T90 response time of 320 s in the oil phase. By combining nanoliter-scale detection volume, ppb-level sensitivity, rapid response, and wafer-scale batch fabrication compatibility, the proposed MFPAS bridges MEMS diaphragm micromachining and FIB-enabled gas exchange engineering. This design overcomes the intrinsic gas-exchange limitation of conventional sealed-diaphragm optical microphones and offers significant potential for power equipment monitoring and in situ health diagnostics.",
+      "title": "Unsupervised Detection of Underground Tunnels in Ground-Penetrating Radar Using Depth-Restricted Reconstruction Scoring",
+      "abstract": "Clandestine tunneling beneath oil and gas pipelines enables fuel theft, smuggling, and sabotage, yet conventional monitoring detects damage only after a pipeline has been compromised. Ground-penetrating radar (GPR) can image such tunnels non-invasively, but manual radargram interpretation does not scale to continuous corridor surveillance, and supervised detectors require tunnel examples that are scarce in practice. We present a fully unsupervised detection pipeline trained exclusively on normal subsurface radargrams collected at a purpose-built field site containing three buried tunnels at 1.5-3 m depth. A denoising convolutional autoencoder learns the structure of anomaly-free ground; at inference, tunnels are flagged by reconstruction error. Our central contribution is a depth-restricted top-k anomaly score, which pools the highest reconstruction errors only within the depth band where tunnels can physically occur. This physically motivated rule raises AUC from 0.986 to 0.994 and cuts missed detections from 74 to 17 of 634 tunnel windows, relative to whole-image scoring, without any retraining or labels. We further show that the optimal top-k fraction interacts with the depth restriction - 1% pooling is best on full images, 5% once scoring is depth-restricted - and that spatial voting across overlapping survey windows helps weak per-image detectors but offers no benefit once the scoring rule is strong. The final system attains AUC 0.994, F1 0.975, recall 0.973, and precision 0.976 on 1,600 field test windows spanning 55 survey lines, at a 1.6% false-alarm rate, using no tunnel labels for training, scoring, or threshold calibration.",
       "authors": [
-        "Xingjie Liu",
-        "Mengqi Wu",
-        "Ping Lu"
+        "Muhammad Junaid",
+        "Shoab A. Khan",
+        "Nisar Ahmed"
       ],
-      "primary_category": "physics.optics",
+      "primary_category": "cs.CV",
       "categories": [
-        "physics.optics"
+        "cs.CV",
+        "cs.LG",
+        "eess.SP"
       ],
-      "published": "2026-07-03T07:10:01+00:00",
-      "link": "https://arxiv.org/pdf/2607.03021v1",
-      "tags": [
-        "keyword:tr",
-        "query:tr"
-      ],
-      "llm_score": 7.0,
-      "llm_evidence_en": "MEMS fiber-tip photoacoustic spectrometer for trace gas sensing, applicable to pipeline leak detection",
-      "llm_evidence_cn": "MEMS光纤尖端光声光谱仪用于痕量气体传感，可应用于管道泄漏检测",
-      "llm_evidence": "MEMS光纤尖端光声光谱仪用于痕量气体传感，可应用于管道泄漏检测",
-      "canonical_evidence": "MEMS光纤尖端光声光谱仪用于痕量气体传感，可应用于管道泄漏检测",
-      "llm_tldr_en": "A MEMS fiber-tip photoacoustic spectrometer enables in situ microscale trace gas sensing with high sensitivity, offering a miniaturized solution for leak detection in pipelines.",
-      "llm_tldr_cn": "该论文针对空间受限场景下痕量气体传感的微型化需求，提出了一种MEMS集成光纤尖端光声光谱仪。通过将单模光纤与MEMS芯片直接耦合形成法布里-珀罗光声传感器，实现了微型化高灵敏度气体检测。实验表明该装置能有效检测微量气体。该技术可应用于电力设备监测和锂电池分析，并为管道气体泄漏检测提供了新的微型传感方案。",
-      "llm_tldr": "该论文针对空间受限场景下痕量气体传感的微型化需求，提出了一种MEMS集成光纤尖端光声光谱仪。通过将单模光纤与MEMS芯片直接耦合形成法布里-珀罗光声传感器，实现了微型化高灵敏度气体检测。实验表明该装置能有效检测微量气体。该技术可应用于电力设备监测和锂电池分析，并为管道气体泄漏检测提供了新的微型传感方案。",
-      "llm_tags": [
-        "query:heating-pipe:composite"
-      ],
-      "matched_query_tag": "query:heating-pipe:composite",
-      "matched_query_text": "Papers central to 帮我找关于供热管道的漏点检测、非开挖修复和剩余使用寿命预估的论文, especially work that connects or combines: methods for detecting leaks in heating pipes; trenchless technology for repairing pipes without excavation; estimation of remaining service life of pipes; techniques and methods for leak detection in pipelines; trenchless rehabilitation methods for underground pipes; district heating pipe maintenance and failure detection; Find papers on leak detection methods for heating pipes; Research on trenchless repair techniques for pipeline leaks; Studies on predicting remaining service life of heating pipes.",
-      "matched_requirement_id": "req-composite-heating-pipe",
-      "selection_source": "fresh_fetch",
-      "quick_tier": "7"
-    },
-    {
-      "id": "2607.05565v1",
-      "source": "arxiv",
-      "title": "Structured Illumination Scanning Thermography (SISTER)",
-      "abstract": "Conventional non-invasive photothermal imaging techniques are fundamentally constrained by the diffusive nature of heat transport, which causes severe energy dissipation during subsurface reconstruction. Although modulation-based approaches partially mitigate this limitation by encoding depth information into phase delay and amplitude attenuation, they remain inherently restricted by repeated temporal excitation, long acquisition times, and stitching artifacts in large-area inspection. In this work, we propose a structured illumination scanning thermography (SISTER) framework that replaces conventional temporal modulation with continuous spatial scanning under static structured illumination. The key theoretical insight is that heat diffusion is governed by a Markov semigroup, while sample motion transforms static spatial illumination into an equivalent temporal excitation through a Galilean coordinate transformation. This formulation enables dynamic-to-static reconstruction without repeated temporal modulation and provides a unified interpretation of spatial scanning and conventional signal modulation. A scanning system is integrated to implement the proposed framework together with a dynamic-to-static reconstruction algorithm for continuous subsurface defect inspection. Both numerical simulations and experimental results demonstrate that the proposed method significantly improves spatial continuity, signal-to-noise ratio, and detection capability while effectively eliminating stitching artifacts and reducing acquisition complexity. The proposed SISTER framework establishes a unified theoretical foundation for scanning photothermal imaging and provides a practical paradigm for high-efficiency, large-scale industrial non-destructive testing.",
-      "authors": [
-        "Pengfei Zhu",
-        "Julien Lecompagnon",
-        "Philipp Daniel Hirsch",
-        "Mathias Ziegler"
-      ],
-      "primary_category": "physics.app-ph",
-      "categories": [
-        "physics.app-ph"
-      ],
-      "published": "2026-07-06T19:01:31+00:00",
-      "link": "https://arxiv.org/pdf/2607.05565v1",
+      "published": "2026-07-06T10:02:37+00:00",
+      "link": "https://arxiv.org/pdf/2607.04882v1",
       "tags": [
         "keyword:tr",
         "query:tr"
       ],
       "llm_score": 6.0,
-      "llm_evidence_en": "Thermography technique for subsurface defect detection applicable to pipeline leak inspection",
-      "llm_evidence_cn": "热成像技术用于地下缺陷检测，可应用于管道泄漏检测",
-      "llm_evidence": "热成像技术用于地下缺陷检测，可应用于管道泄漏检测",
-      "canonical_evidence": "热成像技术用于地下缺陷检测，可应用于管道泄漏检测",
-      "llm_tldr_en": "Proposes structured illumination scanning thermography (SISTER) to overcome diffusion limits in photothermal imaging, enabling faster subsurface reconstruction with less artifacts.",
-      "llm_tldr_cn": "现有光热成像技术受热扩散限制，导致地下重建中能量耗散严重。本文提出结构光照明显扫描热成像（SISTER）框架，将传统的时间调制替换为连续空间扫描。该方法利用马尔可夫过程描述热扩散，显著提高成像速度并消除拼接伪影。实验表明SISTER能实现高效的大面积无损检测，为管道泄漏等地下缺陷检测提供了新方案。",
-      "llm_tldr": "现有光热成像技术受热扩散限制，导致地下重建中能量耗散严重。本文提出结构光照明显扫描热成像（SISTER）框架，将传统的时间调制替换为连续空间扫描。该方法利用马尔可夫过程描述热扩散，显著提高成像速度并消除拼接伪影。实验表明SISTER能实现高效的大面积无损检测，为管道泄漏等地下缺陷检测提供了新方案。",
+      "llm_evidence_en": "GPR-based unsupervised detection of tunnels under pipelines, applicable to non-invasive leak detection for heating pipes",
+      "llm_evidence_cn": "使用探地雷达无监督检测管道下方隧道，适用于供热管道非侵入式泄漏检测",
+      "llm_evidence": "使用探地雷达无监督检测管道下方隧道，适用于供热管道非侵入式泄漏检测",
+      "canonical_evidence": "使用探地雷达无监督检测管道下方隧道，适用于供热管道非侵入式泄漏检测",
+      "llm_tldr_en": "Proposes an unsupervised pipeline using a denoising autoencoder on GPR data to detect buried tunnels threatening pipelines, enabling scalable monitoring without labeled anomalies.",
+      "llm_tldr_cn": "针对油气管道下方地下隧道检测问题，提出一种完全无监督的探地雷达检测流水线，使用去噪卷积自编码器学习正常地下结构，在推理时通过深度受限重建评分识别异常。实验在含三个埋设隧道的实地测试场进行，展示了无需人工标注即可检测威胁的能力，为管道非开挖监测提供了新手段。",
+      "llm_tldr": "针对油气管道下方地下隧道检测问题，提出一种完全无监督的探地雷达检测流水线，使用去噪卷积自编码器学习正常地下结构，在推理时通过深度受限重建评分识别异常。实验在含三个埋设隧道的实地测试场进行，展示了无需人工标注即可检测威胁的能力，为管道非开挖监测提供了新手段。",
       "llm_tags": [
         "query:heating-pipe:composite"
       ],
@@ -124,44 +88,6 @@
       "matched_requirement_id": "req-composite-heating-pipe",
       "selection_source": "fresh_fetch",
       "quick_tier": "6"
-    },
-    {
-      "id": "2607.04818v1",
-      "source": "arxiv",
-      "title": "Modeling Fatigue-Induced Anisotropic Quasi-Brittle Damage Based on the Endurance Surface Concept",
-      "abstract": "This work proposes a novel continuum damage framework for fatigue based on the endurance-surface concept and uses the energy-release rate as the driving force. Damage evolution is governed by the distance of the thermodynamic driving force from the endurance surface. In contrast to classic failure surfaces, this allows damage to accumulate over many cycles even under constant-amplitude loading. The endurance surface therefore directly dictates the physical endurance limit of the material. To obtain mesh-objective results, the formulation is regularized by a micromorphic gradient enhancement. The incorporation of anisotropic damage evolution and the microcrack-closure-reopening effect extends the framework to multiaxial fatigue and loading-path-dependent degradation. The chosen prototype damage evolution fulfills three requirements: reasonable physics, computational robustness, and calibration flexibility.   The model is successfully calibrated to both the monotonic response of plain concrete and to the high-cycle fatigue behavior of low-alloy steel. The numerical examples cover monotonic failure of an L-shaped concrete specimen, stress-life behavior under cyclic loading, and combined axial-torsional fatigue. These cases demonstrate how the proposed formulation applies to practical scenarios ranging from standard quasi-brittle fracture benchmarks to classical fatigue characterization and complex multiaxial damage evolution. The examples demonstrate that the formulation captures progressive degradation over many cycles and reproduces characteristic stress-life behavior. The influence of anisotropic degradation becomes especially relevant under multiaxial loading conditions during the near-failure phase. Overall, the approach provides a thermodynamically consistent, gradient-enhanced, and computationally robust framework for simulating fatigue-driven damage in the high-cycle regime.",
-      "authors": [
-        "Klas Feike",
-        "Patrick Kurzeja",
-        "Kai Langenfeld",
-        "Jörn Mosler"
-      ],
-      "primary_category": "cs.CE",
-      "categories": [
-        "cs.CE"
-      ],
-      "published": "2026-07-06T08:51:10+00:00",
-      "link": "https://arxiv.org/pdf/2607.04818v1",
-      "tags": [
-        "keyword:tr",
-        "query:tr"
-      ],
-      "llm_score": 7.0,
-      "llm_evidence_en": "fatigue damage model applicable to remaining life estimation of pipelines",
-      "llm_evidence_cn": "疲劳损伤模型适用于管道剩余寿命估计",
-      "llm_evidence": "疲劳损伤模型适用于管道剩余寿命估计",
-      "canonical_evidence": "疲劳损伤模型适用于管道剩余寿命估计",
-      "llm_tldr_en": "This work proposes a fatigue damage framework based on endurance surface concept, enabling simulation of anisotropic quasi-brittle damage accumulation under cyclic loading, applicable to pipeline remaining life estimation.",
-      "llm_tldr_cn": "该论文针对材料疲劳损伤累积问题，提出了一种基于耐力面概念的连续损伤框架。利用能量释放率作为驱动力，结合微裂纹闭合效应和各向异性损伤演化，能够模拟多轴疲劳下的准脆性损伤过程。该方法通过梯度增强实现网格客观性，可服务于管道等结构的剩余使用寿命预测。",
-      "llm_tldr": "该论文针对材料疲劳损伤累积问题，提出了一种基于耐力面概念的连续损伤框架。利用能量释放率作为驱动力，结合微裂纹闭合效应和各向异性损伤演化，能够模拟多轴疲劳下的准脆性损伤过程。该方法通过梯度增强实现网格客观性，可服务于管道等结构的剩余使用寿命预测。",
-      "llm_tags": [
-        "query:heating-pipe:composite"
-      ],
-      "matched_query_tag": "query:heating-pipe:composite",
-      "matched_query_text": "Papers central to 帮我找关于供热管道的漏点检测、非开挖修复和剩余使用寿命预估的论文, especially work that connects or combines: methods for detecting leaks in heating pipes; trenchless technology for repairing pipes without excavation; estimation of remaining service life of pipes; techniques and methods for leak detection in pipelines; trenchless rehabilitation methods for underground pipes; district heating pipe maintenance and failure detection; Find papers on leak detection methods for heating pipes; Research on trenchless repair techniques for pipeline leaks; Studies on predicting remaining service life of heating pipes.",
-      "matched_requirement_id": "req-composite-heating-pipe",
-      "selection_source": "fresh_fetch",
-      "quick_tier": "7"
     }
   ]
 }

@@ -1,8 +1,8 @@
 {
   "label": "2026-07-01 ~ 2026-07-10",
   "date": "2026-07-01 ~ 2026-07-10",
-  "generated_at": "2026-07-10T05:25:55",
-  "count": 4,
+  "generated_at": "2026-07-10T05:50:40",
+  "count": 2,
   "papers": [
     {
       "paper_id": "20260701-20260710/2607.04524v1-wireless-gas-leak-detection-and-localization",
@@ -20,47 +20,17 @@
       "selection_source": "fresh_fetch"
     },
     {
-      "paper_id": "20260701-20260710/2607.03021v1-mems-fiber-tip-photoacoustic-spectrometer-for-in-situ-microscale-trace-gas-sensing",
+      "paper_id": "20260701-20260710/2607.04882v1-unsupervised-detection-of-underground-tunnels-in-ground-penetrating-radar-using-depth-restricted-reconstruction-scoring",
       "section": "quick",
-      "title_en": "MEMS Fiber-Tip Photoacoustic Spectrometer for In Situ Microscale Trace Gas Sensing",
-      "authors": "Xingjie Liu, Mengqi Wu, Ping Lu",
-      "date": "2026-07-03",
-      "pdf": "https://arxiv.org/pdf/2607.03021v1",
-      "score": "7.0",
-      "evidence": "MEMS光纤尖端光声光谱仪用于痕量气体传感，可应用于管道泄漏检测",
-      "tldr": "针对电力设备监测、微创生物医学诊断等空间受限场景对微型高灵敏痕量气体传感的需求，提出一种MEMS集成光纤尖端光声光谱仪。该器件采用单模光纤与MEMS芯片直接对接形成法布里-珀罗光声传感器，硅微腔同时作为气室和声学腔，微孔设计实现气体扩散和低频噪声抑制，无需主动伺服控制。实验结果表明，气体中噪声等效浓度达58.5 ppb@1s，响应时间6s；变压器油中达230 ppb@1s，T90响应320s。该设计突破传统密封薄膜麦克风的气体交换限制，兼具纳升级体积、ppb级灵敏度和快速响应，且兼容晶圆级批量制造，为原位健康诊断提供可行方案。",
-      "tags": "query:heating-pipe",
-      "abstract_en": "To meet the stringent requirements for miniaturized and highly sensitive trace gas sensing in space-constrained scenarios, including power equipment monitoring, minimally invasive biomedical diagnostics, and in situ lithium-battery analysis, we report a MEMS-integrated fiber-tip photoacoustic spectrometer (MFPAS). The device incorporates a Fabry-Perot (F-P) photoacoustic sensor formed by directly butt-coupling a single-mode fiber (SMF) to a 3 mm x 3 mm MEMS chip with a 100-nm-thick low-pressure chemical vapor deposition (LPCVD) Si$_3$N$_4$ diaphragm. The resulting approximately 200-$μ$m deep silicon microcavity functions simultaneously as a photoacoustic gas cell and an acoustic confinement cavity. A micro-aperture fabricated at the diaphragm periphery by focused ion beam (FIB) milling serves as both a gas diffusion channel and an acoustic high-pass filter, suppressing ambient low-frequency pressure fluctuations and stabilizing the F-P quadrature point without active servo control. In gas-phase measurements, the sensor achieves a noise-equivalent concentration (NEC) of 58.5 ppb@1s, with a rapid response time of 6 s. Benefiting from its ultra-small cavity volume of approximately 1.5 nL, the device is further adapted through structural packaging for in situ dissolved gas analysis in transformer oil, where it achieves an NEC of 230 ppb@1s and a T90 response time of 320 s in the oil phase. By combining nanoliter-scale detection volume, ppb-level sensitivity, rapid response, and wafer-scale batch fabrication compatibility, the proposed MFPAS bridges MEMS diaphragm micromachining and FIB-enabled gas exchange engineering. This design overcomes the intrinsic gas-exchange limitation of conventional sealed-diaphragm optical microphones and offers significant potential for power equipment monitoring and in situ health diagnostics.",
-      "source": "arxiv",
-      "selection_source": "fresh_fetch"
-    },
-    {
-      "paper_id": "20260701-20260710/2607.04818v1-modeling-fatigue-induced-anisotropic-quasi-brittle-damage-based-on-the-endurance-surface-concept",
-      "section": "quick",
-      "title_en": "Modeling Fatigue-Induced Anisotropic Quasi-Brittle Damage Based on the Endurance Surface Concept",
-      "authors": "Klas Feike, Patrick Kurzeja, Kai Langenfeld, Jörn Mosler",
+      "title_en": "Unsupervised Detection of Underground Tunnels in Ground-Penetrating Radar Using Depth-Restricted Reconstruction Scoring",
+      "authors": "Muhammad Junaid, Shoab A. Khan, Nisar Ahmed",
       "date": "2026-07-06",
-      "pdf": "https://arxiv.org/pdf/2607.04818v1",
-      "score": "7.0",
-      "evidence": "疲劳损伤模型适用于管道剩余寿命估计",
-      "tldr": "针对高周疲劳下准脆性材料的各向异性损伤问题，提出基于耐久面概念的热力学一致连续损伤框架。以能量释放率为驱动力，通过驱动力到耐久面的距离控制损伤演化，并引入微形态梯度增强保证网格客观性。模型成功标定了混凝土单调响应和低合金钢高周疲劳行为，数值示例复现了应力-寿命曲线及多轴加载下的各向异性退化。该框架计算鲁棒且校准灵活，为高周疲劳渐进损伤模拟提供了有效工具。",
-      "tags": "query:heating-pipe",
-      "abstract_en": "This work proposes a novel continuum damage framework for fatigue based on the endurance-surface concept and uses the energy-release rate as the driving force. Damage evolution is governed by the distance of the thermodynamic driving force from the endurance surface. In contrast to classic failure surfaces, this allows damage to accumulate over many cycles even under constant-amplitude loading. The endurance surface therefore directly dictates the physical endurance limit of the material. To obtain mesh-objective results, the formulation is regularized by a micromorphic gradient enhancement. The incorporation of anisotropic damage evolution and the microcrack-closure-reopening effect extends the framework to multiaxial fatigue and loading-path-dependent degradation. The chosen prototype damage evolution fulfills three requirements: reasonable physics, computational robustness, and calibration flexibility.   The model is successfully calibrated to both the monotonic response of plain concrete and to the high-cycle fatigue behavior of low-alloy steel. The numerical examples cover monotonic failure of an L-shaped concrete specimen, stress-life behavior under cyclic loading, and combined axial-torsional fatigue. These cases demonstrate how the proposed formulation applies to practical scenarios ranging from standard quasi-brittle fracture benchmarks to classical fatigue characterization and complex multiaxial damage evolution. The examples demonstrate that the formulation captures progressive degradation over many cycles and reproduces characteristic stress-life behavior. The influence of anisotropic degradation becomes especially relevant under multiaxial loading conditions during the near-failure phase. Overall, the approach provides a thermodynamically consistent, gradient-enhanced, and computationally robust framework for simulating fatigue-driven damage in the high-cycle regime.",
-      "source": "arxiv",
-      "selection_source": "fresh_fetch"
-    },
-    {
-      "paper_id": "20260701-20260710/2607.05565v1-structured-illumination-scanning-thermography-sister",
-      "section": "quick",
-      "title_en": "Structured Illumination Scanning Thermography (SISTER)",
-      "authors": "Pengfei Zhu, Julien Lecompagnon, Philipp Daniel Hirsch, Mathias Ziegler",
-      "date": "2026-07-06",
-      "pdf": "https://arxiv.org/pdf/2607.05565v1",
+      "pdf": "https://arxiv.org/pdf/2607.04882v1",
       "score": "6.0",
-      "evidence": "热成像技术用于地下缺陷检测，可应用于管道泄漏检测",
-      "tldr": "传统非侵入光热成像受热扩散本质限制，调制方法存在采集时间长、拼接伪影等问题。本文提出SISTER框架，利用静态结构光照结合连续空间扫描，通过伽利略变换将空间照明等价为时间激励，实现动态到静态重建。该方法无需重复时间调制，显著提升空间连续性和信噪比，消除拼接伪影。仿真与实验验证了其高效大规模检测能力，为扫描光热成像建立统一理论基础。",
+      "evidence": "使用探地雷达无监督检测管道下方隧道，适用于供热管道非侵入式泄漏检测",
+      "tldr": "针对传统监控难以提前发现油气管道下方秘密隧道的问题，本文提出一种基于探地雷达的无监督检测方法。该方法利用仅含正常地下结构的雷达数据进行去噪自编码器训练，通过深度限制的top-k重建误差评分来检测隧道异常。在包含三个埋深1.5-3米隧道的实验场地上，该方法达到AUC 0.994、F1 0.975、召回率0.973，相较全图评分将漏检从74降至17个窗口。关键贡献在于将物理先验（隧道深度范围）融入评分规则，无需标记数据即可大幅提升检测性能。",
       "tags": "query:heating-pipe",
-      "abstract_en": "Conventional non-invasive photothermal imaging techniques are fundamentally constrained by the diffusive nature of heat transport, which causes severe energy dissipation during subsurface reconstruction. Although modulation-based approaches partially mitigate this limitation by encoding depth information into phase delay and amplitude attenuation, they remain inherently restricted by repeated temporal excitation, long acquisition times, and stitching artifacts in large-area inspection. In this work, we propose a structured illumination scanning thermography (SISTER) framework that replaces conventional temporal modulation with continuous spatial scanning under static structured illumination. The key theoretical insight is that heat diffusion is governed by a Markov semigroup, while sample motion transforms static spatial illumination into an equivalent temporal excitation through a Galilean coordinate transformation. This formulation enables dynamic-to-static reconstruction without repeated temporal modulation and provides a unified interpretation of spatial scanning and conventional signal modulation. A scanning system is integrated to implement the proposed framework together with a dynamic-to-static reconstruction algorithm for continuous subsurface defect inspection. Both numerical simulations and experimental results demonstrate that the proposed method significantly improves spatial continuity, signal-to-noise ratio, and detection capability while effectively eliminating stitching artifacts and reducing acquisition complexity. The proposed SISTER framework establishes a unified theoretical foundation for scanning photothermal imaging and provides a practical paradigm for high-efficiency, large-scale industrial non-destructive testing.",
+      "abstract_en": "Clandestine tunneling beneath oil and gas pipelines enables fuel theft, smuggling, and sabotage, yet conventional monitoring detects damage only after a pipeline has been compromised. Ground-penetrating radar (GPR) can image such tunnels non-invasively, but manual radargram interpretation does not scale to continuous corridor surveillance, and supervised detectors require tunnel examples that are scarce in practice. We present a fully unsupervised detection pipeline trained exclusively on normal subsurface radargrams collected at a purpose-built field site containing three buried tunnels at 1.5-3 m depth. A denoising convolutional autoencoder learns the structure of anomaly-free ground; at inference, tunnels are flagged by reconstruction error. Our central contribution is a depth-restricted top-k anomaly score, which pools the highest reconstruction errors only within the depth band where tunnels can physically occur. This physically motivated rule raises AUC from 0.986 to 0.994 and cuts missed detections from 74 to 17 of 634 tunnel windows, relative to whole-image scoring, without any retraining or labels. We further show that the optimal top-k fraction interacts with the depth restriction - 1% pooling is best on full images, 5% once scoring is depth-restricted - and that spatial voting across overlapping survey windows helps weak per-image detectors but offers no benefit once the scoring rule is strong. The final system attains AUC 0.994, F1 0.975, recall 0.973, and precision 0.976 on 1,600 field test windows spanning 55 survey lines, at a 1.6% false-alarm rate, using no tunnel labels for training, scoring, or threshold calibration.",
       "source": "arxiv",
       "selection_source": "fresh_fetch"
     }
