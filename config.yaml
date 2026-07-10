@@ -150,6 +150,45 @@ subscriptions:
             updated_at: '2026-07-01T04:02:06.973859+00:00'
       updated_at: '2026-07-01T03:47:44.112Z'
       paused: true
+    - tag: tr
+      description: 请帮我找针对供热管道和燃气管道的非开挖修复相关的论文
+      enabled: true
+      paper_sources:
+        - arxiv
+        - biorxiv
+      keywords:
+        - keyword: heating pipeline
+          keyword_cn: 供热管道
+          query: heating pipeline trenchless repair
+        - keyword: gas pipeline
+          keyword_cn: 燃气管道
+          query: gas pipeline trenchless repair
+        - keyword: pipeline rehabilitation
+          keyword_cn: 管道修复
+          query: pipeline rehabilitation methods
+        - keyword: cured-in-place pipe
+          keyword_cn: 原位固化内衬
+          query: cured-in-place pipe for heating gas
+        - keyword: spray lining
+          keyword_cn: 喷涂内衬
+          query: spray lining pipeline repair
+      intent_queries:
+        - query: trenchless repair techniques for heating pipelines
+          query_cn: 供热管道非开挖修复技术
+          enabled: true
+          source: manual
+          note: ''
+        - query: trenchless rehabilitation methods for gas pipelines
+          query_cn: 燃气管道非开挖修复方法
+          enabled: true
+          source: manual
+          note: ''
+        - query: case studies trenchless repair district heating pipes
+          query_cn: 区域供热管道非开挖修复案例研究
+          enabled: true
+          source: manual
+          note: ''
+      updated_at: '2026-07-10T05:18:00.990Z'
 source_backends:
   arxiv:
     papers_table: arxiv_papers
