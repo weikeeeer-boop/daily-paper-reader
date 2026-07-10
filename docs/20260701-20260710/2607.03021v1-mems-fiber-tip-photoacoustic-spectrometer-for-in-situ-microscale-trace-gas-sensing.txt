@@ -1,0 +1,1009 @@
+Title: 2607.03021v1.pdf
+
+URL Source: https://arxiv.org/pdf/2607.03021v1
+
+Published Time: Tue, 07 Jul 2026 00:34:02 GMT
+
+Number of Pages: 15
+
+Markdown Content:
+MEMS Fiber -Tip Photoacoustic Spectrometer for In 
+
+# Situ Microscale Trace Gas Sensing   
+
+> Xing jie Liu 1,†,Mengqi Wu 1,†,Ping Lu 1,2 ,*
+> 1National Engineering Research Center of Next Generation Internet Access System, School of
+> Optical and Electronic Information, Huazhong University of Science and Technology, Wuhan
+> 430074, China
+> 2Optoelectronic Valley Laboratory , Wuhan 430074, China
+
+# ABSTRACT 
+
+To meet the stringent requirements for miniaturized and highly sensitive trace gas 
+
+sensing in space -constrained scenarios, including power equipment monitoring, 
+
+minimally invasive biomedical diagnostics, and in situ lithium -battery analysis, we 
+
+report a MEMS -integrated fiber -tip photoacoustic spectrometer (MFPAS). The device 
+
+incorporates a Fabry –Pé rot (F -P) photoacoustic sensor formed by directly butt -coupling 
+
+a single -mode fiber (SMF) to a 3 mm× 3 mm MEMS chip with a 100 -nm -thick low -
+
+pressure chemical vapor deposition (LPCVD) Si₃N₄ diaphragm. The resulting 
+
+approximately 200μm deep silicon microcavity functions simultaneously as a
+
+photoacoustic gas cell and an acoustic confinement cavity. A micro -aperture fabricated 
+
+at the diaphragm periphery by focused ion beam (FIB) milling serves as both a gas 
+
+diffusion channel and an acoustic high -pass filter, suppr essing ambient low -frequency 
+
+pressure fluctuations and stabilizing the F -P quadrature point without active servo 
+
+control. In gas -phase measurements, the sensor achieves a noise -equivalent 
+
+concentration (NEC) of 58.5 ppb @1s , with a rapid response time of 6 s. Benefiting 
+
+from its ultra -small cavity volume of approximately 1.5 nL, the device is further 
+
+adapted through structural packaging for in situ dissolved gas analysis in transformer 
+
+oil, where it achieves an NEC of 230 ppb @1 s and a T90 response time of 320 s in the 
+
+oi l phase. By combining nanoliter -scale detection volume, ppb -level sensitivity, rapid 
+
+response, and wafer -scale batch fabrication compatibility, the proposed MFPAS 
+
+bridges MEMS diaphragm micromachining and FIB -enabled gas exchange engineering. 
+
+This design o vercomes the intrinsic gas -exchange limitation of conventional sealed -
+
+diaphragm optical microphones and offers significant potential for power equipment 
+
+monitoring and in situ health diagnostics. 
+
+Keywords: Photoacoustic spectroscopy; Fiber -tip Fabry –Pé rot sensor; MEMS silicon 
+
+nitride diaphragm; In situ dissolved gas analysis 1 Introduction 
+
+The application demand for miniaturized, highly sensitive trace gas sensors is 
+
+continuously growing in fields such as power equipment status monitoring [1] ,
+
+minimally invasive biomedical detection [2] , and in situ health diagnostics of lithium -ion 
+
+batteries [3] . These scenarios typically require sensors to possess ppb -level detection 
+
+sensitivity, rapid temporal response, compact footprints suitable for narrow or confined 
+
+spaces, and extremely low sample consumption. Laser spectroscopic techniques, 
+
+including c avity ring -down spectroscopy (CRDS) [4] , tunable diode laser absorption 
+
+spectroscopy (TDLAS) [5] , photothermal spectroscopy (PTS) [6,7] , and photoacoustic 
+
+spectroscopy (PAS) [8] , have demonstrated exceptional performance in trace gas 
+
+detection. However, co nventional schemes generally rely on absorption paths of tens 
+
+of centimeters to several meters, or centimeter -scale resonant acoustic cavities to 
+
+accumulate sufficient signal strength [5,9] , rendering further miniaturization of the device 
+
+volume highly cha llenging. 
+
+In recent years, fiber -tip Fabry -Pé rot (F -P) microcavities have emerged as a 
+
+frontier in miniature spectroscopic gas sensor research due to their capability to 
+
+simultaneously integrate a gas cell, an acoustic cavity, and optical interference with in 
+
+a sub -nanoliter volume [10] . Nevertheless, the intrinsic trade -off between the absorption 
+
+path length and the interference contrast hinders further sensitivity improvements. 
+
+Although increasing the cavity length accumulates more photothermal phase 
+
+modul ation, beam divergence subsequently degrades the interference fringe contrast; 
+
+this mutual constraint severely affects sensing performance [11,12] . To address this, Zhao 
+
+et al. [13] 3D -printed an open, highly reflective microcavity on a single -mode fiber ( SMF) 
+
+end -face via two -photon polymerization to enhance the contrast, achieving a noise 
+
+equivalent concentration (NEC) of 160 ppb for C₂H₂ at 433 s with a response time of 
+
+<0.5 s. Yan et al. [14] fabricated focusing spherical surfaces coated with high -refle ction 
+
+films on two SMF end -faces to construct a high -finesse cavity, thereby lowering the 
+
+NEC to 10 ppb at 440 s. While these external structures effectively enhance sensitivity, 
+
+their fabrication involves complex processes such as two -photon polymerizatio n or 
+
+precision coating, limiting batch mass production. Zhao et al. [15] introduced a dual -
+
+mode Vernier effect within a single intrinsic F -P cavity, achieving an NEC of 12 ppb 
+
+for C₂H₂ at 303 s using a 1 -mm -long Bragg hollow -core fiber F -P cavity; nonethel ess, 
+
+the fundamental constraint between the short -cavity photothermal signal and the 
+
+interference contrast persists. Distinct from the aforementioned photothermal schemes, 
+
+Ma et al. [2] utilized confined acoustic pressure enhancement to compensate for the 
+
+short -cavity loss, achieving a C₂H₂ NEC of ~9 ppb at 200 s and an 18 ms response time 
+
+with a 125 -μm -diameter, 60 -μm -long fiber -tip F -P cavity. Furthermore, Li et al. [16] 
+
+monolithically integrated a PSS -OMR and a micro -PAC on an SMF end -face, 
+
+leveraging a 105 kHz mechanical resonance to enhance the signal -to -noise ratio (SNR) 
+
+by ~5.5 times. This yielded an NEC of 55 ppb at 356 s and a response time of <0.2 s 
+
+without an external PAC. Both works demonstrate the inherent advantages of 
+
+photoacoustic schemes in miniaturization. Despite these advancements significantly 
+
+driving the development of fiber -optic miniature gas sensors, common challenges remain. Regarding manufacturing, processes like two -photon polymerization and 
+
+precision coating suffer from poor consi stency; sub -micron films [2] are susceptible to 
+
+pinhole defects; and 3D -printed microbeams [13] are constrained by current lithographic 
+
+resolutions. In terms of gas channels, femtosecond laser sidewall drilling [11,17] 
+
+compromises cladding integrity, where as gas diffusion through splice seams [15] relies 
+
+heavily on fabrication parameters and is difficult to reproduce. Consequently, existing 
+
+approaches struggle to simultaneously ensure transducer performance, fabrication 
+
+consistency, and practicality. 
+
+MEMS -fabricated Si₃N₄ transducer diaphragms have been widely utilized in fiber -
+
+optic F -P pressure [18] and acoustic sensing [19] . The wafer -scale low -pressure chemical 
+
+vapor deposition (LPCVD) process endows the diaphragms with nanoscale thickness 
+
+uniformity and highly consistent residual stress, ensuring morphological integrity and 
+
+excellent device -to -device consistency. Furthermore, due to the inherent high tensile 
+
+stress of the Si₃N₄ diaphragm, the mechanical behavior of the nanometer -thick film is 
+
+dominated b y tensile stress rather than bending stiffness. Consequently, the acoustic 
+
+sensitivity scales quadratically with the diaphragm radius (a² ) rather than following the 
+
+a⁴ dependence of a standard plate, enabling a robust acoustic response even at small 
+
+diaphr agm diameters. However, MEMS -fabricated diaphragms are typically fully 
+
+sealed structures. Introducing a gas channel for photoacoustic gas detection without 
+
+compromising the diaphragm's acoustic performance poses a formidable challenge. 
+
+Focused ion beam (FI B) milling offers nanoscale spatial positioning accuracy and is 
+
+widely used in semiconductor cross -sectioning and nanostructure trimming [20] . Its 
+
+precise confinement of the processing area makes localized material removal on 
+
+suspended diaphragms feasible. Therefore, this work proposes FIB -based micro -pore 
+
+milling to create gas diffusion channels at the diaphragm periphery in a controlled 
+
+manner, concurrently maintaining the morphological integrity of the main vibratory 
+
+region. 
+
+This paper reports a MEMS -integrated fiber -tip photoacoustic spectrometer. A 
+
+MEMS chip bearing a LPCVD Si₃N₄ diaphragm is directly butt -coupled to a SMF to 
+
+form a monolithic F -P photoacoustic sensor. The 3 mm × 3 mm chip features a 100 -
+
+nm -thick Si₃N₄ diaph ragm grown via LPCVD. The ~200 -μm -deep silicon microcavity, 
+
+formed between the diaphragm and the SMF end -face, functions simultaneously as a 
+
+photoacoustic gas cell and an acoustic confinement cavity. FIB milling is employed to 
+
+fabricate a micro -pore at the diaphragm periphery, which acts concurrently as a gas 
+
+diffusion channel and an acoustic high -pass filter. The latter suppresses low -frequency 
+
+ambient pressure fluctuations, stabilizing the F -P quadrature point without requiring 
+
+active servo control. In th e gas -phase measurement, this sensor achieved an NEC of 
+
+58.5 ppb within a 1 -second integration time, and 27 ppb NEC within a 103 -second 
+
+integration time. The response time was 6 seconds, and the cavity volume was 
+
+approximately 1.5 nL. Following adaptive st ructural packaging, the device is applicable 
+
+for in situ dissolved gas analysis in power transformers. In the oil -phase environment, 
+
+the sensor yields an NEC of 206.6 ppb at a 1 -s integration time with a T90 response 
+
+time of 320 s. Combining the advantages of a sub -nanoliter detection volume, a ppb -
+
+level detection limit, rapid response, and wafer -scale fabrication consistency, the proposed sensor exhibits substantial engineering application potential in micro -scale 
+
+detection fields such as online status mon itoring of power equipment and in situ health 
+
+diagnostics.   
+
+> Fig. 1 (a) Three -dimensional structure .(b) Scanning electron microscope (SEM) image of the
+> diaphragm after FIB micro -pore milling .(c) Photograph of the overall MFPAS structure
+
+# 2 Principle and A nalysis 
+
+2.1 Sensor Structure 
+
+The three -dimensional structure of the proposed MEMS -integrated fiber 
+
+photoacoustic spectrometer (MFPAS) is schematically illustrated in Fig. 1(a). The 
+
+sensor consists of a SMF and a silicon -based MEMS chip, combined to form a 
+
+monolithic probe structure. A 128 -μm through -channel is fabricated on a 3 mm ×3 mm 
+
+silicon substrate using a deep reactive ion etching (DRIE) process for the precise 
+
+insertion and fixation of the fiber. A 100 -nm -thick Si₃N₄ diaphragm is grown on the 
+
+front side of the chip via LPCVD, forming a free -standing, suspended diaphragm region 
+
+with an effective diameter of 128 μm centered at the channel orifice. This diaphragm 
+
+region simultaneously serves as a reflective surface, constituting a F -P interference 
+
+cavi ty with the SMF end -face. Several micro -pores are milled around the effective area 
+
+of the diaphragm via a FIB process to serve as channels for gas entering and exiting the 
+
+cavity. Both the pump and probe beams are transmitted to the sensing probe through 
+
+the same SMF. The modulated pump beam is delivered into the F -P cavity via the SMF, 
+
+and target gas molecules absorb the pump photon energy, releasing heat through non -
+
+radiative relaxation. This process generates periodic pressure fluctuations within the 
+
+sea led cavity, namely the photoacoustic (PA) wave. Since the surrounding silicon walls 
+
+of the Si₃N₄ diaphragm constitute a rigid acoustic boundary, a localized acoustic 
+
+pressure enhancement effect is established within the cavity, confining the PA wave 
+
+energy inside the cavity rather than diffusing it into free space. The localized enhanced 
+
+acoustic wave drives micro -deformations of the diaphragm, which subsequently 
+
+induces periodic variations in the optical path length of the F -P cavity, characterized by 
+
+the modulation signal of the reflected probe beam intensity. After conversion by a photodetector, the second -harmonic (2f) component is extracted from this signal by a 
+
+lock -in amplifier, ultimately achieving quantitative inversion of the gas concentration. 
+
+2. 2 Working Principle of Sensor 
+
+The photoacoustic response signal S of the MFPAS to gas molecules can be 
+
+expressed as: 0cell bS M C P C S
+
+=     +
+
+(1)
+
+where M represents the acoustic sensitivity of the diaphragm, 𝐶 cell denotes the 
+
+cavity constant characterizing the generation and localized enhancement process of the 
+
+PA wave, 𝑃 0 is the pump laser power, 𝛼 is the absorption coefficient of the target gas, 
+
+𝐶 is the gas concentration, and 𝑆 𝑏 represents the system background noise. 
+
+The Si₃N₄ diaphragm possesses a high residual tensile stress 𝜎 after LPCVD 
+
+growth. Under this condition, the mechanical behavior of the diaphragm is dominated 
+
+by the tensile stress rather than the bending stiffness, which can be equivalent to an 
+
+elastic membrane model with boundary constraints. Driven by a sinusoidal acoustic 
+
+pressure 𝑝 0𝑒 𝑗𝜔𝑡 , the transverse displacement 𝑢 (𝑟 , 𝑡 ) of the clamped -boundary 
+
+membrane satisfies the following equation of motion: ( ) 
+
+> 2202
+
+, j t
+
+h h u r t p e t
+
+> 
+
+   −  =  
+
+(2)
+
+where h is the diaphragm thickness and 𝜌 is the material density. Neglecting the 
+
+damping effect, the analytical approximation of the equation yields the displacement 
+
+amplitude at the center of the diaphragm as: ( )
+
+> 20
+
+0, 4 
+
+> jt
+
+p e au t h
+
+> 
+
+=
+
+(3)
+
+where a is the effective radius of the diaphragm. It can be seen that the acoustic 
+
+sensitivity of the diaphragm proportional to 𝑀 = 𝑢 (0)/𝑝 0 ∝ 𝑎 2 , implying that the 
+
+sensitivity scales quadratically with the diaphragm radius, rather than following the 
+
+fourth -power dependence of a rigid plate. Since the lateral dimensions of the F -P cavity 
+
+are much smaller than the acoustic wavelength corresponding to the operating 
+
+frequency, the cavity can be evaluate d as a non -resonant chamber, and the internal 
+
+acoustic pressure distribution tends to be uniform. Under this approximation, when the 
+
+modulation frequency of the pump beam is 𝜔 , the localized acoustic pressure 
+
+amplitude inside the cavity is simplified as: ( ) ( )( ) ( )    
+
+> 1202212
+
+11 1c
+
+Lp P V
+
+    −  + +
+
+(4)
+
+where L is the cavity length, 𝑉 𝑐 = 𝜋 𝑎 2𝐿 /4 is the cavity volume, 𝛾 is the specific 
+
+heat ratio of the gas, and 𝜏 1 and 𝜏 2 are the thermal relaxation time constant of the gas 
+
+inside the cavity and the damping time constant of the gas and heat flow, respectively. 
+
+As can be inferred from this equation, the intracavity acous tic pressure 𝑝 ∝ 𝑉 𝑐 −1 ∝ 𝑎 −2,
+
+whereas the acoustic sensitivity of the diaphragm 𝑀 ∝ 𝑎 2 . Consequently, the total photoacoustic response constituted by the product of the two yields 𝑆 ∝ 𝑀 ⋅ 𝑝 ∝ 𝑎 0,
+
+meaning that it is theoretically independent of the cavity diam eter. This size -
+
+independence demonstrates that the MFPAS can achieve a gas detection sensitivity 
+
+comparable to that of larger cavity systems while maintaining a small diaphragm 
+
+diameter, providing a theoretical guarantee for the miniaturization of the devi ce. 
+
+The gas channels introduced by FIB milling allow the target gas to rapidly diffuse 
+
+into the cavity, but simultaneously constitute an acoustic high -pass filter. Low -
+
+frequency static pressure fluctuations are suppressed via leakage through the micro -
+
+pore s, effectively reducing the impact of ambient pressure noise on the diaphragm 
+
+quadrature point and enhancing the stability of the sensor in practical operating 
+
+environments. By locking the probe laser wavelength to the quadrature point of the F -
+
+P interfere nce spectrum, highly sensitive demodulation of the localized intracavity PA 
+
+acoustic pressure is realized by monitoring the variation in reflected light intensity as a 
+
+function of diaphragm deformation. Finally, the 2f absorption signal of the target gas i s
+
+extracted and the concentration is inverted by a lock -in amplifier. 
+
+2.3 The Analysis of Sensor 
+
+Figure 1(c) illustrates the optical micrograph of the MFPAS tip structure. The 
+
+single -mode fiber is bonded and secured to the silicon substrate using epoxy re sin. The 
+
+F-P microcavity formed between the Si₃N₄ diaphragm and the end -face of the single -
+
+mode fiber simultaneously functions as both a miniature gas cell and an optical 
+
+microphone. Figure 1(d) shows the scanning electron microscope (SEM) image of the 
+
+dia phragm after FIB micro -pore milling. The photoacoustic response of the MFPAS is 
+
+determined by the theoretical formula. A narrow -linewidth probe beam from a tunable 
+
+laser is locked to the quadrature point (Q -point) of the F -P interference spectrum, and 
+
+the acoustic sensitivity M is characterized by recording the variation in reflected light 
+
+intensity induced by acoustic waves. As shown in Fig. 2(a), the fringe contrast of the 
+
+fabricated MFPAS interference spectrum approaches 30 dB. Figure 2(b) presents the 
+
+fast Fourier transform (FFT) results of the reflection spectrum, yielding a cavity length 
+
+of ~196.8 μm, which is clearly within the theoretical optimization range.    
+
+> Fig. 2 (a) Interference spectrum of the MFPAS sensor. (b) FFT of the interference spectrum.
+
+Figure 3 shows the experimental setup for MFPAS gas detection. The pump 
+
+wavelength was selected as 1532.83 nm, corresponding to the P(13) absorption line of 
+
+C₂H₂. It was generated by a distributed feedback (DFB) laser and the pump li ght entering the MFPAS was approximately 28 mW. After passing through a fiber isolator 
+
+(ISO 1), it enters the coupler. Gas concentration measurements are conducted by 
+
+combining wavelength modulation and second -harmonic (2f) detection techniques. The 
+
+wavele ngth modulation and scanning control of the pump beam are implemented via 
+
+an arbitrary waveform generator (AWG). The superimposed signal composed of the 
+
+high -frequency sinusoidal modulation signal and the low -frequency sawtooth scanning 
+
+signal output from the AWG is applied to the injection current driver channel of the 
+
+DFB laser. Consequently, the pump wavelength is sinusoidally modulated while slowly 
+
+sweeping across the P(13) absorption line. The wavelength modulation frequency is set 
+
+at f = 3.25 kHz. By operating near this frequency, a high signal -to -noise ratio (SNR) 
+
+for 2f detection can be achieved, and the modulation depth m is set to the optimum 
+
+value of approximately 2.2 to maximize the second -harmonic (2f) signal amplitude. 
+
+The probe light path is g enerated by a tunable semiconductor laser (TSL, wavelength 
+
+around 1550 nm) and enters a 1:9 polarization -maintaining fiber coupler after passing 
+
+through a fiber isolator (ISO 2). This coupler divides the probe light according to a 
+
+power ratio: 90% of the p ower (main path) is injected via Port 1 of an optical circulator 
+
+(OC) and exits from Port 2, while 10% of the power (reference path) is directly 
+
+extracted to serve as the reference arm for balanced detection. After being filtered by a 
+
+tunable filter (TF 1) , the pump beam is combined with the main probe beam exiting 
+
+Port 2 of the optical circulator via a 1× 2 wavelength division multiplexing (WDM) 
+
+coupler, and subsequently co -injected into the MFPAS sensing probe. The purpose of 
+
+this combination scheme is to allow the pump beam to bypass the optical circulator and 
+
+merge directly with the probe beam, thereby avoiding the additional insertion loss of 
+
+the pump beam passing through the circulator, which effectively increases the available 
+
+intracavity pump power. T he reflected light from the MFPAS carries the photoacoustic 
+
+modulation information. After returning through the original path of the WDM coupler, 
+
+it is extracted by the optical circulator from Port 3. It then passes through a 1550 nm 
+
+bandpass tunable filte r (TF 2, bandwidth ± 1.5 nm) to filter out the residual pump light 
+
+before entering the signal arm of a balanced photodetector (BPD). The aforementioned 
+
+10% reference light simultaneously enters the reference arm of the BPD, and the two 
+
+signals undergo a dif ferential operation within the BPD. Since the reflected signal light 
+
+and the reference light originate from the same TSL, both beams carry identical 
+
+intensity fluctuations. After differential processing, the intensity noise is eliminated via 
+
+common -mode re jection, which effectively suppresses the relative intensity noise (RIN) 
+
+and low -frequency amplitude drift noise of the TSL itself, thus improving the noise -
+
+equivalent acoustic pressure detection limit of the system. The electrical signal output 
+
+from the B PD is fed into a lock -in amplifier (LIA), which demodulates the 2f harmonic 
+
+component using the high -frequency modulation signal from the AWG as a reference. 
+
+The time constant of the LIA is set to 1 s, and the filter slope is 12 dB/Oct, 
+
+corresponding to a detection bandwidth of approximately 0.1 Hz. The sensing probe is 
+
+placed inside a sealed gas chamber equipped with two gas exchange ports. The C₂H₂ 
+
+gas to be measured, with high -purity N₂ serving as the background gas, is continuously 
+
+introduced into the g as chamber at a flow rate of 200 sccm after being mixed in a designated proportion via two mass flow controllers (MFCs) to ensure the stability and 
+
+uniformity of the gas concentration.  
+
+> Fig. 3 The experimental setup used for testing the MFPAS gas sensor.
+
+# 3 Results and Discussion 
+
+Under ambient conditions (room temperature and atmospheric pressure), various 
+
+concentrations of C₂H₂ ranging widely from 1 ppm to 5000 ppm were sequentially 
+
+introduced into the gas chamber for detection. The pump power entering the MFPAS 
+
+was approximately 28 mW during the experiment. Figure 4(a) displays the 2f signal 
+
+waveforms at different concentrations, with the inset in the upper -right corner providing 
+
+an enlarged view of the low -concentration range. It is clear that even within the low -
+
+concentration regime, the signals retain distinct and well -defined photoacoustic 
+
+characteristic absorption profiles. The peak -to -peak values of the 2f signals 
+
+corresponding to each concentration were logarithmically fitted against the gas 
+
+concentr ation, as shown in Fig. 4(b). The results demonstrate an excellent linear 
+
+relationship between the peak -to -peak values and C₂H₂ concentration across the entire 
+
+concentration range, with a fitting correlation coefficient of R²> 0.99. This confirms 
+
+that the system satisfies the weak absorption approximation condition of the Beer –
+
+Lambert law over a broad concentration range. Fig. 4 (a) 2f signals of the MFPAS over a gas concentration range of 1 –5000 ppm . (b) Linearity 
+
+> fitting results of the MFPAS.
+
+To quantitatively evaluate the detection limit of the system, 2f signal acquisition 
+
+and noise analysis were performed at a C₂H₂ concentration of 1 ppm, with the lock -in 
+
+integration time set to 1 s. As illustrated in Fig. 5(a), the peak -to -peak value of the 2f 
+
+signal at this concentration is approximately 15.4 μV, and the system 1σ noise is about 
+
+0.9 μV, yielding a signal -to -noise ratio (SNR) of ~17.14. This corresponds to an NEC 
+
+of ~58.5 ppb. Considering a pump power of ~28 mW and an equivalent noise bandwidth 
+
+of 0.125 Hz, the normalized noise -equivalent absorption (NNEA) coefficient is 
+
+estimated to be ~4.87 × 10⁻⁹ W·cm⁻¹·Hz⁻¹/². To further determine the ultimate NEC of 
+
+the sensor for C₂H₂ detection, the system noise was continuously recorded for 12,000 s 
+
+under a pure N₂ background atmosphere, based on which an Allan –Werle variance 
+
+analysis was conducted. Figure 5(b) shows the NEC as a function of the integration 
+
+time. The NEC continually decreases with increasing integration time, adhering to the 
+
+t−1/2 relation ship dominated by white noise. The minimum detection limit of 25 ppb 
+
+C₂H₂ is achieved at an integration time of ~127 s. Under the same pump power and 
+
+detection bandwidth, this corresponds to an NNEA coefficient of approximately 2.08× 
+
+10⁻⁹ W·cm⁻¹·Hz⁻¹ /². As the integration time is further extended, the NEC begins to rise, 
+
+indicating that the long -term drift noise of the system gradually becomes dominant.     
+
+> Fig. 5 (a) 2f signal analysis .(b) Allan –Werle variance analysis
+
+The response time of the sensor is a key metric for evaluating its real -time 
+
+monitoring capability. By locking the pump wavelength to the center of the C₂H₂ P(13) 
+
+absorption line, different C₂H₂ concentrations ranging from 0 to 5 ppm (with pure N₂ 
+
+as the b ackground gas) were sequentially introduced into the gas chamber at a flow rate 
+
+of 200 sccm. Concurrently, the real -time variation of the 2f signal was continuously 
+
+recorded to characterize the dynamic response characteristics of the sensor, as shown 
+
+in Fi g. 6. As the gas concentration increases in steps of 1 ppm, the signal amplitude 
+
+exhibits a distinct step -like ascent, with minimal signal fluctuations during the plateau 
+
+phase at each concentration. Tests indicate that the T90 response time of the system 
+
+under different concentration steps ranges between 6 and 8 seconds. This rapid response 
+
+feature indicates high gas exchange efficiency inside the FPAS photoacoustic cavity. 
+
+Furthermore, the system demonstrates excellent resolution for the 1 -ppm concentrati on 
+
+gradient, and no obvious baseline drift is observed during each steady -state phase, 
+
+confirming that the sensor possesses outstanding short -term stability and a high SNR, making it reliable for real -time, continuous online monitoring of trace gases. It s hould 
+
+be noted that the measured response time is primarily limited by the volume effect of 
+
+the external gas chamber and the gas replacement rate. If a gas chamber with a smaller 
+
+volume is adopted or the sensing probe is directly exposed to the target gas environment, 
+
+the response time is expected to be further shortened to the sub -second range. 
+
+> Fig. 6 Response of the MFPAS under a gas -phase acetylene concentration gradient of 0 –5 ppm.
+
+Benefiting from the ultralow chamber volume of approximately 1.5 nL, t he 
+
+MFPAS is capable of precise detection in extremely small gas environments. For 
+
+dissolved gas detection in transformer oil, the integration of an oil –gas separation 
+
+structure enables the MFPAS to perform in situ detection of dissolved gases in oil. In 
+
+th is work, a PF245 perfluoropolymer -based gas -permeable membrane was introduced 
+
+as the oil –gas separation element. This membrane exhibits high gas permeability to 
+
+typical fault -related gases such as C₂H₂, CH₄, H₂, and CO, while effectively preventing 
+
+the pen etration of liquid oil. Considering both the size of the MFPAS and the gas 
+
+permeation efficiency, a 40 μm -thick PF245 membrane was selected as the 
+
+encapsulation carrier to fabricate the MFPAS in -oil probe.The probe was immersed in 
+
+oil samples with C₂H₂ con centrations of 2.78 ppm, 5.3 ppm, 6.5 ppm, 19.06 ppm, and 
+
+32.22 ppm, which were calibrated by gas chromatography. Figure 7(a) shows the 2f 
+
+signal waveforms obtained at different concentrations, while Figure 7(b) presents the 
+
+linear fitting relationship bet ween the peak -to -peak value of the 2f signal and the C₂H₂ 
+
+concentration. The results show good linearity, with a sensitivity of 1.18 μV/ppm and 
+
+a correlation coefficient R² of approximately 0.99. Fig. 7 (a) 2f signal at 2.4 ppm . (b) Responses under diff erent C₂H₂ concentrations. 
+
+To obtain the detection limit of acetylene in oil, the response under the 2.78 -ppm 
+
+acetylene -in -oil sample was analyzed, as shown in Fig. 8(a). The sensor obtains a 
+
+symmetrical 2f signal with a peak value of 2.9 μV at the charact eristic absorption line, 
+
+and the baseline 1σ noise is approximately 0.24 μV. Based on this, the NEC is 
+
+calculated to be ~230 ppb, corresponding to a NNEA coefficient of ~1.91 × 10 ⁻⁸ 
+
+W· cm ⁻¹·Hz ⁻¹/² . Additionally, by locking the pump wavelength to the center of the 
+
+absorption line, oil samples with acetylene concentrations of 0.11 ppm and 1.12 ppm 
+
+were respectively evaluated. As illustrated in Fig. 8(b), the MFPAS oil probe exhibits 
+
+a clear response and a favorable SNR even for the extremely low -concent ration oil 
+
+sample containing ~1.12 ppm acetylene, with a T ₉₀ response time of approximately 320 
+
+s. This demonstrates that the photoacoustic sensing unit not only possesses superior 
+
+intrinsic detection performance in the gas phase but also maintains an outs tanding trace 
+
+detection capability in oil after gas -permeable, oil -blocking membrane encapsulation. 
+
+Furthermore, the overall dynamic response time of the system is primarily constrained 
+
+by the physical transmembrane diffusion and exchange rate of dissolved gases driven 
+
+by the concentration gradient across both sides of the membrane, rather than the 
+
+acoustic response limit of the photoacoustic sensing unit itself. The detection period of 
+
+320 s is significantly shorter than the hour -scale response of conventi onal degassing 
+
+apparatuses, validating that the MFPAS oil probe combines a low detection limit with 
+
+excellent timeliness for continuous online monitoring of transformer oil.    
+
+> Fig. 8 (a) 2f signal analysis .(b) Response time test of the acetylene -in -oil pr obe in the oil phase.
+
+Finally, the performance of this work is compared with advanced miniature fiber -
+
+optic gas sensors reported in recent years, and the results are summarized in Table 1. 
+
+Considering comprehensive indicators such as sensitivity, response speed, detection 
+
+volume, and fabrication consistency, the MFPAS exhibits significant overall 
+
+advantages in the field of miniaturized, high -performance gas detection. Notably, the 
+
+efficient and controllable introduction of gas into the microcavity remains a common 
+
+challenge faced by miniaturized fiber -optic spectroscopic gas sensors. Existing 
+
+schemes either rely on femtosecond laser drilling of micro -holes on the sidewalls of 
+
+hollow -core fibers [11,17] , utilize the natural gaps at fiber splice joints [15] , l everage the 
+
+inherent clearances between 3D micro -printed microstructures [13] , or achieve gas 
+
+exchange through the open end of a capillary. Consequently, the geometric parameters 
+
+of their gas channels are difficult to regulate independently and accurately while 
+
+maintaining acoustic performance. This work combines wafer -scale MEMS diaphragm 
+
+micromachining with FIB milling processes for the first time, proposing a brand -new 
+
+solution path. The MEMS process achieves precise and consistent fabrication of silicon 
+
+nitride acoustically sensitive diaphragms at the wafer level, laying the foundation for 
+
+batch manufacturing. Concurrently, by virtue of maskless direct writing and sub -micron 
+
+positioning accuracy, the FIB technique realizes flexible and precise milling of micro -
+
+pore arrays on the diaphragm without introducing extra residual stress, thereby ensuring 
+
+the integrity and flatness of the diaphragm. This fabrication paradigm fundamentally 
+
+eliminates the inherent limitation where diaphragm -type optical microphones cannot 
+
+undergo gas exchange due to their sealed structures. As a result, it endows the device 
+
+with photoacoustic spectroscopic gas detection functionality while maintaining its 
+
+acoustic sensitivity, opening up a completely new design paradigm for transfor ming 
+
+existing highly sensitive diaphragm -type fiber -optic acoustic sensors into miniature 
+
+photoacoustic spectrometers.                    
+
+> Table 1. Performance comparison with representative compact photoacoustic and photothermal gas
+> sensors.
+> Method
+> Sensing
+> Unit
+> NEC
+> (ppb)
+> NNEA
+> (cm⁻¹ W Hz⁻¹ /²)
+> Response
+> (s)
+> Dimension
+> QEPAS [9]
+> Four -
+> prong
+> QTF
+> 390 @1s~10⁻⁸ ~0.2
+> Inner diameter 0.9
+> mm, length 20 mm
+> PTI [12]
+> 5.5 cm
+> AR -HCF
+> 2.3 @670s 2.3 × 10⁻⁹ < 52 ~5.5 cm （long ）
+> 3D -printed
+> PTS [13 ]
+> 0.066 mm
+> air cavity
+> 160 @433
+> s
+> ~10⁻⁸ <0.5 mm -scale tip Method
+> Sensing
+> Unit
+> NEC
+> (ppb)
+> NNEA
+> (cm⁻¹ W Hz⁻¹ /²)
+> Response
+> (s)
+> Dimension
+> MEMS FPAS
+> (This work)
+> 200 μmSi
+> micro -
+> chamber
+> 25 @127 s2.08 ×10 -963× 3× 0.2 mm³
+
+# 4 Conclusion 
+
+In response to the practical application requirements for miniaturized and highly 
+
+sensitive trace gas sensing in confined spaces, a MFPAS is proposed and 
+
+experimentally validated in this paper. The sensor directly butt -couples a SMF to a 
+
+MEMS chip carrying a 100 -nm -thick LPCVD silicon nitride diaphragm, constructing a 
+
+monolithic miniature F –P photoacoustic confinement cavity with a volume of only ~1.5 
+
+nL. This study combines wafer -scale MEMS diaphragm micromachining processes 
+
+with FIB technology to precisely mill micro -pores at the periphery of the suspended 
+
+diaphragm, thereby overcoming the inherent limitation of conventional sealed -
+
+diaphragm optical microphones that cannot implement gas exchange. While providing 
+
+highly efficient gas diffusion channels, the micro -pore array simultaneously functions 
+
+as an acoustic high -pass filter. This configuration effectively suppresses low -frequen cy 
+
+ambient pressure noise, enabling the system to stabilize its interference quadrature point 
+
+without active servo control. Experimental results reveal that in gas -phase acetylene 
+
+detection at 1532.83 nm, the sensor achieves a NEC of 58.5 ppb at a 1 -s inte gration 
+
+time, with a system response time of only 6 s. Allan –Werle deviation analysis further 
+
+demonstrates that the NEC reaches a minimum of 25 ppb at an integration time of 127 
+
+s, corresponding to a NNEA coefficient of 2.08×10⁻⁹ W·cm⁻¹·Hz⁻¹ /². Furthermore , after 
+
+adaptive encapsulation combined with a perfluoropolymer gas -permeable membrane, 
+
+the device possesses the capability for in situ detection of dissolved gases in transformer 
+
+oil, yielding an NEC of 230 ppb at a 1 -s integration time in the oil phase w ith a T₉₀ 
+
+dynamic response time of approximately 320 s.In summary, the MFPAS presented in 
+
+this study combines the advantages of a nanoliter -scale detection volume, ppb -level 
+
+detection limit, low NNEA, rapid response, and wafer -scale batch fabrication 
+
+consi stency, exhibiting substantial engineering application potential in micro -scale 
+
+detection fields such as online status monitoring of power equipment and in situ health 
+
+diagnostics. References 
+
+1. C. Li, F. Ma, C. Sun, et al., "In -situ detection of dissolved C 2H2/CH 4with frequency -
+
+division -multiplexed fiber -optic photoacoustic sensor," Sens. Actuators B 435 
+
+(2025): 137651,  https://doi.org/10.1016/j.snb.2025.137651  .
+
+2. J. Ma, E. Fan, H. Liu, et al., "Microscale Fiber Photoacoustic Spectroscopy for In 
+
+Situ and Real -Time Trace Gas Sensing," Advanced Photonics 6, no. 6 (2024): 
+
+066008,  https://doi.org/10.1117/1.AP.6.6.066008  .
+
+3. G. Chen, A. Wang, Q. Sun, et al., "Operando Monitoring of State of Health for 
+
+Lithium Battery via Fiber Optic Ultrasound Imaging System," Opto -Electronic 
+
+Scienc e 4, no. 6 (2025): 240036,  https://doi.org/10.29026/oes.2025.240036  .
+
+4. A. Maity, S. Maithani, and M. Pradhan, "Cavity Ring -Down Spectroscopy: Recent 
+
+Technological Advancements, Techniques, and Applica tions," Analytical 
+
+Chemistry 93, no. 1 (2021): 388 –412, 
+
+https://doi.org/10.1021/acs.analchem.0c04329  .
+
+5. A. Fathy, Y. M. Sabry, I. W. Hunter, et al., "Direct Absorption and Photoacoustic 
+
+Spectrosco py for Gas Sensing and Analysis: A Critical Review," Laser & Photonics 
+
+Reviews 16, no. 8 (2022): 2100556,  https://doi.org/10.1002/lpor.202100556  .
+
+6. W. Jin, Y. Cao, F. Yang, and H. L. Ho, "Ultra -Sensitiv e All -Fibre Photothermal 
+
+Spectroscopy with Large Dynamic Range," Nature Communications 6 (2015): 6767, 
+
+https://doi.org/10.1038/ncomms7767  .
+
+7. P. Zhao, Y. Zhao, H. Bao, et al., "Mode -Phase -Difference Photothe rmal 
+
+Spectroscopy for Gas Detection with an Anti -Resonant Hollow -Core Optical 
+
+Fiber," Nature Communications 11 (2020): 847,  https://doi.org/10.1038/s41467 -
+
+020 -14707 -0 .
+
+8. A. A. Kosterev, Y. A. Bakhir kin, R. F. Curl, and F. K. Tittel, "Quartz -Enhanced 
+
+Photoacoustic Spectroscopy," Optics Letters 27, no. 21 (2002): 1902 –1904, 
+
+https://doi.org/10.1364/OL.27.001902  .
+
+9. R. Wang, S. Qiao, Y. He, and Y. Ma, "H ighly Sensitive Laser Spectroscopy Sensing 
+
+Based on a Novel Four -Prong Quartz Tuning Fork," Opto -Electronic Advances 8 
+
+(2025): 240275,  https://doi.org/10.29026/oea.2025.240275  .
+
+10. Y. Xiong and F. Xu, " Multifunctional Integration on Optical Fiber Tips: Challenges 
+
+and Opportunities," Advanced Photonics 2, no. 6 (2020): 064001, 
+
+https://doi.org/10.1117/1.AP.2.6.064001  .
+
+11. F. Yang, Y. Tan, W. Jin, et al., "Hollow -Core Fiber Fabry –Perot Photothermal Gas 
+
+Sensor," Optics Letters 41, no. 13 (2016): 3025 –3028, 
+
+https://doi.org/10.1364/OL.41.003025  .
+
+12. H. Bao, Y. Hong, W. Jin, et al., "Modeling and Performance Ev aluation of In -Line 
+
+Fabry -Perot Photothermal Gas Sensors with Hollow -Core Optical Fibers," Optics 
+
+Express 28, no. 4 (2020): 5423 –5435,  https://doi.org/10.1364/OE.385670  .
+
+13. P. Zhao, K. V. Krishnaiah, L. Guo, et al., "Ultraminiature Optical Fiber -Tip 3D -
+
+Microprinted Photothermal Interferometric Gas Sensors," Laser & Photonics 
+
+Reviews 18, no. 9 (2024): 2301285,  https://doi.org/10.1002/lpor.202301285  .14. Y. Yan , X. Xiao, Q. Nie, et al., "Nanoliter -Scale Light –Matter Interaction in a Fiber -
+
+Tip Cavity Enables Sensitive Photothermal Gas Detection," Laser & Photonics 
+
+Reviews 18, no. 12 (2024): 2400907,  https://doi.org/10.1002/lpor.202400907  .
+
+15. Z. Zhao, C. Qian, W. Ni, et al., "Microscale Intrinsic Fiber Mode Vernier 
+
+Photothermal Spectroscopy Gas Sensing," Laser & Photonics Reviews (2025): 
+
+e02114,  http s://doi.org/10.1002/lpor.202502114  .
+
+16. Taige Li, Pengcheng Zhao, Peng Wang, Shangming Liu, Linhao Guo, Wei Jin, A. 
+
+Ping Zhang, “Ultra -miniature and sensitive optical fiber -tip optomechanical 
+
+resonant photoacoustic spectroscopy gas sensors ”,Photoacoustics,Volu me 
+
+46,2025,100784,ISSN 2213 -5979, https://doi.org/10.1016/j.pacs.2025.100784. 
+
+17. K. Krzempek, "Part -Per -Billion Level Photothermal Nitric Oxide Detection at 5.26 
+
+μm Using Anti -Resonant Hollow -Core Fiber -Based Heterodyne Interferometry," 
+
+Optics Express 29, no. 20 (2021): 32568 –32579, 
+
+https://doi.org/10.1364/OE.435675  .
+
+18. J. Ma, W. Jin, H. L. Ho, and J. Y. Dai, "High -Sensitivity Fiber -Tip Pressure Sensor 
+
+with Graphene Diaphragm," Optics Letters 37, no. 13 (2012): 2493 –2495, 
+
+https://doi.org/10.1364/OL.37.002493  .
+
+19. Zhiyuan Qu, Ping Lu, Yujian Li, Xin Fu, Wanjin Zhang, Deming Liu, Jiangshan 
+
+Zhang. Low -frequency acoustic Fabry  – P é rot fiber sensor based on a
+
+micromachine d silicon nitride membrane[J]. Chinese Optics Letters, 2020, 18(10): 
+
+101201 
+
+20. C. A. Volkert and A. M. Minor, "Focused Ion Beam Microscopy and 
+
+Micromachining," MRS Bulletin 32, no. 5 (2007): 389 –399, 
+
+https:// doi.org/10.1557/mrs2007.62  .
